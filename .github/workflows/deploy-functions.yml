@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 jobs:
   deploy:
@@ -21,13 +22,10 @@ jobs:
         working-directory: ./functions
         run: npm ci
 
-      - name: Setup credentials
-        run: |
-          echo '${{ secrets.FIREBASE_SERVICE_ACCOUNT }}' > /tmp/sa.json
-          cat /tmp/sa.json | python3 -c "import sys,json; json.load(sys.stdin); print('Valid JSON')"
-
-      - name: Deploy Firebase Functions
+      - name: Setup credentials and Deploy
         working-directory: ./functions
-        run: npx firebase-tools deploy --only functions --project smart-college-app-442cd --non-interactive
+        run: |
+          echo $FIREBASE_SERVICE_ACCOUNT > /tmp/sa.json
+          GOOGLE_APPLICATION_CREDENTIALS=/tmp/sa.json npx firebase-tools deploy --only functions --project smart-college-app-442cd --non-interactive
         env:
-          GOOGLE_APPLICATION_CREDENTIALS: /tmp/sa.json
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
