@@ -1,0 +1,208 @@
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_project/core/models/fee_record.dart';
+import 'package:flutter_project/l10n/app_localizations.dart';
+import 'package:flutter_project/core/providers/app_providers.dart';
+import 'package:flutter_project/core/theme/app_theme.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_project/features/auth/data/auth_service.dart';
+import 'package:flutter_project/shared/widgets/empty_state_widget.dart';
+import 'package:flutter_project/shared/widgets/uod_shimmer.dart';
+
+class FeesPage extends ConsumerWidget {
+  const FeesPage({super.key});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final auth = ref.watch(authStateChangesProvider);
+    final l10n = AppLocalizations.of(context)!;
+
+    return Scaffold(
+      appBar: AppBar(title: Text(l10n.feesTitle), centerTitle: true),
+      body: auth.when(
+        data: (user) {
+          if (user == null) {
+            return Center(child: Text(l10n.pleaseLogin));
+          }
+          final async = ref.watch(feeRecordsProvider(user.uid));
+          return async.when(
+            data: (records) {
+              return RefreshIndicator(
+                onRefresh:
+                    () async => ref.invalidate(feeRecordsProvider(user.uid)),
+                child: SingleChildScrollView(
+                  physics: const AlwaysScrollableScrollPhysics(),
+                  padding: const EdgeInsets.all(24),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      _buildBalanceCard(context, records),
+                      const SizedBox(height: 32),
+                      Align(
+                        alignment: AlignmentDirectional.centerEnd,
+                        child: Text(
+                          l10n.feesLocalRecord,
+                          style: const TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: AppTheme.primaryColor,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 16),
+                      if (records.isEmpty)
+                        EmptyStateWidget(
+                          icon: Icons.payments_outlined,
+                          title: l10n.feesEmpty,
+                          subtitle: l10n.pullToRefreshSync,
+                          actionLabel: l10n.refreshAction,
+                          onAction:
+                              () =>
+                                  ref.invalidate(feeRecordsProvider(user.uid)),
+                        )
+                      else
+                        ...records.map(
+                          (r) => _buildTransactionItem(
+                            context,
+                            r.title.isEmpty ? l10n.feesDefaultTitle : r.title,
+                            '${r.amount} ${r.currency}',
+                            r.dueDate ?? '-',
+                            r.status.toLowerCase() == 'paid',
+                          ),
+                        ),
+                      const SizedBox(height: 24),
+                      ElevatedButton(
+                        onPressed: () {
+                          HapticFeedback.lightImpact();
+                        },
+                        child: Text(l10n.feesPayButton),
+                      ),
+                    ],
+                  ),
+                ),
+              );
+            },
+            loading: () => UodScreenLoading(),
+            error: (e, _) => Center(child: Text('${l10n.errorPrefix}$e')),
+          );
+        },
+        loading: () => UodScreenLoading(),
+        error: (e, _) => Center(child: Text('${l10n.errorPrefix}$e')),
+      ),
+    );
+  }
+
+  Widget _buildBalanceCard(BuildContext context, List<FeeRecord> records) {
+    final l10n = AppLocalizations.of(context)!;
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.all(32),
+      decoration: BoxDecoration(
+        gradient: const LinearGradient(
+          colors: [AppTheme.primaryColor, AppTheme.primaryContainer],
+          begin: Alignment.topRight,
+          end: Alignment.bottomLeft,
+        ),
+        borderRadius: BorderRadius.circular(24),
+        boxShadow: [
+          BoxShadow(
+            color: AppTheme.primaryColor.withValues(alpha: 0.3),
+            blurRadius: 20,
+            offset: const Offset(0, 10),
+          ),
+        ],
+      ),
+      child: Column(
+        children: [
+          Text(
+            l10n.feesSavedRecords,
+            style: TextStyle(color: Theme.of(context).colorScheme.onPrimary.withOpacity(0.7), fontSize: 14),
+          ),
+          const SizedBox(height: 8),
+          Text(
+            '${records.length}',
+            style: const TextStyle(
+              color: Colors.white,
+              fontSize: 36,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const SizedBox(height: 8),
+          Text(
+            l10n.feesItems,
+            style: TextStyle(color: Theme.of(context).colorScheme.onPrimary.withOpacity(0.7), fontSize: 12),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildTransactionItem(
+    BuildContext context,
+    String title,
+    String amount,
+    String date,
+    bool isPaid,
+  ) {
+    final l10n = AppLocalizations.of(context)!;
+    return Container(
+      margin: const EdgeInsets.only(bottom: 12),
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(
+          color: AppTheme.outlineVariantColor.withValues(alpha: 0.3),
+        ),
+      ),
+      child: Row(
+        children: [
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+            decoration: BoxDecoration(
+              color:
+                  isPaid
+                      ? Colors.green.withValues(alpha: 0.1)
+                      : Colors.red.withValues(alpha: 0.1),
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: Text(
+              isPaid ? l10n.feesPaid : l10n.feesUnpaid,
+              style: TextStyle(
+                color: isPaid ? Colors.green : Colors.red,
+                fontSize: 10,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+          const Spacer(),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              Text(
+                title,
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 14,
+                ),
+              ),
+              const SizedBox(height: 4),
+              Text(
+                date,
+                style: TextStyle(color: Theme.of(context).colorScheme.onSurfaceVariant, fontSize: 12),
+              ),
+            ],
+          ),
+          const SizedBox(width: 16),
+          Text(
+            amount,
+            style: const TextStyle(
+              fontWeight: FontWeight.bold,
+              color: AppTheme.primaryColor,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}

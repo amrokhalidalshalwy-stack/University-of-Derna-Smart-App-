@@ -1,0 +1,1510 @@
+{
+  "خطأ النظام: $e": {
+    "file": "/lib/features/admin/presentation/pages/admin_dashboard_page.dart",
+    "feature": "admin"
+  },
+  "حالة النظام: آمن ومتصل": {
+    "file": "/lib/features/admin/presentation/pages/admin_dashboard_page.dart",
+    "feature": "admin"
+  },
+  "مرحباً بك في وحدة التحكم المركزية": {
+    "file": "/lib/features/admin/presentation/pages/admin_dashboard_page.dart",
+    "feature": "admin"
+  },
+  "تحليل البيانات المباشر": {
+    "file": "/lib/features/admin/presentation/pages/admin_dashboard_page.dart",
+    "feature": "admin"
+  },
+  "إجمالي السجلات": {
+    "file": "/lib/features/admin/presentation/pages/admin_dashboard_page.dart",
+    "feature": "admin"
+  },
+  "طلبات معلقة": {
+    "file": "/lib/features/admin/presentation/pages/admin_dashboard_page.dart",
+    "feature": "admin"
+  },
+  "المقبولين": {
+    "file": "/lib/features/admin/presentation/pages/admin_dashboard_page.dart",
+    "feature": "admin"
+  },
+  "المرفوضين": {
+    "file": "/lib/features/admin/presentation/pages/admin_dashboard_page.dart",
+    "feature": "admin"
+  },
+  "وحدات التحكم السريعة": {
+    "file": "/lib/features/admin/presentation/pages/admin_dashboard_page.dart",
+    "feature": "admin"
+  },
+  "سجلات النظام (Logs)": {
+    "file": "/lib/features/admin/presentation/pages/admin_dashboard_page.dart",
+    "feature": "admin"
+  },
+  "إدارة النظام المركزية": {
+    "file": "/lib/features/admin/presentation/pages/admin_dashboard_page.dart",
+    "feature": "admin"
+  },
+  "لوحة التحكم": {
+    "file": "/lib/features/admin/presentation/pages/admin_dashboard_page.dart",
+    "feature": "admin"
+  },
+  "طلبات التسجيل": {
+    "file": "/lib/features/admin/presentation/pages/admin_dashboard_page.dart",
+    "feature": "admin"
+  },
+  "إغلاق الجلسة": {
+    "file": "/lib/features/admin/presentation/pages/admin_dashboard_page.dart",
+    "feature": "admin"
+  },
+  "سجلات النظام": {
+    "file": "/lib/features/admin/presentation/pages/system_logs_page.dart",
+    "feature": "admin"
+  },
+  "لا توجد سجلات حالياً في النظام": {
+    "file": "/lib/features/admin/presentation/pages/system_logs_page.dart",
+    "feature": "admin"
+  },
+  "تم قبول الحساب": {
+    "file": "/lib/features/admin/presentation/pages/system_logs_page.dart",
+    "feature": "admin"
+  },
+  "تم رفض الحساب": {
+    "file": "/lib/features/admin/presentation/pages/system_logs_page.dart",
+    "feature": "admin"
+  },
+  "الكل": {
+    "file": "/lib/features/admin/presentation/pages/verification_queue_page.dart",
+    "feature": "admin"
+  },
+  "قيد الموافقة": {
+    "file": "/lib/features/admin/presentation/pages/verification_queue_page.dart",
+    "feature": "admin"
+  },
+  "قيد المراجعة": {
+    "file": "/lib/features/admin/presentation/pages/verification_queue_page.dart",
+    "feature": "admin"
+  },
+  "مراجعة إضافية": {
+    "file": "/lib/features/admin/presentation/pages/verification_queue_page.dart",
+    "feature": "admin"
+  },
+  "خطأ: $e": {
+    "file": "/lib/features/admin/presentation/pages/verification_queue_page.dart",
+    "feature": "admin"
+  },
+  "لا توجد طلبات": {
+    "file": "/lib/features/admin/presentation/pages/verification_queue_page.dart",
+    "feature": "admin"
+  },
+  "الاسم بالإنجليزية": {
+    "file": "/lib/features/admin/presentation/pages/verification_queue_page.dart",
+    "feature": "admin"
+  },
+  "الهاتف": {
+    "file": "/lib/features/admin/presentation/pages/verification_queue_page.dart",
+    "feature": "admin"
+  },
+  "الهوية": {
+    "file": "/lib/features/admin/presentation/pages/verification_queue_page.dart",
+    "feature": "admin"
+  },
+  "الجنس": {
+    "file": "/lib/features/admin/presentation/pages/verification_queue_page.dart",
+    "feature": "admin"
+  },
+  "الفصل": {
+    "file": "/lib/features/admin/presentation/pages/verification_queue_page.dart",
+    "feature": "admin"
+  },
+  "المعدل": {
+    "file": "/lib/features/admin/presentation/pages/verification_queue_page.dart",
+    "feature": "admin"
+  },
+  "سنة التخرج": {
+    "file": "/lib/features/admin/presentation/pages/verification_queue_page.dart",
+    "feature": "admin"
+  },
+  "قبول": {
+    "file": "/lib/features/admin/presentation/pages/verification_queue_page.dart",
+    "feature": "admin"
+  },
+  "رفض": {
+    "file": "/lib/features/admin/presentation/pages/verification_queue_page.dart",
+    "feature": "admin"
+  },
+  "هل تريد قبول هذا الطلب؟": {
+    "file": "/lib/features/admin/presentation/pages/verification_queue_page.dart",
+    "feature": "admin"
+  },
+  "تم قبول الطلب بنجاح": {
+    "file": "/lib/features/admin/presentation/pages/verification_queue_page.dart",
+    "feature": "admin"
+  },
+  "حدث خطأ: $e": {
+    "file": "/lib/features/admin/presentation/pages/verification_queue_page.dart",
+    "feature": "admin"
+  },
+  "سبب الرفض": {
+    "file": "/lib/features/admin/presentation/pages/verification_queue_page.dart",
+    "feature": "admin"
+  },
+  "اختر السبب": {
+    "file": "/lib/features/admin/presentation/pages/verification_queue_page.dart",
+    "feature": "admin"
+  },
+  "أخرى": {
+    "file": "/lib/features/admin/presentation/pages/verification_queue_page.dart",
+    "feature": "admin"
+  },
+  "اكتب السبب...": {
+    "file": "/lib/features/admin/presentation/pages/verification_queue_page.dart",
+    "feature": "admin"
+  },
+  "تأكيد الرفض": {
+    "file": "/lib/features/admin/presentation/pages/verification_queue_page.dart",
+    "feature": "admin"
+  },
+  "تم رفض الطلب": {
+    "file": "/lib/features/admin/presentation/pages/verification_queue_page.dart",
+    "feature": "admin"
+  },
+  "Cairo": {
+    "file": "/lib/features/admin/presentation/pages/verification_queue_page.dart",
+    "feature": "admin"
+  },
+  "نعم": {
+    "file": "/lib/features/admin/presentation/pages/verification_queue_page.dart",
+    "feature": "admin"
+  },
+  "يرجى الموافقة على الشروط أولاً": {
+    "file": "/lib/features/auth/presentation/pages/login_form_page.dart",
+    "feature": "auth"
+  },
+  "example@uod.edu.ly": {
+    "file": "/lib/features/auth/presentation/pages/login_form_page.dart",
+    "feature": "auth"
+  },
+  "بوابة هيئة التدريس": {
+    "file": "/lib/features/auth/presentation/pages/login_page.dart",
+    "feature": "auth"
+  },
+  "يرجى إدخال بيانات الاعتماد الموثقة": {
+    "file": "/lib/features/auth/presentation/pages/login_page.dart",
+    "feature": "auth"
+  },
+  "مرحباً بك في بوابتك الأكاديمية": {
+    "file": "/lib/features/auth/presentation/pages/login_page.dart",
+    "feature": "auth"
+  },
+  "لم يتم قبول طلبك": {
+    "file": "/lib/features/auth/presentation/pages/pending_status_page.dart",
+    "feature": "auth"
+  },
+  "طلبك قيد المراجعة": {
+    "file": "/lib/features/auth/presentation/pages/pending_status_page.dart",
+    "feature": "auth"
+  },
+  "تم رفض طلب التسجيل. يمكنك التواصل مع القبول والتسجيل لمزيد من المعلومات.": {
+    "file": "/lib/features/auth/presentation/pages/pending_status_page.dart",
+    "feature": "auth"
+  },
+  "تحديث الحالة": {
+    "file": "/lib/features/auth/presentation/pages/pending_status_page.dart",
+    "feature": "auth"
+  },
+  "للاستفسار: admissions@uod.edu.ly": {
+    "file": "/lib/features/auth/presentation/pages/pending_status_page.dart",
+    "feature": "auth"
+  },
+  "الشخصية": {
+    "file": "/lib/features/auth/presentation/pages/sign_up_page.dart",
+    "feature": "auth"
+  },
+  "الأكاديمية": {
+    "file": "/lib/features/auth/presentation/pages/sign_up_page.dart",
+    "feature": "auth"
+  },
+  "الحساب": {
+    "file": "/lib/features/auth/presentation/pages/sign_up_page.dart",
+    "feature": "auth"
+  },
+  "المراجعة": {
+    "file": "/lib/features/auth/presentation/pages/sign_up_page.dart",
+    "feature": "auth"
+  },
+  "يرجى اختيار تاريخ الميلاد": {
+    "file": "/lib/features/auth/presentation/pages/sign_up_page.dart",
+    "feature": "auth"
+  },
+  "يرجى الموافقة على الشروط وسياسة الخصوصية": {
+    "file": "/lib/features/auth/presentation/pages/sign_up_page.dart",
+    "feature": "auth"
+  },
+  "تم التسجيل بنجاح": {
+    "file": "/lib/features/auth/presentation/pages/sign_up_page.dart",
+    "feature": "auth"
+  },
+  "درجتك الأولية: $score / 100": {
+    "file": "/lib/features/auth/presentation/pages/sign_up_page.dart",
+    "feature": "auth"
+  },
+  "سيتم إعلامك بالقرار النهائي عبر البريد الإلكتروني خلال 3-5 أيام عمل.": {
+    "file": "/lib/features/auth/presentation/pages/sign_up_page.dart",
+    "feature": "auth"
+  },
+  "إرسال الطلب": {
+    "file": "/lib/features/auth/presentation/pages/sign_up_page.dart",
+    "feature": "auth"
+  },
+  "التالي": {
+    "file": "/lib/features/auth/presentation/pages/sign_up_page.dart",
+    "feature": "auth"
+  },
+  "ضعيفة جداً": {
+    "file": "/lib/features/auth/presentation/widgets/password_strength_meter.dart",
+    "feature": "auth"
+  },
+  "ضعيفة": {
+    "file": "/lib/features/auth/presentation/widgets/password_strength_meter.dart",
+    "feature": "auth"
+  },
+  "متوسطة": {
+    "file": "/lib/features/auth/presentation/widgets/password_strength_meter.dart",
+    "feature": "auth"
+  },
+  "قوية": {
+    "file": "/lib/features/auth/presentation/widgets/password_strength_meter.dart",
+    "feature": "auth"
+  },
+  "قوية جداً ✓": {
+    "file": "/lib/features/auth/presentation/widgets/password_strength_meter.dart",
+    "feature": "auth"
+  },
+  "8 أحرف": {
+    "file": "/lib/features/auth/presentation/widgets/password_strength_meter.dart",
+    "feature": "auth"
+  },
+  "حرف كبير": {
+    "file": "/lib/features/auth/presentation/widgets/password_strength_meter.dart",
+    "feature": "auth"
+  },
+  "حرف صغير": {
+    "file": "/lib/features/auth/presentation/widgets/password_strength_meter.dart",
+    "feature": "auth"
+  },
+  "رقم": {
+    "file": "/lib/features/auth/presentation/widgets/password_strength_meter.dart",
+    "feature": "auth"
+  },
+  "رمز خاص": {
+    "file": "/lib/features/auth/presentation/widgets/password_strength_meter.dart",
+    "feature": "auth"
+  },
+  "الاسم الكامل بالعربية": {
+    "file": "/lib/features/auth/presentation/widgets/registration_step1.dart",
+    "feature": "auth"
+  },
+  "محمد أحمد علي محمد": {
+    "file": "/lib/features/auth/presentation/widgets/registration_step1.dart",
+    "feature": "auth"
+  },
+  "الاسم بالعربية مطلوب": {
+    "file": "/lib/features/auth/presentation/widgets/registration_step1.dart",
+    "feature": "auth"
+  },
+  "Full Name in English": {
+    "file": "/lib/features/auth/presentation/widgets/registration_step1.dart",
+    "feature": "auth"
+  },
+  "Mohammed Ahmed Ali": {
+    "file": "/lib/features/auth/presentation/widgets/registration_step1.dart",
+    "feature": "auth"
+  },
+  "البريد الإلكتروني مطلوب": {
+    "file": "/lib/features/auth/presentation/widgets/registration_step1.dart",
+    "feature": "auth"
+  },
+  "صيغة البريد غير صحيحة": {
+    "file": "/lib/features/auth/presentation/widgets/registration_step1.dart",
+    "feature": "auth"
+  },
+  "رقم الهاتف": {
+    "file": "/lib/features/auth/presentation/widgets/registration_step1.dart",
+    "feature": "auth"
+  },
+  "رقم الهاتف مطلوب": {
+    "file": "/lib/features/auth/presentation/widgets/registration_step1.dart",
+    "feature": "auth"
+  },
+  "رقم الهوية الوطنية": {
+    "file": "/lib/features/auth/presentation/widgets/registration_step1.dart",
+    "feature": "auth"
+  },
+  "رقم الهوية مطلوب": {
+    "file": "/lib/features/auth/presentation/widgets/registration_step1.dart",
+    "feature": "auth"
+  },
+  "رقم الهوية يجب أن يكون 12 رقماً": {
+    "file": "/lib/features/auth/presentation/widgets/registration_step1.dart",
+    "feature": "auth"
+  },
+  "تاريخ الميلاد": {
+    "file": "/lib/features/auth/presentation/widgets/registration_step1.dart",
+    "feature": "auth"
+  },
+  "يرجى اختيار الجنس": {
+    "file": "/lib/features/auth/presentation/widgets/registration_step1.dart",
+    "feature": "auth"
+  },
+  "اختر تاريخ الميلاد": {
+    "file": "/lib/features/auth/presentation/widgets/registration_step1.dart",
+    "feature": "auth"
+  },
+  "الكلية": {
+    "file": "/lib/features/auth/presentation/widgets/registration_step2.dart",
+    "feature": "auth"
+  },
+  "يرجى اختيار الكلية": {
+    "file": "/lib/features/auth/presentation/widgets/registration_step2.dart",
+    "feature": "auth"
+  },
+  "القسم": {
+    "file": "/lib/features/auth/presentation/widgets/registration_step2.dart",
+    "feature": "auth"
+  },
+  "يرجى اختيار القسم": {
+    "file": "/lib/features/auth/presentation/widgets/registration_step2.dart",
+    "feature": "auth"
+  },
+  "اختر الكلية أولاً": {
+    "file": "/lib/features/auth/presentation/widgets/registration_step2.dart",
+    "feature": "auth"
+  },
+  "اختر القسم": {
+    "file": "/lib/features/auth/presentation/widgets/registration_step2.dart",
+    "feature": "auth"
+  },
+  "الفصل الدراسي": {
+    "file": "/lib/features/auth/presentation/widgets/registration_step2.dart",
+    "feature": "auth"
+  },
+  "يرجى اختيار الفصل": {
+    "file": "/lib/features/auth/presentation/widgets/registration_step2.dart",
+    "feature": "auth"
+  },
+  "سنة التخرج المتوقعة": {
+    "file": "/lib/features/auth/presentation/widgets/registration_step2.dart",
+    "feature": "auth"
+  },
+  "المعدل في الثانوية العامة (0 - 100)": {
+    "file": "/lib/features/auth/presentation/widgets/registration_step2.dart",
+    "feature": "auth"
+  },
+  "مثال: 85.5": {
+    "file": "/lib/features/auth/presentation/widgets/registration_step2.dart",
+    "feature": "auth"
+  },
+  "المعدل مطلوب": {
+    "file": "/lib/features/auth/presentation/widgets/registration_step2.dart",
+    "feature": "auth"
+  },
+  "أدخل رقماً بين 0 و 100": {
+    "file": "/lib/features/auth/presentation/widgets/registration_step2.dart",
+    "feature": "auth"
+  },
+  "نوع الشهادة": {
+    "file": "/lib/features/auth/presentation/widgets/registration_step2.dart",
+    "feature": "auth"
+  },
+  "يرجى اختيار نوع الشهادة": {
+    "file": "/lib/features/auth/presentation/widgets/registration_step2.dart",
+    "feature": "auth"
+  },
+  "كلمة المرور يجب أن تكون 8 أحرف على الأقل": {
+    "file": "/lib/features/auth/presentation/widgets/registration_steps_3_4.dart",
+    "feature": "auth"
+  },
+  "مراجعة البيانات": {
+    "file": "/lib/features/auth/presentation/widgets/registration_steps_3_4.dart",
+    "feature": "auth"
+  },
+  "الاسم بالعربية": {
+    "file": "/lib/features/auth/presentation/widgets/registration_steps_3_4.dart",
+    "feature": "auth"
+  },
+  "أوافق على شروط الخدمة": {
+    "file": "/lib/features/auth/presentation/widgets/registration_steps_3_4.dart",
+    "feature": "auth"
+  },
+  "أوافق على سياسة الخصوصية": {
+    "file": "/lib/features/auth/presentation/widgets/registration_steps_3_4.dart",
+    "feature": "auth"
+  },
+  "لا توجد أقسام مسجّلة لهذه الكلية بعد.": {
+    "file": "/lib/features/colleges/presentation/college_departments_page.dart",
+    "feature": "colleges"
+  },
+  "محتوى الكلية والإعلانات والأقسام متاحة من التبويبات أدناه.": {
+    "file": "/lib/features/colleges/presentation/college_home_page.dart",
+    "feature": "colleges"
+  },
+  "إعلان أكاديمي": {
+    "file": "/lib/features/colleges/presentation/college_news_page.dart",
+    "feature": "colleges"
+  },
+  "خبر الكلية": {
+    "file": "/lib/features/colleges/presentation/college_news_page.dart",
+    "feature": "colleges"
+  },
+  "سيتم ربط الأخبار بـ Firestore لاحقاً.": {
+    "file": "/lib/features/colleges/presentation/college_news_page.dart",
+    "feature": "colleges"
+  },
+  "تفاصيل الفصل": {
+    "file": "/lib/features/faculty/pages/class_detail_page.dart",
+    "feature": "faculty"
+  },
+  "قائمة الطلاب": {
+    "file": "/lib/features/faculty/pages/class_detail_page.dart",
+    "feature": "faculty"
+  },
+  "سجل الإعلانات": {
+    "file": "/lib/features/faculty/pages/class_detail_page.dart",
+    "feature": "faculty"
+  },
+  "بحث عن طالب...": {
+    "file": "/lib/features/faculty/pages/class_detail_page.dart",
+    "feature": "faculty"
+  },
+  "إضافة إعلان": {
+    "file": "/lib/features/faculty/pages/class_detail_page.dart",
+    "feature": "faculty"
+  },
+  "إضافة إعلان جديد": {
+    "file": "/lib/features/faculty/pages/class_detail_page.dart",
+    "feature": "faculty"
+  },
+  "اكتب الإعلان هنا...": {
+    "file": "/lib/features/faculty/pages/class_detail_page.dart",
+    "feature": "faculty"
+  },
+  "تم إضافة الإعلان بنجاح": {
+    "file": "/lib/features/faculty/pages/class_detail_page.dart",
+    "feature": "faculty"
+  },
+  "لا يوجد طلاب": {
+    "file": "/lib/features/faculty/pages/class_detail_page.dart",
+    "feature": "faculty"
+  },
+  "Error: $e": {
+    "file": "/lib/features/faculty/pages/class_detail_page.dart",
+    "feature": "faculty"
+  },
+  "لا توجد إعلانات بعد": {
+    "file": "/lib/features/faculty/pages/class_detail_page.dart",
+    "feature": "faculty"
+  },
+  "إعلان مقرر": {
+    "file": "/lib/features/faculty/pages/class_detail_page.dart",
+    "feature": "faculty"
+  },
+  "حذف الإعلان": {
+    "file": "/lib/features/faculty/pages/class_detail_page.dart",
+    "feature": "faculty"
+  },
+  "هل أنت متأكد من رغبتك في حذف هذا الإعلان؟": {
+    "file": "/lib/features/faculty/pages/class_detail_page.dart",
+    "feature": "faculty"
+  },
+  "تم حذف الإعلان بنجاح": {
+    "file": "/lib/features/faculty/pages/class_detail_page.dart",
+    "feature": "faculty"
+  },
+  "خطأ أثناء الحذف: $e": {
+    "file": "/lib/features/faculty/pages/class_detail_page.dart",
+    "feature": "faculty"
+  },
+  "فصولي": {
+    "file": "/lib/features/faculty/pages/faculty_dashboard_page.dart",
+    "feature": "faculty"
+  },
+  "الدرجات": {
+    "file": "/lib/features/faculty/pages/faculty_dashboard_page.dart",
+    "feature": "faculty"
+  },
+  "أهلاً بك يا دكتور": {
+    "file": "/lib/features/faculty/pages/faculty_dashboard_page.dart",
+    "feature": "faculty"
+  },
+  "نتمنى لك فصلاً دراسياً مثمراً ومتميزاً.": {
+    "file": "/lib/features/faculty/pages/faculty_dashboard_page.dart",
+    "feature": "faculty"
+  },
+  "نظرة أكاديمية سريعة": {
+    "file": "/lib/features/faculty/pages/faculty_dashboard_page.dart",
+    "feature": "faculty"
+  },
+  "الطلاب المسجلين": {
+    "file": "/lib/features/faculty/pages/faculty_dashboard_page.dart",
+    "feature": "faculty"
+  },
+  "المقررات": {
+    "file": "/lib/features/faculty/pages/faculty_dashboard_page.dart",
+    "feature": "faculty"
+  },
+  "معدل الحضور الأسبوعي للمقررات": {
+    "file": "/lib/features/faculty/pages/faculty_dashboard_page.dart",
+    "feature": "faculty"
+  },
+  "لا توجد مقررات دراسية حالياً": {
+    "file": "/lib/features/faculty/pages/faculty_dashboard_page.dart",
+    "feature": "faculty"
+  },
+  "سجل الحضور والغياب": {
+    "file": "/lib/features/faculty/pages/faculty_dashboard_page.dart",
+    "feature": "faculty"
+  },
+  "لا توجد مقررات": {
+    "file": "/lib/features/faculty/pages/faculty_dashboard_page.dart",
+    "feature": "faculty"
+  },
+  "اختر المقرر": {
+    "file": "/lib/features/faculty/pages/faculty_dashboard_page.dart",
+    "feature": "faculty"
+  },
+  "خطأ في تحميل المقررات": {
+    "file": "/lib/features/faculty/pages/faculty_dashboard_page.dart",
+    "feature": "faculty"
+  },
+  "الرجاء اختيار المقرر لعرض قائمة الطلاب": {
+    "file": "/lib/features/faculty/pages/faculty_dashboard_page.dart",
+    "feature": "faculty"
+  },
+  "رصد الدرجات الأكاديمية": {
+    "file": "/lib/features/faculty/pages/faculty_dashboard_page.dart",
+    "feature": "faculty"
+  },
+  "الرجاء اختيار المقرر لفتح كشف الدرجات": {
+    "file": "/lib/features/faculty/pages/faculty_dashboard_page.dart",
+    "feature": "faculty"
+  },
+  "نصفي (40)": {
+    "file": "/lib/features/faculty/pages/faculty_dashboard_page.dart",
+    "feature": "faculty"
+  },
+  "نهائي (40)": {
+    "file": "/lib/features/faculty/pages/faculty_dashboard_page.dart",
+    "feature": "faculty"
+  },
+  "أعمال (20)": {
+    "file": "/lib/features/faculty/pages/faculty_dashboard_page.dart",
+    "feature": "faculty"
+  },
+  "الرسوم الدراسية": {
+    "file": "/lib/features/fees/presentation/pages/fees_page.dart",
+    "feature": "fees"
+  },
+  "سجل الرسوم (محلي)": {
+    "file": "/lib/features/fees/presentation/pages/fees_page.dart",
+    "feature": "fees"
+  },
+  "لا توجد بيانات رسوم محلية": {
+    "file": "/lib/features/fees/presentation/pages/fees_page.dart",
+    "feature": "fees"
+  },
+  "رسوم": {
+    "file": "/lib/features/fees/presentation/pages/fees_page.dart",
+    "feature": "fees"
+  },
+  "دفع الرسوم المستحقة": {
+    "file": "/lib/features/fees/presentation/pages/fees_page.dart",
+    "feature": "fees"
+  },
+  "سجلات الرسوم المحفوظة": {
+    "file": "/lib/features/fees/presentation/pages/fees_page.dart",
+    "feature": "fees"
+  },
+  "عنصر": {
+    "file": "/lib/features/fees/presentation/pages/fees_page.dart",
+    "feature": "fees"
+  },
+  "مدفوع": {
+    "file": "/lib/features/fees/presentation/pages/fees_page.dart",
+    "feature": "fees"
+  },
+  "غير مدفوع": {
+    "file": "/lib/features/fees/presentation/pages/fees_page.dart",
+    "feature": "fees"
+  },
+  "سياسة الخصوصية": {
+    "file": "/lib/features/gateway/presentation/pages/gateway_page.dart",
+    "feature": "gateway"
+  },
+  "© 2024 جامعة درنة - جميع الحقوق محفوظة": {
+    "file": "/lib/features/gateway/presentation/pages/gateway_page.dart",
+    "feature": "gateway"
+  },
+  "تعذرت المزامنة": {
+    "file": "/lib/features/grades/presentation/pages/grades_page.dart",
+    "feature": "grades"
+  },
+  "مزامنة من بوابة الجامعة": {
+    "file": "/lib/features/grades/presentation/pages/grades_page.dart",
+    "feature": "grades"
+  },
+  "عرض قائمة": {
+    "file": "/lib/features/guest/presentation/pages/guest_portal_page.dart",
+    "feature": "guest"
+  },
+  "عرض شبكة": {
+    "file": "/lib/features/guest/presentation/pages/guest_portal_page.dart",
+    "feature": "guest"
+  },
+  "ابحث عن كلية أو قسم...": {
+    "file": "/lib/features/guest/presentation/pages/guest_portal_page.dart",
+    "feature": "guest"
+  },
+  "بوابة الزائر": {
+    "file": "/lib/features/guest/presentation/pages/guest_portal_page.dart",
+    "feature": "guest"
+  },
+  "لا توجد نتائج لـ \"$_search\"": {
+    "file": "/lib/features/guest/presentation/pages/guest_portal_page.dart",
+    "feature": "guest"
+  },
+  "سجّل الآن في جامعة درنة": {
+    "file": "/lib/features/guest/presentation/pages/guest_portal_page.dart",
+    "feature": "guest"
+  },
+  "الأقسام الأكاديمية": {
+    "file": "/lib/features/guest/presentation/pages/guest_portal_page.dart",
+    "feature": "guest"
+  },
+  "سجّل في هذه الكلية": {
+    "file": "/lib/features/guest/presentation/pages/guest_portal_page.dart",
+    "feature": "guest"
+  },
+  "Page Not Found": {
+    "file": "/lib/features/hifzh/core/router/hifzh_router.dart",
+    "feature": "hifzh"
+  },
+  "Go Home": {
+    "file": "/lib/features/hifzh/core/router/hifzh_router.dart",
+    "feature": "hifzh"
+  },
+  "حافظ | HifdhTracker": {
+    "file": "/lib/features/hifzh/presentation/auth/hifzh_login_page.dart",
+    "feature": "hifzh"
+  },
+  "أنشئ حسابك لتبدأ رحلة الحفظ": {
+    "file": "/lib/features/hifzh/presentation/auth/hifzh_login_page.dart",
+    "feature": "hifzh"
+  },
+  "سجّل دخولك للمتابعة من حيث توقفت": {
+    "file": "/lib/features/hifzh/presentation/auth/hifzh_login_page.dart",
+    "feature": "hifzh"
+  },
+  "استعادة كلمة المرور": {
+    "file": "/lib/features/hifzh/presentation/auth/hifzh_login_page.dart",
+    "feature": "hifzh"
+  },
+  "تم إرسال رابط إعادة التعيين إلى بريدك الإلكتروني.": {
+    "file": "/lib/features/hifzh/presentation/auth/hifzh_login_page.dart",
+    "feature": "hifzh"
+  },
+  "أدخل بريدك الإلكتروني لتلقي رابط إعادة تعيين كلمة المرور.": {
+    "file": "/lib/features/hifzh/presentation/auth/hifzh_login_page.dart",
+    "feature": "hifzh"
+  },
+  "الحلقة غير موجودة": {
+    "file": "/lib/features/hifzh/presentation/bloc/halaqah/halaqah_cubit.dart",
+    "feature": "hifzh"
+  },
+  "؟": {
+    "file": "/lib/features/hifzh/presentation/halaqah/hifzh_halaqah_tab.dart",
+    "feature": "hifzh"
+  },
+  "ابدأ": {
+    "file": "/lib/features/hifzh/presentation/home/hifzh_home_tab.dart",
+    "feature": "hifzh"
+  },
+  "لا توجد سور مطابقة": {
+    "file": "/lib/features/hifzh/presentation/mushaf/hifzh_mushaf_tab.dart",
+    "feature": "hifzh"
+  },
+  "أول سبع آيات": {
+    "file": "/lib/features/hifzh/presentation/profile/hifzh_profile_tab.dart",
+    "feature": "hifzh"
+  },
+  "حافظ الفاتحة": {
+    "file": "/lib/features/hifzh/presentation/profile/hifzh_profile_tab.dart",
+    "feature": "hifzh"
+  },
+  "7 أيام متتالية": {
+    "file": "/lib/features/hifzh/presentation/profile/hifzh_profile_tab.dart",
+    "feature": "hifzh"
+  },
+  "حافظ جزء عم": {
+    "file": "/lib/features/hifzh/presentation/profile/hifzh_profile_tab.dart",
+    "feature": "hifzh"
+  },
+  "إتقان الإخلاص": {
+    "file": "/lib/features/hifzh/presentation/profile/hifzh_profile_tab.dart",
+    "feature": "hifzh"
+  },
+  "المتصدر": {
+    "file": "/lib/features/hifzh/presentation/profile/hifzh_profile_tab.dart",
+    "feature": "hifzh"
+  },
+  "حافظ": {
+    "file": "/lib/features/hifzh/presentation/splash/hifzh_splash_page.dart",
+    "feature": "hifzh"
+  },
+  "بِسۡمِ ٱللَّهِ\\nٱلرَّحۡمَـٰنِ ٱلرَّحِيمِ": {
+    "file": "/lib/features/hifzh/presentation/splash/hifzh_splash_page.dart",
+    "feature": "hifzh"
+  },
+  "خطأ في تحميل بيانات الحضور: $e": {
+    "file": "/lib/features/home/presentation/attendance_page.dart",
+    "feature": "home"
+  },
+  "} (نسبة حضور أقل من 75%)": {
+    "file": "/lib/features/home/presentation/attendance_page.dart",
+    "feature": "home"
+  },
+  "خطأ في تحميل الدرجات: $e": {
+    "file": "/lib/features/home/presentation/pages/grades_page.dart",
+    "feature": "home"
+  },
+  "$courseCount مادة": {
+    "file": "/lib/features/home/presentation/pages/grades_page.dart",
+    "feature": "home"
+  },
+  "title": {
+    "file": "/lib/features/home/presentation/pages/home_page.dart",
+    "feature": "home"
+  },
+  "الرجاء تعبئة جميع الحقول": {
+    "file": "/lib/features/settings/presentation/pages/change_password_page.dart",
+    "feature": "settings"
+  },
+  "كلمة المرور الجديدة غير متطابقة": {
+    "file": "/lib/features/settings/presentation/pages/change_password_page.dart",
+    "feature": "settings"
+  },
+  "تم تغيير كلمة المرور بنجاح": {
+    "file": "/lib/features/settings/presentation/pages/change_password_page.dart",
+    "feature": "settings"
+  },
+  "حدث خطأ أثناء تغيير كلمة المرور": {
+    "file": "/lib/features/settings/presentation/pages/change_password_page.dart",
+    "feature": "settings"
+  },
+  "كلمة المرور الحالية غير صحيحة": {
+    "file": "/lib/features/settings/presentation/pages/change_password_page.dart",
+    "feature": "settings"
+  },
+  "كلمة المرور الحالية": {
+    "file": "/lib/features/settings/presentation/pages/change_password_page.dart",
+    "feature": "settings"
+  },
+  "كلمة المرور الجديدة": {
+    "file": "/lib/features/settings/presentation/pages/change_password_page.dart",
+    "feature": "settings"
+  },
+  "تأكيد كلمة المرور الجديدة": {
+    "file": "/lib/features/settings/presentation/pages/change_password_page.dart",
+    "feature": "settings"
+  },
+  " موقع الكلية": {
+    "file": "/lib/features/settings/presentation/pages/college_location_page.dart",
+    "feature": "settings"
+  },
+  "📍 عنوان الكلية": {
+    "file": "/lib/features/settings/presentation/pages/college_location_page.dart",
+    "feature": "settings"
+  },
+  "طريق أُم المؤمنين، درنة، ليبيا": {
+    "file": "/lib/features/settings/presentation/pages/college_location_page.dart",
+    "feature": "settings"
+  },
+  "⏰ أوقات الدوام": {
+    "file": "/lib/features/settings/presentation/pages/college_location_page.dart",
+    "feature": "settings"
+  },
+  "من الأحد إلى الخميس\\nمن الساعة 8:00 صباحًا حتى 2:00 ظهرًا": {
+    "file": "/lib/features/settings/presentation/pages/college_location_page.dart",
+    "feature": "settings"
+  },
+  "🌍 لرؤية موقع الكلية على الخريطة": {
+    "file": "/lib/features/settings/presentation/pages/college_location_page.dart",
+    "feature": "settings"
+  },
+  "افتح الخريطة": {
+    "file": "/lib/features/settings/presentation/pages/college_location_page.dart",
+    "feature": "settings"
+  },
+  "⚠️ لا يمكن فتح الرابط: $url": {
+    "file": "/lib/features/settings/presentation/pages/developer_profile_page.dart",
+    "feature": "settings"
+  },
+  "مطور البرنامج": {
+    "file": "/lib/features/settings/presentation/pages/developer_profile_page.dart",
+    "feature": "settings"
+  },
+  "سند صالح المسماري": {
+    "file": "/lib/features/settings/presentation/pages/developer_profile_page.dart",
+    "feature": "settings"
+  },
+  "مطور برمجيات متخصص في تطوير تطبيقات الهاتف المحمول، يسعى لتقديم حلول تقنية مبتكرة تلبي احتياجات المستخدمين بكفاءة. يتميز بخبرة في تصميم وتطوير واجهات استخدام سلسة، مع التركيز على الأداء العالي والجودة الفائقة لضمان تجربة استخدام متميزة.": {
+    "file": "/lib/features/settings/presentation/pages/developer_profile_page.dart",
+    "feature": "settings"
+  },
+  "للتواصل، يُرجى الضغط على الروابط أدناه:": {
+    "file": "/lib/features/settings/presentation/pages/developer_profile_page.dart",
+    "feature": "settings"
+  },
+  "sa4nad": {
+    "file": "/lib/features/settings/presentation/pages/developer_profile_page.dart",
+    "feature": "settings"
+  },
+  "almsmarysnd15@gmail.com": {
+    "file": "/lib/features/settings/presentation/pages/developer_profile_page.dart",
+    "feature": "settings"
+  },
+  "سند المسماري": {
+    "file": "/lib/features/settings/presentation/pages/developer_profile_page.dart",
+    "feature": "settings"
+  },
+  "تعديل البريد الإلكتروني": {
+    "file": "/lib/features/settings/presentation/pages/edit_email_page.dart",
+    "feature": "settings"
+  },
+  "يرجى إدخال البريد الإلكتروني الجديد:": {
+    "file": "/lib/features/settings/presentation/pages/edit_email_page.dart",
+    "feature": "settings"
+  },
+  "البريد الإلكتروني الجديد": {
+    "file": "/lib/features/settings/presentation/pages/edit_email_page.dart",
+    "feature": "settings"
+  },
+  "اسم غير معروف": {
+    "file": "/lib/features/settings/presentation/pages/edit_profile_image_page.dart",
+    "feature": "settings"
+  },
+  "غير محدد": {
+    "file": "/lib/features/settings/presentation/pages/edit_profile_image_page.dart",
+    "feature": "settings"
+  },
+  "غير متوفر": {
+    "file": "/lib/features/settings/presentation/pages/edit_profile_image_page.dart",
+    "feature": "settings"
+  },
+  "تعديل الصورة الشخصية": {
+    "file": "/lib/features/settings/presentation/pages/edit_profile_image_page.dart",
+    "feature": "settings"
+  },
+  "الرقم الدراسي": {
+    "file": "/lib/features/settings/presentation/pages/edit_profile_image_page.dart",
+    "feature": "settings"
+  },
+  "تم حفظ التعديلات بنجاح": {
+    "file": "/lib/features/settings/presentation/pages/edit_profile_image_page.dart",
+    "feature": "settings"
+  },
+  "كيف يتم القبول في الكلية؟": {
+    "file": "/lib/features/settings/presentation/pages/faq_page.dart",
+    "feature": "settings"
+  },
+  "يتم القبول وفق شروط التسجيل المتوفرة على موقع الكلية الرسمي.": {
+    "file": "/lib/features/settings/presentation/pages/faq_page.dart",
+    "feature": "settings"
+  },
+  "ما هي شروط القبول؟": {
+    "file": "/lib/features/settings/presentation/pages/faq_page.dart",
+    "feature": "settings"
+  },
+  "يجب أن يكون الطالب من خريجي القسم العلمي أو معهد تقني، وأن لا تقل درجته عن جيد.": {
+    "file": "/lib/features/settings/presentation/pages/faq_page.dart",
+    "feature": "settings"
+  },
+  "ما هي التخصصات المتاحة؟": {
+    "file": "/lib/features/settings/presentation/pages/faq_page.dart",
+    "feature": "settings"
+  },
+  " تشمل الكلية تخصصات مثل: تقنية المعلومات, الهندسة الكهربائية، الهندسة المدنية، الهندسة المعمارية, الهندسة الميكانيكية، المحاسبة المالية، والعلوم الإدارية.": {
+    "file": "/lib/features/settings/presentation/pages/faq_page.dart",
+    "feature": "settings"
+  },
+  "كيف يمكنني التواصل مع الدعم الفني؟": {
+    "file": "/lib/features/settings/presentation/pages/faq_page.dart",
+    "feature": "settings"
+  },
+  "يمكنك التواصل عبر البريد الإلكتروني أو الهاتف المتاح في التطبيق.": {
+    "file": "/lib/features/settings/presentation/pages/faq_page.dart",
+    "feature": "settings"
+  },
+  "كيف يمكنني معرفة نتائج الاختبارات؟": {
+    "file": "/lib/features/settings/presentation/pages/faq_page.dart",
+    "feature": "settings"
+  },
+  "يمكنك معرفة نتائج الاختبارات عبر البوابة الإلكترونية الخاصة بالكلية ": {
+    "file": "/lib/features/settings/presentation/pages/faq_page.dart",
+    "feature": "settings"
+  },
+  "ما هي شروط الانتقال بين التخصصات؟": {
+    "file": "/lib/features/settings/presentation/pages/faq_page.dart",
+    "feature": "settings"
+  },
+  "يتم التحويل وفقًا للشروط المعلنة من قبل إدارة الكلية ويعتمد على المعدل الأكاديمي.": {
+    "file": "/lib/features/settings/presentation/pages/faq_page.dart",
+    "feature": "settings"
+  },
+  "ما هي الأنشطة المتاحة؟": {
+    "file": "/lib/features/settings/presentation/pages/faq_page.dart",
+    "feature": "settings"
+  },
+  "تشمل الأنشطة الطلابية الأندية الأكاديمية، والفعاليات الثقافية، والمشاركات في المؤتمرات العلمية.": {
+    "file": "/lib/features/settings/presentation/pages/faq_page.dart",
+    "feature": "settings"
+  },
+  "كيف يمكنني الحصول على بطاقة الطالب الجامعية؟": {
+    "file": "/lib/features/settings/presentation/pages/faq_page.dart",
+    "feature": "settings"
+  },
+  "يتم إصدار بطاقة الطالب الجامعية بعد استكمال إجراءات التسجيل ويمكن استلامها من مكتب شؤون الطلاب.": {
+    "file": "/lib/features/settings/presentation/pages/faq_page.dart",
+    "feature": "settings"
+  },
+  "ما هي سياسة الحضور والغياب؟": {
+    "file": "/lib/features/settings/presentation/pages/faq_page.dart",
+    "feature": "settings"
+  },
+  "يجب على الطلاب الالتزام بنسبة حضور لا تقل عن 75% لضمان استمرارية التسجيل في المقررات.": {
+    "file": "/lib/features/settings/presentation/pages/faq_page.dart",
+    "feature": "settings"
+  },
+  "subject=استفسار بخصوص سياسة الخصوصية": {
+    "file": "/lib/features/settings/presentation/pages/privacy_policy_page.dart",
+    "feature": "settings"
+  },
+  "لا يمكن فتح تطبيق البريد الإلكتروني": {
+    "file": "/lib/features/settings/presentation/pages/privacy_policy_page.dart",
+    "feature": "settings"
+  },
+  "❌ خطأ في فتح البريد: $e": {
+    "file": "/lib/features/settings/presentation/pages/privacy_policy_page.dart",
+    "feature": "settings"
+  },
+  "حدث خطأ أثناء محاولة فتح تطبيق البريد": {
+    "file": "/lib/features/settings/presentation/pages/privacy_policy_page.dart",
+    "feature": "settings"
+  },
+  "لا يمكن فتح واتساب": {
+    "file": "/lib/features/settings/presentation/pages/privacy_policy_page.dart",
+    "feature": "settings"
+  },
+  "لا يمكن فتح فيسبوك": {
+    "file": "/lib/features/settings/presentation/pages/privacy_policy_page.dart",
+    "feature": "settings"
+  },
+  "لا يمكن فتح انستجرام": {
+    "file": "/lib/features/settings/presentation/pages/privacy_policy_page.dart",
+    "feature": "settings"
+  },
+  "سياسة الخصوصية لكلية العلوم التقنية درنة": {
+    "file": "/lib/features/settings/presentation/pages/privacy_policy_page.dart",
+    "feature": "settings"
+  },
+  "تلتزم كلية العلوم التقنية درنة بحماية خصوصية مستخدمي تطبيقها الإلكتروني والحفاظ على سرية بياناتهم الشخصية. توضح هذه السياسة كيفية جمع واستخدام وحماية المعلومات المقدمة من قبل الطلاب وأعضاء هيئة التدريس وجميع المستخدمين.": {
+    "file": "/lib/features/settings/presentation/pages/privacy_policy_page.dart",
+    "feature": "settings"
+  },
+  "المعلومات التي نقوم بجمعها:": {
+    "file": "/lib/features/settings/presentation/pages/privacy_policy_page.dart",
+    "feature": "settings"
+  },
+  "- البيانات الشخصية مثل الاسم، رقم القيد، البريد الإلكتروني.\\n": {
+    "file": "/lib/features/settings/presentation/pages/privacy_policy_page.dart",
+    "feature": "settings"
+  },
+  "- بيانات التفاعل مع التطبيق والخدمات المقدمة.\\n": {
+    "file": "/lib/features/settings/presentation/pages/privacy_policy_page.dart",
+    "feature": "settings"
+  },
+  "- معلومات الجهاز والتفضيلات الخاصة بالاستخدام.": {
+    "file": "/lib/features/settings/presentation/pages/privacy_policy_page.dart",
+    "feature": "settings"
+  },
+  "كيفية استخدام المعلومات:": {
+    "file": "/lib/features/settings/presentation/pages/privacy_policy_page.dart",
+    "feature": "settings"
+  },
+  "تستخدم كلية العلوم التقنية درنة هذه المعلومات لتحسين الخدمات المقدمة، وضمان التواصل الفعال مع المستخدمين، وتوفير الدعم الفني عند الحاجة.": {
+    "file": "/lib/features/settings/presentation/pages/privacy_policy_page.dart",
+    "feature": "settings"
+  },
+  "حماية البيانات:": {
+    "file": "/lib/features/settings/presentation/pages/privacy_policy_page.dart",
+    "feature": "settings"
+  },
+  "تلتزم الكلية باتخاذ جميع الإجراءات التقنية والإدارية اللازمة لحماية بيانات المستخدمين من الوصول غير المصرح به أو التعديل أو الإفشاء.": {
+    "file": "/lib/features/settings/presentation/pages/privacy_policy_page.dart",
+    "feature": "settings"
+  },
+  "مشاركة المعلومات مع أطراف ثالثة:": {
+    "file": "/lib/features/settings/presentation/pages/privacy_policy_page.dart",
+    "feature": "settings"
+  },
+  "لا تقوم كلية العلوم التقنية درنة ببيع أو مشاركة بيانات المستخدمين مع أي جهة خارجية إلا في الحالات التي يقتضيها القانون أو بموافقة المستخدم.": {
+    "file": "/lib/features/settings/presentation/pages/privacy_policy_page.dart",
+    "feature": "settings"
+  },
+  "التعديلات على سياسة الخصوصية:": {
+    "file": "/lib/features/settings/presentation/pages/privacy_policy_page.dart",
+    "feature": "settings"
+  },
+  "يجوز للكلية تحديث هذه السياسة من وقت لآخر. وسيتم إعلام المستخدمين بأي تغييرات جوهرية من خلال التطبيق أو عبر وسائل الاتصال المناسبة.": {
+    "file": "/lib/features/settings/presentation/pages/privacy_policy_page.dart",
+    "feature": "settings"
+  },
+  "اتصل بنا:": {
+    "file": "/lib/features/settings/presentation/pages/privacy_policy_page.dart",
+    "feature": "settings"
+  },
+  "للتواصل مع الكلية عبر وسائل التواصل الاجتماعي، استخدم الأزرار أدناه:": {
+    "file": "/lib/features/settings/presentation/pages/privacy_policy_page.dart",
+    "feature": "settings"
+  },
+  "واتساب": {
+    "file": "/lib/features/settings/presentation/pages/privacy_policy_page.dart",
+    "feature": "settings"
+  },
+  "فيسبوك": {
+    "file": "/lib/features/settings/presentation/pages/privacy_policy_page.dart",
+    "feature": "settings"
+  },
+  "انستجرام": {
+    "file": "/lib/features/settings/presentation/pages/privacy_policy_page.dart",
+    "feature": "settings"
+  },
+  "تم إرسال المشكلة: $issueText": {
+    "file": "/lib/features/settings/presentation/pages/report_issue_page.dart",
+    "feature": "settings"
+  },
+  "تم إرسال الإبلاغ بنجاح": {
+    "file": "/lib/features/settings/presentation/pages/report_issue_page.dart",
+    "feature": "settings"
+  },
+  "الإبلاغ عن مشكلة": {
+    "file": "/lib/features/settings/presentation/pages/report_issue_page.dart",
+    "feature": "settings"
+  },
+  "وصف المشكلة:": {
+    "file": "/lib/features/settings/presentation/pages/report_issue_page.dart",
+    "feature": "settings"
+  },
+  "اكتب هنا تفاصيل المشكلة التي تواجهها...": {
+    "file": "/lib/features/settings/presentation/pages/report_issue_page.dart",
+    "feature": "settings"
+  },
+  "الرجاء إدخال وصف للمشكلة": {
+    "file": "/lib/features/settings/presentation/pages/report_issue_page.dart",
+    "feature": "settings"
+  },
+  "إرسال الإبلاغ": {
+    "file": "/lib/features/settings/presentation/pages/report_issue_page.dart",
+    "feature": "settings"
+  },
+  "الرسالة": {
+    "file": "/lib/features/settings/presentation/pages/support_page.dart",
+    "feature": "settings"
+  },
+  "يرجى كتابة الرسالة": {
+    "file": "/lib/features/settings/presentation/pages/support_page.dart",
+    "feature": "settings"
+  },
+  "الاسم": {
+    "file": "/lib/features/settings/presentation/pages/support_page.dart",
+    "feature": "settings"
+  },
+  "يرجى إدخال الاسم": {
+    "file": "/lib/features/settings/presentation/pages/support_page.dart",
+    "feature": "settings"
+  },
+  "التواصل مع الدعم الفني": {
+    "file": "/lib/features/settings/presentation/pages/support_page.dart",
+    "feature": "settings"
+  },
+  "يرجى ملء النموذج أدناه وسنقوم بالتواصل معك في أقرب وقت.": {
+    "file": "/lib/features/settings/presentation/pages/support_page.dart",
+    "feature": "settings"
+  },
+  "الموضوع": {
+    "file": "/lib/features/settings/presentation/pages/support_page.dart",
+    "feature": "settings"
+  },
+  "تم إرسال الرسالة بنجاح": {
+    "file": "/lib/features/settings/presentation/pages/support_page.dart",
+    "feature": "settings"
+  },
+  "كلية الطب": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "درنة": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "الطب العام": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "الجراحة": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "طب الأطفال": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "الطب الباطني": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "أمراض النساء والتوليد": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "علم الأمراض": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "كلية طب وجراحة الفم والأسنان": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "طب الأسنان": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "جراحة الفم والفكين": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "أمراض الفم": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "كلية الصيدلة": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "العلوم الصيدلانية": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "الصيدلة": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "الكيمياء الصيدلانية": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "الصيدلة الإكلينيكية": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "كلية التمريض": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "التمريض": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "تمريض الأطفال": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "تمريض صحة المجتمع": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "كلية الصحة العامة": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "الصحة العامة": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "علم الأوبئة": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "التغذية": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "كلية الهندسة": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "الهندسة المدنية": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "الهندسة الكهربائية": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "الهندسة الميكانيكية": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "الهندسة الكيميائية": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "كلية الفنون والعمارة": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "العمارة": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "التصميم الداخلي": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "الفنون الجميلة": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "كلية تكنولوجيا المعلومات": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "علوم الحاسوب": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "نظم المعلومات": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "الأمن السيبراني": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "كلية العلوم": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "الفيزياء": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "الكيمياء": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "الأحياء": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "الرياضيات": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "الجيولوجيا": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "كلية الموارد الطبيعية": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "القبة": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "العلوم البيئية": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "الجيولوجيا والهندسة الجيوتقنية": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "الزراعة وعلم التربة": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "إدارة الموارد الطبيعية": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "كلية الطب البيطري": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "الطب البيطري": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "الإنتاج الحيواني": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "كلية الاقتصاد": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "إدارة الأعمال": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "المحاسبة": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "الاقتصاد": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "المالية": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "التسويق": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "كلية القانون": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "القانون الدستوري والإداري": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "القانون الجنائي": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "القانون المدني": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "القانون التجاري والبحري": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "القانون الدولي": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "كلية الشريعة": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "الفقه": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "أصول الفقه": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "التفسير والحديث": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "كلية الآداب": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "اللغة العربية وآدابها": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "اللغة الإنجليزية وآدابها": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "التاريخ": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "الفلسفة": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "علم الاجتماع": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "كلية التربية": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "التربية": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "علم النفس التربوي": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "المناهج وطرق التدريس": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "كلية الإعلام": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "الإعلام": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "العلاقات العامة": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "الإعلان": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "كلية اللغات": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "اللغة العربية": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "اللغة الإنجليزية": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "الترجمة": {
+    "file": "/lib/core/colleges/college_registry.dart",
+    "feature": "shared"
+  },
+  "هندسة البرمجيات ": {
+    "file": "/lib/core/l10n/localized_content.dart",
+    "feature": "shared"
+  },
+  "وضع بدون اتصال — البيانات من الذاكرة المحلية": {
+    "file": "/lib/core/widgets/app_sync_listener.dart",
+    "feature": "shared"
+  },
+  "تعذر المزامنة مع الخادم — عرض البيانات المحفوظة": {
+    "file": "/lib/core/widgets/app_sync_listener.dart",
+    "feature": "shared"
+  }
+}

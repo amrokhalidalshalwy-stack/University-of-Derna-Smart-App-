@@ -1,0 +1,70 @@
+{
+  "success": true,
+  "seededAt": "2026-06-11T02:37:54.467Z",
+  "faculty": "كلية الطب",
+  "semester": "الفصل الربيعي 2026",
+  "statistics": {
+    "colleges": 1,
+    "departments": 1,
+    "courses": 4,
+    "users": 8,
+    "faculty_records": 2,
+    "registrations": 7,
+    "enrollments": 20,
+    "course_enrollments": 20,
+    "grades": 20,
+    "attendance_records": 20,
+    "schedules": 5,
+    "user_schedule": 30,
+    "notifications": 1,
+    "_seed_meta": 1
+  },
+  "credentials": {
+    "admin": {
+      "email": "admin@uod.edu.ly",
+      "pw": "Admin@123456"
+    },
+    "faculty": {
+      "prof_ahmed": {
+        "email": "ahmed.mansouri@uod.edu.ly",
+        "pw": "Faculty@123"
+      },
+      "prof_fatima": {
+        "email": "fatima.obaidi@uod.edu.ly",
+        "pw": "Faculty@123"
+      }
+    },
+    "students": {
+      "salem": {
+        "email": "salem.omar@uod.edu.ly",
+        "pw": "Student@123"
+      },
+      "aisha": {
+        "email": "aisha.fitouri@uod.edu.ly",
+        "pw": "Student@123"
+      },
+      "mohanned": {
+        "email": "mohanned.ali@uod.edu.ly",
+        "pw": "Student@123"
+      },
+      "layla": {
+        "email": "layla.abdallah@uod.edu.ly",
+        "pw": "Student@123"
+      },
+      "mahmoud": {
+        "email": "mahmoud.hassan@uod.edu.ly",
+        "pw": "Student@123"
+      }
+    }
+  },
+  "uids": {
+    "admin": "Cjzmpk45OZgz1XYynJHkuqtTRXF2",
+    "prof_ahmed": "nZDvMTGSamdqHN1bKxy4uufFRFd2",
+    "prof_fatima": "gLQexPGX6EgvS4yswvZRwtPjGFT2",
+    "student_salem": "wM6lV4nf8scrTtB4oFTJkDNSWqf2",
+    "student_aisha": "YpPEasN1eyecAlc5y61gqjMUbjN2",
+    "student_mohanned": "OiBLJllwh1dpW18TdVPCRmAkLxI2",
+    "student_layla": "DQZyfWJHdvUmfczvDE0EZN1uIXi2",
+    "student_mahmoud": "WYb4zg1HDgP2taFt1ST3Lmomhfv2"
+  }
+}

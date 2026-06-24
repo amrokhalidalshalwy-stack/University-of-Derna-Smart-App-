@@ -1,0 +1,1627 @@
+{
+  "@@locale": "ar",
+  "appTitle": "جامعة درنة",
+  "settingsTitle": "الإعدادات",
+  "homeTitle": "الرئيسية",
+  "language": "اللغة",
+  "theme": "الوضع الليلي",
+  "themeSystem": "تلقائي",
+  "themeLight": "فاتح",
+  "themeDark": "داكن",
+  "notifications": "الإشعارات",
+  "privacy": "الخصوصية",
+  "twoFactor": "التحقق بخطوتين",
+  "comingSoonTitle": "قريباً",
+  "comingSoonBody": "ستتوفر هذه الميزة في تحديث لاحق.",
+  "ok": "حسناً",
+  "academicRecord": "السجل الأكاديمي",
+  "resultsGrades": "النتائج الدراسية",
+  "digitalLibrary": "المكتبة الرقمية",
+  "universityEmail": "البريد الجامعي",
+  "documentRequest": "طلب مستندات",
+  "appMotto": "جامعة درنة منصة واحدة , مستقبل متكامل",
+  "appWelcomeTag": "مرحباً بكم في الصرح الأكاديمي",
+  "appWelcomeBody": "ابدأ رحلتك التعليمية الآن واكتشف عالماً من المعرفة والفرص التي تنتظرك في جامعتنا الرائدة.",
+  "openHorizons": "افتح آفاقك الآن",
+  "termsContinue": "متابعة",
+  "universityStats": "إحصائيات الجامعة",
+  "studentsCount": "طالب وطالبة",
+  "collegesCount": "كلية أكاديمية",
+  "facultyCount": "هيئة التدريس",
+  "termsOfService": "شروط الخدمة",
+  "rightsReserved": "© 2026 جامعة درنة. جميع الحقوق محفوظة.",
+  "loginTitle": "تسجيل الدخول",
+  "loginSubtitle": "أدخل بياناتك للوصول إلى حسابك الجامعي",
+  "email": "البريد الإلكتروني",
+  "password": "كلمة المرور",
+  "forgotPassword": "نسيت كلمة المرور؟",
+  "agreeToTerms": "أوافق على الشروط وصلاحيات الوصول",
+  "loginButton": "تسجيل الدخول",
+  "noAccount": "ليس لديك حساب؟",
+  "createAccount": "أنشئ حساباً جديداً",
+  "secureSystem": "نظام إدارة الجامعة محمي ومشفر بالكامل",
+  "smartCollege": "الكلية الذكية",
+  "welcomeBack": "مرحباً، {name}",
+  "unspecifiedMajor": "تخصص غير محدد",
+  "cumulativeGpa": "المعدل التراكمي",
+  "completedHours": "ساعة منجزة",
+  "academicServices": "الخدمات الأكاديمية",
+  "grades": "النتائج",
+  "gradesTitle": "النتائج والدرجات",
+  "attendance": "الحضور",
+  "noAttendanceData": "لا توجد بيانات حضور بعد",
+  "error": "خطأ",
+  "errorLoadingGrades": "خطأ في تحميل الدرجات",
+  "searchCourse": "ابحث عن مادة...",
+  "all": "الكل",
+  "undefinedSemester": "فصل غير محدد",
+  "hoursEarned": "ساعة مكتسبة",
+  "coursesCount": "مادة دراسية",
+  "gpaLabel": "المعدل التراكمي",
+  "noSearchResults": "لا توجد نتائج للبحث",
+  "noGradesRecorded": "لا توجد درجات مسجّلة بعد",
+  "tryDifferentSearch": "جرّب البحث بكلمة مختلفة",
+  "finalExam": "نهائي",
+  "midtermExam": "نصفي",
+  "hours": "ساعة",
+  "excellent": "ممتاز",
+  "veryGood": "جيد جداً",
+  "good": "جيد",
+  "acceptable": "مقبول",
+  "failed": "راسب",
+  "schedule": "الجدول",
+  "latestNotifications": "آخر التنبيهات",
+  "noNotifications": "لا توجد تنبيهات",
+  "loadingError": "خطأ في التحميل",
+  "pleaseLogin": "يرجى تسجيل الدخول",
+  "dataUnavailable": "بيانات غير متوفرة",
+  "myStudy": "دراستي",
+  "appPreferences": "تفضيلات التطبيق",
+  "notificationsEnabled": "مفعلة",
+  "notificationsDisabled": "معطلة",
+  "showNotificationCenter": "عرض مركز الإشعارات",
+  "accountAndSecurity": "الحساب والأمان",
+  "changePassword": "تغيير كلمة المرور",
+  "aboutUniversity": "عن الجامعة",
+  "aboutApp": "عن التطبيق",
+  "technicalSupport": "الدعم الفني",
+  "faqs": "الأسئلة الشائعة",
+  "signOut": "تسجيل الخروج",
+  "languageAuto": "تلقائي (لغة الجهاز)",
+  "languageAr": "العربية",
+  "languageEn": "English",
+  "agreeToTermsLabel": "أوافق على الشروط وصلاحيات الوصول",
+  "loading": "جاري التحميل...",
+  "invalidEmail": "صيغة البريد الإلكتروني غير صحيحة",
+  "emailRequired": "يرجى إدخال البريد الإلكتروني",
+  "passwordRequired": "يرجى إدخال كلمة المرور",
+  "passwordTooShort": "يجب أن تكون كلمة المرور 6 خانات على الأقل",
+  "usernameRequired": "يرجى إدخال اسم المستخدم",
+  "usernameTooShort": "يرجى إدخال اسمك كما هو مسجل في الكلية",
+  "registrationNumberRequired": "يرجى إدخال رقم القيد",
+  "invalidRegistrationNumber": "رقم القيد يجب أن يحتوي على 8 أو 9 أرقام",
+  "confirmPasswordRequired": "يرجى تأكيد كلمة المرور",
+  "passwordsDoNotMatch": "كلمة المرور غير متطابقة",
+  "signUpTitle": "إنشاء حساب جديد",
+  "signUpSubtitle": "ابدأ رحلتك الأكاديمية معنا",
+  "fullNameLabel": "الاسم الكامل",
+  "fullNameHint": "أدخل اسمك الرباعي كما هو في البطاقة الجامعية",
+  "registrationNumberLabel": "الرقم الدراسي (رقم القيد)",
+  "registrationNumberHint": "مثال: 202100000",
+  "passwordHint": "6 أحرف على الأقل",
+  "confirmPasswordLabel": "تأكيد كلمة المرور",
+  "confirmPasswordHint": "أعد إدخال كلمة المرور",
+  "signUpButton": "إنشاء الحساب",
+  "alreadyHaveAccount": "لديك حساب بالفعل؟",
+  "legalAgreement": "بالنقر على \"إنشاء الحساب\"، فإنك توافق على شروط الخدمة وسياسة الخصوصية الخاصة بجامعة درنة.",
+  "signUpSuccess": "تم إنشاء الحساب بنجاح! مرحباً بك في جامعة درنة.",
+  "forgotPasswordTitle": "نسيت كلمة المرور",
+  "forgotPasswordSubtitle": "أدخل بريدك الإلكتروني لاستعادة كلمة السر",
+  "sendButton": "إرسال",
+  "resetEmailSent": "تم إرسال رابط استعادة كلمة السر إلى بريدك الإلكتروني",
+  "genericError": "حدث خطأ ما. يرجى المحاولة مرة أخرى.",
+  "userNotFound": "البريد الإلكتروني غير مسجل",
+  "defaultStudentName": "طالب",
+  "defaultStudentEmail": "طالب@uod.edu.ly",
+  "supportSubject": "طلب دعم فني - تطبيق جامعة درنة",
+  "profileTitle": "الملف الشخصي",
+  "userNotFoundMsg": "لم يتم العثور على بيانات المستخدم",
+  "editProfilePhoto": "التقاط صورة",
+  "registrationNumberPrefix": "رقم قيد: ",
+  "academicInfo": "المعلومات الأكاديمية",
+  "contactInfo": "التواصل",
+  "majorLabel": "التخصص",
+  "emailLabel": "البريد",
+  "errorPrefix": "خطأ: ",
+  "gradesTitle": "النتائج والدرجات",
+  "earnedHours": "ساعة مكتسبة",
+  "coursesCount": "{count} مادة",
+  "noGradesMsg": "لا توجد درجات مسجّلة بعد",
+  "semesterFallback": "فصل غير محدد",
+  "hoursSuffix": "ساعة",
+  "finalExamLabel": "نهائي",
+  "midtermLabel": "نصفي",
+  "totalLabel": "المجموع",
+  "excellent": "ممتاز",
+  "veryGood": "جيد جداً",
+  "good": "جيد",
+  "pass": "مقبول",
+  "fail": "راسب",
+  "gradesError": "خطأ في تحميل الدرجات",
+  "attendanceTitle": "الحضور والغياب",
+  "attendanceError": "خطأ في تحميل بيانات الحضور",
+  "noAttendanceMsg": "لا توجد سجلات حضور بعد",
+  "totalAbsences": "إجمالي الغيابات",
+  "totalAttendancePct": "نسبة الحضور الكلية",
+  "atRiskWarning": "تحذير: {count} {count, plural, =1{مادة في خطر} other{مواد في خطر}} (نسبة حضور أقل من 75%)",
+  "atRiskBadge": "⚠️ في خطر",
+  "totalLecturesLabel": "{count} كلي",
+  "attendedLecturesLabel": "{count} حضور",
+  "absencesLabel": "{count} غياب",
+  "scheduleTitle": "الجدول الدراسي",
+  "noLecturesTitle": "لا توجد محاضرات لهذا اليوم",
+  "noLecturesSubtitle": "البيانات من الذاكرة المحلية. اسحب للتحديث.",
+  "refreshAction": "تحديث",
+  "daySaturday": "السبت",
+  "daySunday": "الأحد",
+  "dayMonday": "الاثنين",
+  "dayTuesday": "الثلاثاء",
+  "dayWednesday": "الأربعاء",
+  "dayThursday": "الخميس",
+  "currentSemesterTitle": "الفصل الدراسي الحالي",
+  "currentGpaLabel": "المعدل الحالي",
+  "nextClassTitle": "المحاضرة القادمة",
+  "quickAccessTitle": "الوصول السريع",
+  "fullScheduleLink": "الجدول الكامل",
+  "attendanceRecordLink": "سجل الحضور",
+  "gradesReportLink": "كشف الدرجات",
+  "departmentScientific": "القسم العلمي",
+  "majorAndTrack": "التخصص والمسار",
+  "collegeAffairs": "شؤون الجامعة",
+  "announcementsAndLocation": "الإعلانات والموقع",
+  "notificationsTitle": "الإشعارات",
+  "noNotificationsSaved": "لا توجد إشعارات محفوظة",
+  "pullToRefreshSync": "اسحب للتحديث للمزامنة مع الخادم.",
+  "notificationDefault": "إشعار",
+  "majorSoftwareEngineering": "هندسة البرمجيات",
+  "collegeNews": "الأخبار",
+  "collegeDepartments": "الأقسام",
+  "departmentInfoTitle": "معلومات القسم العلمي",
+  "academicAdvisorTitle": "المرشد الأكاديمي",
+  "departmentNewsTitle": "أخبار القسم والفعاليات",
+  "collegeItSubtitle": "كلية تكنولوجيا المعلومات — جامعة درنة",
+  "advisorNameSample": "د. أحمد العبيدي",
+  "advisorRoleSample": "مرشد المستوى الدراسي الثالث",
+  "newsResearchTitle": "بدء التسجيل للمشاريع البحثية",
+  "newsResearchDate": "منذ يومين",
+  "newsResearchDescription": "فتح باب التسجيل للمشاريع البحثية للفصل الدراسي الحالي. يرجى من الطلاب المهتمين تقديم مقترحاتهم قبل الموعد النهائي المحدد من قبل القسم.",
+  "newsAiSeminarTitle": "ندوة حول الذكاء الاصطناعي في التعليم",
+  "newsAiSeminarDate": "منذ 4 أيام",
+  "newsAiSeminarDescription": "تنظم الكلية ندوة علمية حول أحدث تطبيقات الذكاء الاصطناعي في المجال التعليمي، مع حضور نخبة من الخبراء والأكاديميين المتخصصين.",
+  "newsExamsTitle": "تحديث جدول الامتحانات النهائية",
+  "newsExamsDate": "منذ أسبوع",
+  "newsExamsDescription": "تم تحديث جدول الامتحانات النهائية للفصل الدراسي الحالي. يرجى مراجعة الجدول الجديد والتأكد من مواعيد امتحاناتكم في جميع المواد.",
+  "collegeAnnouncementsTitle": "إعلانات الكلية العامة",
+  "collegeLocationTitle": "موقع الكلية",
+  "deanOfficeTitle": "مكتب العميد",
+  "graduationAlertTitle": "تنبيه هام: حفل تخرج الدفعة القادمة",
+  "graduationAlertBody": "نحيطكم علماً بأن موعد حفل التخرج سيكون في نهاية الشهر الحالي بمدرج الجامعة الرئيسي.",
+  "openInteractiveMap": "فتح الخريطة التفاعلية",
+  "deanNameSample": "د. زهير عبدالله",
+  "deanTitleSample": "عميد كلية الهندسة – فرع القبة",
+  "contactCall": "اتصال",
+  "contactMessage": "رسالة",
+  "contactEmail": "بريد",
+  "authError": "خطأ في المصادقة",
+  "studentPortal": "بوابة الطلاب",
+  "facultyPortal": "هيئة التدريس",
+  "adminPortal": "إدارة النظام",
+  "studentPortalDesc": "المقررات، النتائج، الجداول، الخدمات الأكاديمية",
+  "facultyPortalDesc": "المحاضرات، التقييم، الحضور، التكليفات",
+  "adminPortalDesc": "الإعدادات، المستخدمون، الأمان، التقارير",
+  "gatewayUniversityBadge": "جامعة درنة",
+  "gatewayMainTitle": "بوابة جامعة درنة الذكية",
+  "gatewaySubtitle": "منصة رقمية متكاملة لتمكين المجتمع الجامعي",
+  "portalEnterStudent": "دخول",
+  "portalEnterFaculty": "تسجيل الدخول",
+  "portalEnterAdmin": "تهيئة الاتصال",
+  "guestPortalDivider": "أو",
+  "guestPortalEnter": "الدخول كزائر",
+  "softwareEngineering": "هندسة البرمجيات",
+  "adminControlCenter": "مركز القيادة والتحكم",
+  "adminVerifyAccounts": "مراجعة طلبات التسجيل",
+  "userManagementTitle": "إدارة المستخدمين",
+  "noUsersFound": "لا يوجد مستخدمون",
+  "roleLabel": "الدور",
+  "facultyPortalTitle": "بوابة أعضاء هيئة التدريس",
+  "appName": "تطبيق جامعة درنة",
+  "confirmPassword": "تأكيد كلمة المرور",
+  "signIn": "تسجيل الدخول",
+  "signUp": "إنشاء حساب",
+  "arabic": "العربية",
+  "english": "الإنجليزية",
+  "settings": "الإعدادات",
+  "profile": "الملف الشخصي",
+  "home": "الرئيسية",
+  "fullName": "الاسم الكامل",
+  "errorRequired": "{field} مطلوب",
+  "errorInvalidEmail": "يرجى إدخال بريد إلكتروني صحيح",
+  "errorPasswordLength": "يجب أن تكون كلمة المرور 8 أحرف على الأقل",
+  "errorPasswordMatch": "كلمتا المرور غير متطابقتين",
+  "successAccountCreated": "تم إنشاء الحساب بنجاح",
+  "retry": "إعادة المحاولة",
+  "cancel": "إلغاء",
+  "confirm": "تأكيد",
+  "save": "حفظ",
+  "delete": "حذف",
+  "noDataFound": "لا توجد بيانات",
+  "smartTimetableTitle": "الجدول الذكي",
+  "advancedProgrammingSubject": "مادة برمجة متقدمة",
+  "room101Time": "القاعة 101 - 8:00 صباحاً إلى 10:00 صباحاً",
+  "databaseSubject": "مادة قواعد البيانات",
+  "lab3Time": "المعمل 3 - 10:30 صباحاً إلى 12:30 ظهراً",
+  "versionLabel": "الإصدار",
+  "lastUpdateLabel": "تاريخ التحديث",
+  "may2024": "يونيو 2026",
+  "developerLabel": "المطور",
+  "itDepartmentDerna": "المهندس عمرو خالد الشلوي",
+  "developerEmail": "eng.amro@uod.edu.ly",
+  "aboutAppDescription": "يهدف تطبيق جامعة درنة إلى تسهيل وصول الطلاب إلى الخدمات الأكاديمية والإدارية من خلال منصة واحدة متكاملة، سعياً نحو التحول الرقمي الشامل في المؤسسة التعليمية.",
+  "authPasswordStrengthWeakest": "ضعيفة جداً",
+  "authPasswordStrengthWeak": "ضعيفة",
+  "authPasswordStrengthFair": "مقبولة",
+  "authPasswordStrengthGood": "جيدة",
+  "authPasswordStrengthStrong": "قوية جداً ✓",
+  "authFullNameArabic": "الاسم الكامل بالعربية",
+  "authFullNameEnglish": "الاسم الكامل بالإنجليزية",
+  "authNationalId": "الرقم الوطني",
+  "authPhoneNumber": "رقم الهاتف",
+  "authDateOfBirth": "تاريخ الميلاد",
+  "authGender": "الجنس",
+  "authGenderMale": "ذكر",
+  "authGenderFemale": "أنثى",
+  "authCollege": "الكلية",
+  "authDepartment": "القسم",
+  "authStudentId": "الرقم الجامعي",
+  "authErrorNameArabicRequired": "الاسم بالعربية مطلوب",
+  "authErrorNameEnglishRequired": "الاسم بالإنجليزية مطلوب",
+  "authErrorNameArabicOnly": "يجب أن يحتوي الاسم العربي على أحرف عربية فقط.",
+  "authErrorNameEnglishOnly": "يجب أن يحتوي الاسم الإنجليزي على أحرف إنجليزية فقط.",
+  "authErrorNationalIdRequired": "الرقم الوطني مطلوب",
+  "authErrorNationalIdFormat": "الرقم الوطني يجب أن يكون 12 رقماً",
+  "authErrorPhoneFormat": "رقم الهاتف غير صحيح",
+  "authErrorTermsRequired": "يرجى الموافقة على الشروط",
+  "authErrorCollegeRequired": "يرجى اختيار الكلية",
+  "authTermsAndConditions": "الشروط والأحكام",
+  "authAgreeToTerms": "أوافق على",
+  "authPrivacyPolicy": "سياسة الخصوصية",
+  "authStepPersonalInfo": "المعلومات الشخصية",
+  "authStepAcademicInfo": "المعلومات الأكاديمية",
+  "authStepAccountSetup": "إعداد الحساب",
+  "authStepNext": "التالي",
+  "authStepPrevious": "السابق",
+  "authStepSubmit": "إرسال",
+  "authRegistrationSuccess": "تم إرسال طلب التسجيل بنجاح",
+  "authRegistrationPending": "طلبك قيد المراجعة",
+  "authVerificationSent": "تم إرسال بريد التحقق",
+  "authWelcomeTitle": "بوابة جامعة درنة الذكية",
+  "authWelcomeSubtitle": "سجّل دخولك للمتابعة",
+  "authRememberMe": "تذكّرني",
+  "authNoAccount": "ليس لديك حساب؟",
+  "authHaveAccount": "لديك حساب بالفعل؟",
+  "authLoginAdminTitle": "إدارة النظام المركزية",
+  "authLoginFacultyTitle": "بوابة هيئة التدريس",
+  "authLoginAdminSubtitle": "يرجى إدخال بيانات الاعتماد الموثقة",
+  "authLoginFacultySubtitle": "مرحباً بك في بوابتك الأكاديمية",
+  "authLoginEmailHint": "example@uod.edu.ly",
+  "authStepReview": "المراجعة",
+  "authErrorDateOfBirthRequired": "يرجى اختيار تاريخ الميلاد",
+  "authRegistrationScorePrefix": "درجتك الأولية:",
+  "authRegistrationStatus": "الحالة:",
+  "authRegistrationFinalDecision": "سيتم إعلامك بالقرار النهائي عبر البريد الإلكتروني خلال 3-5 أيام عمل.",
+  "authSubmitRequest": "إرسال الطلب",
+  "authHintFullNameArabic": "محمد أحمد علي محمد",
+  "authHintFullNameEnglish": "Mohammed Ahmed Ali",
+  "authHintPhone": "+218910000000",
+  "authHintNationalId": "123456789012",
+  "authSelectDateOfBirth": "اختر تاريخ الميلاد",
+  "authErrorGenderRequired": "يرجى اختيار الجنس",
+  "authErrorDepartmentRequired": "يرجى اختيار القسم",
+  "authHintSelectCollegeFirst": "اختر الكلية أولاً",
+  "authHintSelectDepartment": "اختر القسم",
+  "authSemester": "الفصل الدراسي",
+  "authErrorSemesterRequired": "يرجى اختيار الفصل",
+  "authExpectedGraduationYear": "سنة التخرج المتوقعة",
+  "authSecondaryGpa": "المعدل في الثانوية العامة (0 - 100)",
+  "authHintSecondaryGpa": "مثال: 85.5",
+  "authErrorSecondaryGpaRequired": "المعدل مطلوب",
+  "authErrorSecondaryGpaRange": "أدخل رقماً بين 0 و 100",
+  "authCertificateType": "نوع الشهادة",
+  "authErrorCertificateRequired": "يرجى اختيار نوع الشهادة",
+  "authErrorPasswordLength": "كلمة المرور يجب أن تكون 8 أحرف على الأقل",
+  "authConfirmPassword": "تأكيد كلمة المرور",
+  "authErrorPasswordMismatch": "كلمة المرور غير متطابقة",
+  "authReviewData": "مراجعة البيانات",
+  "authLabelFullNameArabic": "الاسم بالعربية",
+  "authLabelFullNameEnglish": "الاسم بالإنجليزية",
+  "authLabelEmail": "البريد الإلكتروني",
+  "authLabelPhone": "الهاتف",
+  "authLabelNationalId": "الهوية",
+  "authLabelGender": "الجنس",
+  "authLabelCollege": "الكلية",
+  "authLabelDepartment": "القسم",
+  "authLabelSemester": "الفصل",
+  "authLabelGraduationYear": "سنة التخرج",
+  "authLabelGpa": "المعدل",
+  "authLabelCertificateType": "نوع الشهادة",
+  "authAgreeToTermsOfService": "أوافق على شروط الخدمة",
+  "authAgreeToPrivacyPolicy": "أوافق على سياسة الخصوصية",
+  "settingsAppearance": "المظهر",
+  "settingsDarkMode": "الوضع الليلي",
+  "settingsLanguage": "اللغة",
+  "settingsNotifications": "تنبيهات النظام",
+  "settingsNotifEnabled": "تفعيل الإشعارات",
+  "settingsNotifGrades": "تحديثات الدرجات",
+  "settingsNotifAnnouncements": "الإعلانات",
+  "settingsAccount": "إعدادات الحساب",
+  "settingsPrivacy": "سياسة الخصوصية",
+  "settingsHelp": "مركز المساعدة",
+  "settingsAbout": "عن التطبيق",
+  "settingsVersion": "الإصدار",
+  "settingsLogoutConfirm": "هل أنت متأكد من تسجيل الخروج؟",
+  "profileEditTitle": "تعديل الملف",
+  "profilePersonalInfo": "المعلومات الشخصية",
+  "profileAcademicInfo": "المعلومات الأكاديمية",
+  "profileContactInfo": "معلومات التواصل",
+  "profileFullName": "الاسم الكامل",
+  "profileStudentId": "الرقم الجامعي",
+  "profileCollege": "الكلية",
+  "profileDepartment": "القسم",
+  "profileLevel": "المستوى الدراسي",
+  "profileGpa": "المعدل التراكمي",
+  "profilePhone": "رقم الهاتف",
+  "profileAddress": "العنوان",
+  "profileSaveChanges": "حفظ التغييرات",
+  "profileChangePhoto": "تغيير الصورة",
+  "profileUpdateSuccess": "تم تحديث الملف الشخصي بنجاح",
+  "profileUpdateError": "فشل تحديث الملف الشخصي",
+  "changePasswordTitle": "تغيير كلمة المرور",
+  "changePasswordCurrent": "كلمة المرور الحالية",
+  "changePasswordNew": "كلمة المرور الجديدة",
+  "changePasswordConfirm": "تأكيد كلمة المرور الجديدة",
+  "changePasswordSuccess": "تم تغيير كلمة المرور بنجاح",
+  "changePasswordErrorWrong": "كلمة المرور الحالية غير صحيحة",
+  "changePasswordErrorSame": "يجب أن تختلف كلمة المرور الجديدة",
+  "privacyPolicyTitle": "سياسة الخصوصية",
+  "privacyPolicyLastUpdated": "آخر تحديث",
+  "privacyPolicyDataUsage": "استخدام البيانات",
+  "privacyPolicyContact": "تواصل معنا",
+  "notificationsEmpty": "لا توجد إشعارات بعد",
+  "notificationsMarkAllRead": "تحديد الكل كمقروء",
+  "notificationsClearAll": "مسح الكل",
+  "notificationsNew": "جديد",
+  "notificationsToday": "اليوم",
+  "notificationsYesterday": "أمس",
+  "notificationsEarlier": "سابقاً",
+  "settingsAllFieldsRequired": "الرجاء تعبئة جميع الحقول",
+  "settingsChangePasswordError": "حدث خطأ أثناء تغيير كلمة المرور",
+  "supportTitle": "الدعم",
+  "supportFormSubtitle": "يرجى ملء النموذج أدناه وسنقوم بالتواصل معك في أقرب وقت.",
+  "supportName": "الاسم",
+  "supportSubjectField": "الموضوع",
+  "supportMessage": "الرسالة",
+  "supportMessageRequired": "يرجى كتابة الرسالة",
+  "supportNameRequired": "يرجى إدخال الاسم",
+  "supportEmailRequired": "يرجى إدخال البريد الإلكتروني",
+  "supportEmailInvalid": "يرجى إدخال بريد إلكتروني صحيح",
+  "supportSent": "تم إرسال الرسالة بنجاح",
+  "supportSend": "إرسال",
+  "privacyPolicyHeadingInfo": "سياسة الخصوصية لكلية العلوم التقنية درنة",
+  "privacyPolicyIntro": "تلتزم كلية العلوم التقنية درنة بحماية خصوصية مستخدمي تطبيقها الإلكتروني والحفاظ على سرية بياناتهم الشخصية.",
+  "privacyPolicyCollectedTitle": "المعلومات التي نقوم بجمعها:",
+  "privacyPolicyCollectedBody": "- البيانات الشخصية مثل الاسم، رقم القيد، البريد الإلكتروني.\n- بيانات التفاعل مع التطبيق والخدمات المقدمة.\n- معلومات الجهاز والتفضيلات الخاصة بالاستخدام.",
+  "privacyPolicyUsageTitle": "كيفية استخدام المعلومات:",
+  "privacyPolicyUsageBody": "تستخدم كلية العلوم التقنية درنة هذه المعلومات لتحسين الخدمات المقدمة، وضمان التواصل الفعال مع المستخدمين، وتوفير الدعم الفني عند الحاجة.",
+  "privacyPolicyProtectionTitle": "حماية البيانات:",
+  "privacyPolicyProtectionBody": "تلتزم الكلية باتخاذ جميع الإجراءات التقنية والإدارية اللازمة لحماية بيانات المستخدمين من الوصول غير المصرح به.",
+  "privacyPolicySharingTitle": "مشاركة المعلومات مع أطراف ثالثة:",
+  "privacyPolicySharingBody": "لا تقوم كلية العلوم التقنية درنة ببيع أو مشاركة بيانات المستخدمين مع أي جهة خارجية إلا في الحالات التي يقتضيها القانون.",
+  "privacyPolicyAmendmentsTitle": "التعديلات على سياسة الخصوصية:",
+  "privacyPolicyAmendmentsBody": "يجوز للكلية تحديث هذه السياسة من وقت لآخر.",
+  "privacyPolicySocialTitle": "للتواصل مع الكلية عبر وسائل التواصل الاجتماعي، استخدم الأزرار أدناه:",
+  "privacyPolicyEmailError": "حدث خطأ أثناء محاولة فتح تطبيق البريد",
+  "adminDashboardTitle": "وحدة التحكم المركزية",
+  "adminDashboardWelcome": "مرحباً بك في وحدة التحكم المركزية",
+  "adminDashboardStatusSafe": "حالة النظام: آمن ومتصل",
+  "adminDashboardLiveAnalysis": "تحليل البيانات المباشر",
+  "adminDashboardTotalRecords": "إجمالي السجلات",
+  "adminDashboardPendingReqs": "طلبات معلقة",
+  "adminDashboardApproved": "المقبولين",
+  "adminDashboardRejected": "المرفوضين",
+  "adminDashboardActiveUsers": "المستخدمون النشطون",
+  "adminDashboardTotalStudents": "إجمالي الطلاب",
+  "adminDashboardQuickActions": "وحدات التحكم السريعة",
+  "adminDashboardSystemLogs": "سجلات النظام (Logs)",
+  "adminDashboardUserMgmt": "إدارة المستخدمين",
+  "adminDashboardVerifQueue": "طلبات التسجيل",
+  "adminDashboardDrawerTitle": "إدارة النظام المركزية",
+  "adminDashboardDrawerDashboard": "لوحة التحكم",
+  "adminDashboardDrawerRegistrations": "طلبات التسجيل",
+  "adminDashboardDrawerEndSession": "إغلاق الجلسة",
+  "adminDashboardErrorText": "حدث خطأ في النظام",
+  "verifQueueTitle": "قائمة التحقق",
+  "verifQueueTabAll": "الكل",
+  "verifQueueTabPending": "قيد الموافقة",
+  "verifQueueTabUnderReview": "قيد المراجعة",
+  "verifQueueTabRequiresInfo": "مراجعة إضافية",
+  "verifQueueEmpty": "لا توجد طلبات في هذه القائمة",
+  "verifQueueApprove": "قبول",
+  "verifQueueReject": "رفض",
+  "verifQueueApproveConfirm": "تأكيد القبول",
+  "verifQueueRejectConfirm": "تأكيد الرفض",
+  "verifQueueApproveMsg": "هل تريد قبول هذا الطلب؟",
+  "verifQueueRejectMsg": "هل تريد رفض هذا الطلب؟",
+  "verifQueueRejectReason": "سبب الرفض",
+  "verifQueueRejectReasonHint": "اختر السبب",
+  "verifQueueRejectCustomHint": "اكتب السبب...",
+  "verifQueueOtherReason": "أخرى",
+  "verifQueueScore": "النتيجة",
+  "verifQueueApplicantName": "المتقدم",
+  "verifQueueCollege": "الكلية",
+  "verifQueueSubmittedDate": "تاريخ التقديم",
+  "verifQueueApproveSuccess": "تم قبول الطلب بنجاح",
+  "verifQueueRejectSuccess": "تم رفض الطلب",
+  "verifQueueErrorAction": "حدث خطأ: ",
+  "verifQueueYes": "نعم",
+  "verifQueueNo": "لا",
+  "verifQueueConfirmTitle": "تأكيد",
+  "verifQueueFieldNameEn": "الاسم بالإنجليزية",
+  "verifQueueFieldEmail": "البريد الإلكتروني",
+  "verifQueueFieldPhone": "الهاتف",
+  "verifQueueFieldNationalId": "الهوية",
+  "verifQueueFieldGender": "الجنس",
+  "verifQueueFieldSemester": "الفصل",
+  "verifQueueFieldGpa": "المعدل",
+  "verifQueueFieldGraduationYear": "سنة التخرج",
+  "systemLogsTitle": "سجلات النظام",
+  "systemLogsEmpty": "لا توجد سجلات حالياً في النظام",
+  "systemLogsErrorLoad": "فشل تحميل السجلات",
+  "systemLogsActionApproved": "تم قبول الحساب",
+  "systemLogsActionRejected": "تم رفض الحساب",
+  "systemLogsActionOther": "إجراء",
+  "systemLogsAdmin": "المسؤول",
+  "systemLogsTarget": "المستهدف",
+  "systemLogsTimestamp": "الوقت",
+  "systemLogsDetails": "التفاصيل",
+  "statusPendingFinalApproval": "قيد الموافقة النهائية",
+  "statusUnderReview": "قيد المراجعة",
+  "statusRequiresAdditional": "يتطلب مراجعة إضافية",
+  "statusAutoRejected": "مرفوض تلقائياً",
+  "statusApproved": "مقبول",
+  "statusRejected": "مرفوض",
+  "statusSuspended": "موقوف",
+  "rejectReasonInsufficientData": "بيانات أكاديمية غير كافية",
+  "rejectReasonDocumentIssues": "مشاكل في الوثائق",
+  "rejectReasonDuplicateAccount": "حساب مكرر",
+  "rejectReasonIncompleteInfo": "معلومات غير مكتملة",
+  "rejectReasonCapacityFull": "امتلاء السعة في التخصص",
+  "rejectReasonAgeRequirement": "عدم استيفاء متطلبات العمر",
+  "pendingStatusTitlePending": "طلبك قيد المراجعة",
+  "pendingStatusTitleRejected": "لم يتم قبول طلبك",
+  "pendingStatusBodyPending": "شكراً لتسجيلك في جامعة درنة. طلبك {status} وسيتم إعلامك بالقرار النهائي عبر البريد الإلكتروني خلال 3-5 أيام عمل.",
+  "pendingStatusBodyRejected": "تم رفض طلب التسجيل. يمكنك التواصل مع القبول والتسجيل لمزيد من المعلومات.",
+  "pendingStatusRefresh": "تحديث الحالة",
+  "pendingStatusSignOut": "تسجيل الخروج",
+  "pendingStatusContact": "للاستفسار: admissions@uod.edu.ly",
+  "systemLogsSystem": "النظام",
+  "adminDashboardSystemOnline": "النظام متصل",
+  "@adminDashboardSystemOnline": {
+    "description": "Badge shown when admin system is online"
+  },
+  "notApplicable": "غير متاح",
+  "@notApplicable": {
+    "description": "Fallback when a value is not available"
+  },
+  "gradesSyncTooltip": "مزامنة من بوابة الجامعة",
+  "@gradesSyncTooltip": {
+    "description": "Tooltip for syncing grades from portal"
+  },
+  "gradesSyncSuccess": "تمت المزامنة — {count} سجل",
+  "@gradesSyncSuccess": {
+    "description": "Shown after successful sync with record count",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "gradesSyncFailed": "تعذرت المزامنة",
+  "@gradesSyncFailed": {
+    "description": "Shown when grades sync fails"
+  },
+  "gradesGpSuffix": "GP",
+  "@gradesGpSuffix": {
+    "description": "Suffix for grade points"
+  },
+  "feesTitle": "الرسوم الدراسية",
+  "@feesTitle": {
+    "description": "Title for fees page"
+  },
+  "feesSavedRecords": "سجلات الرسوم المحفوظة",
+  "@feesSavedRecords": {
+    "description": "Label for saved fee records"
+  },
+  "feesItems": "عنصر",
+  "@feesItems": {
+    "description": "Items count label"
+  },
+  "feesLocalRecord": "سجل الرسوم (محلي)",
+  "@feesLocalRecord": {
+    "description": "Title for local fee records list"
+  },
+  "feesEmpty": "لا توجد بيانات رسوم محلية",
+  "@feesEmpty": {
+    "description": "Message when no local fee records exist"
+  },
+  "feesDefaultTitle": "رسوم",
+  "@feesDefaultTitle": {
+    "description": "Default title fallback for a fee"
+  },
+  "feesPayButton": "دفع الرسوم المستحقة",
+  "@feesPayButton": {
+    "description": "Button to pay fees"
+  },
+  "feesPaid": "مدفوع",
+  "@feesPaid": {
+    "description": "Status label for paid fees"
+  },
+  "feesUnpaid": "غير مدفوع",
+  "@feesUnpaid": {
+    "description": "Status label for unpaid fees"
+  },
+  "facultyMyClasses": "فصولي",
+  "@facultyMyClasses": {
+    "description": "My classes tab label"
+  },
+  "facultyWelcome": "أهلاً بك يا دكتور",
+  "@facultyWelcome": {
+    "description": "Welcome message for faculty doctor"
+  },
+  "facultyWelcomeSubtitle": "نتمنى لك فصلاً دراسياً مثمراً ومتميزاً.",
+  "@facultyWelcomeSubtitle": {
+    "description": "Welcome subtitle for faculty"
+  },
+  "facultyAcademicOverview": "نظرة أكاديمية سريعة",
+  "@facultyAcademicOverview": {
+    "description": "Academic stats overview title"
+  },
+  "facultyEnrolledStudents": "الطلاب المسجلين",
+  "@facultyEnrolledStudents": {
+    "description": "Label for total students count"
+  },
+  "facultyCourses": "المقررات",
+  "@facultyCourses": {
+    "description": "Label for total courses count"
+  },
+  "facultyWeeklyAttendance": "معدل الحضور الأسبوعي للمقررات",
+  "@facultyWeeklyAttendance": {
+    "description": "Attendance chart title"
+  },
+  "facultyNoCourses": "لا توجد مقررات دراسية حالياً",
+  "@facultyNoCourses": {
+    "description": "Shown when there are no courses"
+  },
+  "facultyClassSub": "قسم {dept} | الفصل {sem}",
+  "@facultyClassSub": {
+    "description": "Details for a course item",
+    "placeholders": {
+      "dept": {
+        "type": "String"
+      },
+      "sem": {
+        "type": "String"
+      }
+    }
+  },
+  "facultySelectCourse": "اختر المقرر",
+  "@facultySelectCourse": {
+    "description": "Dropdown hint to select course"
+  },
+  "facultyErrorLoadingCourses": "خطأ في تحميل المقررات",
+  "@facultyErrorLoadingCourses": {
+    "description": "Shown when courses fail to load"
+  },
+  "facultySelectCourseForStudents": "الرجاء اختيار المقرر لعرض قائمة الطلاب",
+  "@facultySelectCourseForStudents": {
+    "description": "Placeholder before selecting a course"
+  },
+  "facultyNoStudents": "لا يوجد طلاب",
+  "@facultyNoStudents": {
+    "description": "Empty state for class students list"
+  },
+  "facultyGradesTitle": "رصد الدرجات الأكاديمية",
+  "@facultyGradesTitle": {
+    "description": "Title for grades tab"
+  },
+  "facultySelectCourseForGrades": "الرجاء اختيار المقرر لفتح كشف الدرجات",
+  "@facultySelectCourseForGrades": {
+    "description": "Placeholder before selecting a course in grades"
+  },
+  "facultyTotalScorePrefix": "الإجمالي: {score}",
+  "@facultyTotalScorePrefix": {
+    "description": "Total score prefix label",
+    "placeholders": {
+      "score": {
+        "type": "double"
+      }
+    }
+  },
+  "facultyMidtermLabel": "نصفي (40)",
+  "@facultyMidtermLabel": {
+    "description": "Label for midterm marks entry"
+  },
+  "facultyFinalLabel": "نهائي (40)",
+  "@facultyFinalLabel": {
+    "description": "Label for final marks entry"
+  },
+  "facultyAssignmentsLabel": "أعمال (20)",
+  "@facultyAssignmentsLabel": {
+    "description": "Label for assignments marks entry"
+  },
+  "eRequestsTitle": "صندوق الطلبات الإلكترونية",
+  "myRequests": "طلباتي",
+  "noRequestsYet": "لم تقم بتقديم أي طلب بعد",
+  "noRequestsDescription": "يمكنك تقديم طلباتك الإلكترونية من الأقسام أدناه",
+  "requestTypeGraduationCertificate": "إفادة تخرج",
+  "requestTypeOfficialTranscript": "كشف درجات رسمي",
+  "requestTypeSemesterDeferral": "تأجيل فصل دراسي",
+  "requestTypeMajorChange": "تغيير تخصص",
+  "requestStatusPending": "قيد المراجعة",
+  "requestStatusApproved": "مقبول",
+  "requestStatusRejected": "مرفوض",
+  "requestStatusReadyForPickup": "جاهز للاستلام",
+  "submitRequest": "تقديم الطلب",
+  "cancelRequest": "إلغاء الطلب",
+  "cancelRequestConfirm": "هل أنت متأكد من إلغاء هذا الطلب؟",
+  "cancelRequestWarning": "لا يمكن التراجع عن هذا الإجراء",
+  "requestSubmitted": "تم تقديم الطلب بنجاح",
+  "requestCancelled": "تم إلغاء الطلب",
+  "requestDetails": "تفاصيل الطلب",
+  "requestTimeline": "مسار الطلب",
+  "timelineSubmitted": "تم التقديم",
+  "timelineReview": "قيد المراجعة",
+  "timelineDecision": "تم القرار",
+  "timelineReady": "جاهز للاستلام",
+  "adminNote": "ملاحظة الإدارة",
+  "optionalNotes": "ملاحظات (اختياري)",
+  "numberOfCopies": "عدد النسخ",
+  "language": "اللغة",
+  "languageArabic": "العربية",
+  "languageEnglish": "الإنجليزية",
+  "semesterToDefer": "الفصل الدراسي المراد تأجيله",
+  "reasonForRequest": "سبب الطلب",
+  "reasonRequired": "سبب الطلب مطلوب",
+  "newMajor": "التخصص الجديد المطلوب",
+  "selectSemester": "اختر الفصل الدراسي",
+  "selectMajor": "اختر التخصص",
+  "validationError": "خطأ في التحقق",
+  "requestFailed": "فشل تقديم الطلب",
+  "pleaseTryAgain": "يرجى المحاولة مرة أخرى",
+  "eRequests": "صندوق الطلبات",
+  "collegeCampusLabel": "الحرم: {name}",
+  "@collegeCampusLabel": {
+    "description": "Label for college campus location",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "campusDerna": "درنة",
+  "@campusDerna": {
+    "description": "Derna campus name"
+  },
+  "campusQubbah": "القبة",
+  "@campusQubbah": {
+    "description": "Al-Qubbah campus name"
+  },
+  "collegeWelcomeTitle": "مرحباً بكم في {name}",
+  "@collegeWelcomeTitle": {
+    "description": "Welcome message for a college",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "collegeWelcomeSubtitle": "محتوى الكلية والإعلانات والأقسام متاحة من التبويبات أدناه.",
+  "@collegeWelcomeSubtitle": {
+    "description": "Welcome instructions on college homepage"
+  },
+  "collegeNoDepartments": "لا توجد أقسام مسجّلة لهذه الكلية بعد.",
+  "@collegeNoDepartments": {
+    "description": "Fallback when college has no departments listed"
+  },
+  "collegeNewsTitle": "أخبار {name}",
+  "@collegeNewsTitle": {
+    "description": "Header title for college news section",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "collegeNewsAnnouncement": "إعلان أكاديمي",
+  "@collegeNewsAnnouncement": {
+    "description": "Label for academic announcements news"
+  },
+  "collegeNewsLabel": "خبر الكلية",
+  "@collegeNewsLabel": {
+    "description": "Label for general college news"
+  },
+  "collegeNewsPlaceholder": "سيتم ربط الأخبار بـ Firestore لاحقاً.",
+  "@collegeNewsPlaceholder": {
+    "description": "Placeholder for offline/mock news"
+  },
+  "universityName": "جامعة درنة",
+  "@universityName": {
+    "description": "The official university name"
+  },
+  "guestViewList": "عرض قائمة",
+  "@guestViewList": {
+    "description": "Tooltip/text to switch to list view in guest portal"
+  },
+  "guestViewGrid": "عرض شبكة",
+  "@guestViewGrid": {
+    "description": "Tooltip/text to switch to grid view in guest portal"
+  },
+  "guestSearchHint": "ابحث عن كلية أو قسم...",
+  "@guestSearchHint": {
+    "description": "Placeholder inside search bar"
+  },
+  "guestCollegesCount": "{count} كليات",
+  "@guestCollegesCount": {
+    "description": "Total count of academic colleges",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "guestPortalTitle": "بوابة الزائر",
+  "@guestPortalTitle": {
+    "description": "Portal heading for unauthenticated users"
+  },
+  "guestNoResultsFor": "لا توجد نتائج لـ \"{search}\"",
+  "@guestNoResultsFor": {
+    "description": "Message when search query matches nothing",
+    "placeholders": {
+      "search": {
+        "type": "String"
+      }
+    }
+  },
+  "guestSignUpCTA": "سجّل الآن في جامعة درنة",
+  "@guestSignUpCTA": {
+    "description": "Footer CTA to register new accounts"
+  },
+  "guestDepartmentsCount": "{count} أقسام",
+  "@guestDepartmentsCount": {
+    "description": "Department count of a faculty",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "guestAcademicDepartments": "الأقسام الأكاديمية",
+  "@guestAcademicDepartments": {
+    "description": "Section header in college details bottom sheet"
+  },
+  "guestRegisterInCollege": "سجّل في هذه الكلية",
+  "@guestRegisterInCollege": {
+    "description": "CTA button to sign up directly to a specific college"
+  },
+  "collegesTitle": "الكليات",
+  "@collegesTitle": {
+    "description": "Title for colleges listing or explorer"
+  },
+  "searchCollegesHint": "ابحث عن كليات...",
+  "@searchCollegesHint": {
+    "description": "Search field hint on colleges explorer"
+  },
+  "noCollegesFoundMessage": "لا توجد كليات",
+  "@noCollegesFoundMessage": {
+    "description": "Empty state when college search has no results"
+  },
+  "departmentsCount": "{count} أقسام",
+  "@departmentsCount": {
+    "description": "Department count label for a college",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "viewDetailsButton": "عرض التفاصيل",
+  "@viewDetailsButton": {
+    "description": "Button to open college or faculty details"
+  },
+  "timetableTitle": "الجدول الزمني",
+  "@timetableTitle": {
+    "description": "Title for the academic timetable screen"
+  },
+  "weekTabLabel": "أسبوع",
+  "@weekTabLabel": {
+    "description": "Week tab on timetable screen"
+  },
+  "monthTabLabel": "شهر",
+  "@monthTabLabel": {
+    "description": "Month tab on timetable screen"
+  },
+  "noSessionsMessage": "لا توجد جلسات مجدولة",
+  "@noSessionsMessage": {
+    "description": "Empty state when no timetable sessions exist"
+  },
+  "sessionTimeFormat": "{startTime} - {endTime}",
+  "@sessionTimeFormat": {
+    "description": "Session time range (always displayed LTR)",
+    "placeholders": {
+      "startTime": {
+        "type": "String"
+      },
+      "endTime": {
+        "type": "String"
+      }
+    }
+  },
+  "guestContinueButton": "متابعة كزائر",
+  "@guestContinueButton": {
+    "description": "Primary action to enter guest mode"
+  },
+  "guestWarningMessage": "لن يتم حفظ بياناتك عبر الأجهزة",
+  "@guestWarningMessage": {
+    "description": "Warning shown before continuing as guest"
+  },
+  "proceedButton": "متابعة",
+  "@proceedButton": {
+    "description": "Confirm action in guest warning dialog"
+  },
+  "cancelButton": "إلغاء",
+  "@cancelButton": {
+    "description": "Cancel action in guest warning dialog"
+  },
+  "transcriptTitle": "كشف الفصل الدراسي",
+  "@transcriptTitle": {
+    "description": "Title for semester transcript screen"
+  },
+  "transcriptSemesterLabel": "الفصل: {semester}",
+  "@transcriptSemesterLabel": {
+    "description": "Semester label on transcript screen",
+    "placeholders": {
+      "semester": {
+        "type": "String"
+      }
+    }
+  },
+  "transcriptStudentIdLabel": "الرقم الجامعي: {id}",
+  "@transcriptStudentIdLabel": {
+    "description": "Student ID label on transcript screen",
+    "placeholders": {
+      "id": {
+        "type": "String"
+      }
+    }
+  },
+  "transcriptGpaLabel": "المعدل: {gpa}",
+  "@transcriptGpaLabel": {
+    "description": "GPA label on transcript screen",
+    "placeholders": {
+      "gpa": {
+        "type": "String"
+      }
+    }
+  },
+  "transcriptLoadingMessage": "جاري تحميل الكشف...",
+  "@transcriptLoadingMessage": {
+    "description": "Shown while transcript is loading"
+  },
+  "transcriptGeneratingMessage": "جاري إنشاء ملف PDF...",
+  "@transcriptGeneratingMessage": {
+    "description": "Shown while PDF is being generated"
+  },
+  "transcriptNoDataMessage": "لا تتوفر بيانات الكشف",
+  "@transcriptNoDataMessage": {
+    "description": "Shown when no transcript data exists"
+  },
+  "transcriptRetryButton": "إعادة المحاولة",
+  "@transcriptRetryButton": {
+    "description": "Retry loading transcript"
+  },
+  "transcriptOfflineBanner": "عرض نسخة مخزنة - وضع غير متصل",
+  "@transcriptOfflineBanner": {
+    "description": "Banner when showing cached transcript offline"
+  },
+  "transcriptNoCacheMessage": "لا يوجد كشف مخزن للاستخدام دون اتصال",
+  "@transcriptNoCacheMessage": {
+    "description": "Shown when offline with no cache"
+  },
+  "transcriptRefreshButton": "تحديث من الخادم",
+  "@transcriptRefreshButton": {
+    "description": "Refresh transcript from server"
+  },
+  "transcriptLastUpdatedLabel": "آخر تحديث: {date}",
+  "@transcriptLastUpdatedLabel": {
+    "description": "Last cache update timestamp",
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "transcriptOpenPdfButton": "فتح PDF",
+  "@transcriptOpenPdfButton": {
+    "description": "Open transcript PDF"
+  },
+  "transcriptDownloadButton": "تنزيل",
+  "@transcriptDownloadButton": {
+    "description": "Download transcript PDF"
+  },
+  "notificationsEmptyMessage": "لا توجد إشعارات حتى الآن",
+  "@notificationsEmptyMessage": {
+    "description": "Empty state message"
+  },
+  "notificationsMarkAllReadButton": "وضع الكل كمقروء",
+  "@notificationsMarkAllReadButton": {
+    "description": "Button to mark all notifications read"
+  },
+  "notificationNewBadge": "جديد",
+  "@notificationNewBadge": {
+    "description": "Badge for unread notifications"
+  },
+  "notificationTimeAgo": "منذ {time}",
+  "@notificationTimeAgo": {
+    "description": "Relative time for a notification",
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "notificationDeleteButton": "حذف",
+  "@notificationDeleteButton": {
+    "description": "Delete notification button"
+  },
+  "alertsTitle": "التنبيهات",
+  "@alertsTitle": {
+    "description": "Title for alerts page"
+  },
+  "announcementsTitle": "الإعلانات",
+  "@announcementsTitle": {
+    "description": "Title for announcements page"
+  },
+  "notificationSettingsButton": "إعدادات الإشعارات",
+  "@notificationSettingsButton": {
+    "description": "Button to open notification settings"
+  },
+  "messagesTitle": "الرسائل",
+  "@messagesTitle": {
+    "description": "Title for messages screen"
+  },
+  "inboxTitle": "صندوق الوارد",
+  "@inboxTitle": {
+    "description": "Title for inbox screen"
+  },
+  "chatTitle": "المحادثة",
+  "@chatTitle": {
+    "description": "Title for chat screen"
+  },
+  "messagesEmptyMessage": "لا توجد رسائل بعد",
+  "@messagesEmptyMessage": {
+    "description": "Empty state when there are no messages"
+  },
+  "messageSearchHint": "اكتب رسالتك هنا...",
+  "@messageSearchHint": {
+    "description": "Search field hint on messages"
+  },
+  "messageComposeButton": "رسالة جديدة",
+  "@messageComposeButton": {
+    "description": "Button to compose a new message"
+  },
+  "messageReplyButton": "رد",
+  "@messageReplyButton": {
+    "description": "Reply to a message"
+  },
+  "absenceExcuseTitle": "تقديم إذن غياب",
+  "@absenceExcuseTitle": {
+    "description": "Title for absence excuse submission page"
+  },
+  "subjectLabel": "المادة المعنية",
+  "@subjectLabel": {
+    "description": "Label for subject selection"
+  },
+  "absencePeriodLabel": "فترة الغياب",
+  "@absencePeriodLabel": {
+    "description": "Label for absence date range"
+  },
+  "selectDatesHint": "اضغط لاختيار التواريخ",
+  "@selectDatesHint": {
+    "description": "Hint text for date picker"
+  },
+  "excuseTypeLabel": "نوع العذر",
+  "@excuseTypeLabel": {
+    "description": "Label for excuse type selection"
+  },
+  "excuseTypeSick": "إجازة مرضية",
+  "@excuseTypeSick": {
+    "description": "Sick leave excuse type"
+  },
+  "excuseTypeEmergency": "ظرف طارئ",
+  "@excuseTypeEmergency": {
+    "description": "Emergency excuse type"
+  },
+  "excuseTypeFamily": "أسباب عائلية",
+  "@excuseTypeFamily": {
+    "description": "Family reasons excuse type"
+  },
+  "excuseTypeOther": "أخرى",
+  "@excuseTypeOther": {
+    "description": "Other excuse type"
+  },
+  "descriptionLabel": "الوصف والسبب",
+  "@descriptionLabel": {
+    "description": "Label for excuse description"
+  },
+  "descriptionHint": "اكتب تفاصيل العذر هنا...",
+  "@descriptionHint": {
+    "description": "Hint text for description field"
+  },
+  "attachmentsLabel": "المرفقات (اختياري، مطلوب للإجازة المرضية)",
+  "@attachmentsLabel": {
+    "description": "Label for file attachments"
+  },
+  "tapToAttach": "اضغط لإرفاق ملف أو صورة",
+  "@tapToAttach": {
+    "description": "Hint for attachment upload area"
+  },
+  "maxFileSize": "الحد الأقصى: 5 ميجابايت",
+  "@maxFileSize": {
+    "description": "Maximum file size hint"
+  },
+  "removeAttachment": "إزالة",
+  "@removeAttachment": {
+    "description": "Button to remove attachment"
+  },
+  "submitRequest": "تقديم الطلب",
+  "@submitRequest": {
+    "description": "Submit button text"
+  },
+  "takePhoto": "التقاط صورة",
+  "@takePhoto": {
+    "description": "Option to take photo"
+  },
+  "chooseFromGallery": "اختيار من المعرض",
+  "@chooseFromGallery": {
+    "description": "Option to choose from gallery"
+  },
+  "choosePdf": "اختيار ملف PDF",
+  "@choosePdf": {
+    "description": "Option to choose PDF file"
+  },
+  "fileSizeError": "حجم الملف يجب أن لا يتجاوز 5 ميجابايت",
+  "@fileSizeError": {
+    "description": "Error when file is too large"
+  },
+  "selectDateError": "الرجاء اختيار فترة الغياب",
+  "@selectDateError": {
+    "description": "Error when date range not selected"
+  },
+  "medicalAttachmentRequired": "المرفق الطبي مطلوب للإجازة المرضية",
+  "@medicalAttachmentRequired": {
+    "description": "Error when medical attachment missing"
+  },
+  "userNotLoggedIn": "المستخدم غير مسجل الدخول",
+  "@userNotLoggedIn": {
+    "description": "Error when user not authenticated"
+  },
+  "excuseAlreadySubmitted": "تم تقديم عذر لهذه المادة في نفس التاريخ مسبقاً",
+  "@excuseAlreadySubmitted": {
+    "description": "Error when duplicate excuse submitted"
+  },
+  "uploadingRequest": "جاري رفع الطلب...",
+  "@uploadingRequest": {
+    "description": "Loading message during upload"
+  },
+  "excuseSubmittedSuccess": "تم تقديم العذر بنجاح وسيتم مراجعته من قبل إدارة الكلية",
+  "@excuseSubmittedSuccess": {
+    "description": "Success message after excuse submission"
+  },
+  "backToHome": "العودة للرئيسية",
+  "@backToHome": {
+    "description": "Button to return to home"
+  },
+  "selectSubjectError": "الرجاء اختيار المادة",
+  "@selectSubjectError": {
+    "description": "Error when subject not selected"
+  },
+  "selectExcuseTypeError": "الرجاء اختيار نوع العذر",
+  "@selectExcuseTypeError": {
+    "description": "Error when excuse type not selected"
+  },
+  "writeReasonError": "الرجاء كتابة السبب",
+  "@writeReasonError": {
+    "description": "Error when reason not provided"
+  },
+  "enrollmentRenewalTitle": "تجديد القيد",
+  "@enrollmentRenewalTitle": {
+    "description": "Title for enrollment renewal page"
+  },
+  "selectPaymentMethodError": "الرجاء اختيار طريقة الدفع أولاً",
+  "@selectPaymentMethodError": {
+    "description": "Error when payment method not selected"
+  },
+  "submissionError": "حدث خطأ أثناء التقديم: {error}",
+  "@submissionError": {
+    "description": "Error during submission",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "startRenewalProcess": "ابدأ عملية التجديد",
+  "@startRenewalProcess": {
+    "description": "Button to start renewal process"
+  },
+  "confirmPayment": "تأكيد الدفع وإرسال",
+  "@confirmPayment": {
+    "description": "Button to confirm payment"
+  },
+  "back": "رجوع",
+  "@back": {
+    "description": "Back button"
+  },
+  "reviewDataStep": "مراجعة البيانات",
+  "@reviewDataStep": {
+    "description": "Step title for data review"
+  },
+  "paymentMethodStep": "طريقة الدفع",
+  "@paymentMethodStep": {
+    "description": "Step title for payment method"
+  },
+  "requestStatusStep": "حالة الطلب",
+  "@requestStatusStep": {
+    "description": "Step title for request status"
+  },
+  "studentNameLabel": "اسم الطالب:",
+  "@studentNameLabel": {
+    "description": "Label for student name"
+  },
+  "studentIdLabel": "الرقم الجامعي:",
+  "@studentIdLabel": {
+    "description": "Label for student ID"
+  },
+  "collegeLabel": "الكلية:",
+  "@collegeLabel": {
+    "description": "Label for college"
+  },
+  "academicYearLabel": "العام الجامعي:",
+  "@academicYearLabel": {
+    "description": "Label for academic year"
+  },
+  "deadlineLabel": "تاريخ الانتهاء:",
+  "@deadlineLabel": {
+    "description": "Label for deadline"
+  },
+  "feesRequiredLabel": "الرسوم المطلوبة:",
+  "@feesRequiredLabel": {
+    "description": "Label for required fees"
+  },
+  "paymentMethodBank": "تحويل مصرفي",
+  "@paymentMethodBank": {
+    "description": "Bank transfer payment method"
+  },
+  "paymentMethodLibyaBank": "مصرف ليبيا",
+  "@paymentMethodLibyaBank": {
+    "description": "Libya Bank payment method"
+  },
+  "paymentMethodOnline": "الدفع الإلكتروني",
+  "@paymentMethodOnline": {
+    "description": "Online payment method"
+  },
+  "republicBank": "مصرف الجمهورية",
+  "@republicBank": {
+    "description": "Republic Bank name"
+  },
+  "bankAccountNumber": "رقم الحساب: 123-456789-00",
+  "@bankAccountNumber": {
+    "description": "Bank account number"
+  },
+  "beneficiary": "المستفيد: جامعة درنة",
+  "@beneficiary": {
+    "description": "Payment beneficiary"
+  },
+  "attachReceipt": "إرفاق إيصال التحويل",
+  "@attachReceipt": {
+    "description": "Button to attach payment receipt"
+  },
+  "receiptAttached": "تم إرفاق إيصال الدفع بنجاح",
+  "@receiptAttached": {
+    "description": "Success message when receipt attached"
+  },
+  "libyaCentralBank": "مصرف ليبيا المركزي",
+  "@libyaCentralBank": {
+    "description": "Libya Central Bank name"
+  },
+  "cardPayment": "الدفع عبر البطاقة المصرفية",
+  "@cardPayment": {
+    "description": "Card payment option"
+  },
+  "comingSoon": "قريباً",
+  "@comingSoon": {
+    "description": "Coming soon badge"
+  },
+  "requestApproved": "تم قبول طلبك ✓",
+  "@requestApproved": {
+    "description": "Status when request approved"
+  },
+  "requestApprovedMessage": "لقد تمت الموافقة على تجديد قيدك. مرحباً بك في العام الدراسي الجديد.",
+  "@requestApprovedMessage": {
+    "description": "Message when request approved"
+  },
+  "requestRejected": "تم رفض الطلب",
+  "@requestRejected": {
+    "description": "Status when request rejected"
+  },
+  "requestRejectedMessage": "تم رفض طلب تجديد القيد. الرجاء مراجعة قسم القبول والتسجيل للاستفسار.",
+  "@requestRejectedMessage": {
+    "description": "Message when request rejected"
+  },
+  "requestPending": "طلبك قيد المراجعة",
+  "@requestPending": {
+    "description": "Status when request pending"
+  },
+  "requestPendingMessage": "تم استلام طلبك بنجاح. سيتم مراجعته من قبل قسم القبول والتسجيل وستصلك إشعار بالنتيجة.",
+  "@requestPendingMessage": {
+    "description": "Message when request pending"
+  },
+  "referenceNumberLabel": "رقم المرجع:",
+  "@referenceNumberLabel": {
+    "description": "Label for reference number"
+  },
+  "examPapersTitle": "أوراق الامتحانات",
+  "@examPapersTitle": {
+    "description": "Title for exam papers page"
+  },
+  "quizzesCategory": "الاختبارات (Quizzes)",
+  "@quizzesCategory": {
+    "description": "Quiz exam category"
+  },
+  "midtermCategory": "الامتحان النصفي",
+  "@midtermCategory": {
+    "description": "Midterm exam category"
+  },
+  "finalCategory": "الامتحان النهائي",
+  "@finalCategory": {
+    "description": "Final exam category"
+  },
+  "noPapersInSection": "لا توجد أوراق في هذا القسم حالياً",
+  "@noPapersInSection": {
+    "description": "Empty state when no papers in category"
+  },
+  "loadingPapersError": "حدث خطأ أثناء تحميل أوراق الامتحانات: {error}",
+  "@loadingPapersError": {
+    "description": "Error loading exam papers",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "unknownDate": "تاريخ غير معروف",
+  "@unknownDate": {
+    "description": "Fallback when date unknown"
+  },
+  "uploadDateLabel": "تاريخ الرفع: {date}",
+  "@uploadDateLabel": {
+    "description": "Label for upload date",
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "unknownSubject": "مادة غير معروفة",
+  "@unknownSubject": {
+    "description": "Fallback when subject unknown"
+  },
+  "viewPaper": "عرض",
+  "@viewPaper": {
+    "description": "Button to view exam paper"
+  },
+  "fileLinkUnavailable": "رابط الملف غير متاح",
+  "@fileLinkUnavailable": {
+    "description": "Error when file link unavailable"
+  },
+  "mockSubject1": "برمجة متقدمة - CS301",
+  "@mockSubject1": {
+    "description": "Mock subject 1"
+  },
+  "mockSubject2": "هياكل بيانات - CS202",
+  "@mockSubject2": {
+    "description": "Mock subject 2"
+  },
+  "mockSubject3": "ذكاء اصطناعي - CS405",
+  "@mockSubject3": {
+    "description": "Mock subject 3"
+  },
+  "mockSubject4": "رياضيات متقطعة - MA104",
+  "@mockSubject4": {
+    "description": "Mock subject 4"
+  },
+  "messageForwardButton": "إعادة توجيه",
+  "@messageForwardButton": {
+    "description": "Forward a message"
+  },
+  "helpCenterTitle": "مركز المساعدة",
+  "@helpCenterTitle": {
+    "description": "Title for help center hub"
+  },
+  "faqTitle": "الأسئلة الشائعة",
+  "@faqTitle": {
+    "description": "Title for FAQ screen"
+  },
+  "contactUsTitle": "اتصل بنا",
+  "@contactUsTitle": {
+    "description": "Title for contact screen"
+  },
+  "faqSearchHint": "ابحث في الأسئلة الشائعة...",
+  "@faqSearchHint": {
+    "description": "Search hint on FAQ screen"
+  },
+  "supportTicketButton": "إرسال تذكرة دعم",
+  "@supportTicketButton": {
+    "description": "Submit support ticket button"
+  },
+  "supportEmailLabel": "الدعم عبر البريد الإلكتروني",
+  "@supportEmailLabel": {
+    "description": "Email support channel label"
+  },
+  "supportPhoneLabel": "الاتصال بالدعم",
+  "@supportPhoneLabel": {
+    "description": "Phone support channel label"
+  },
+  "reportProblemButton": "الإبلاغ عن مشكلة",
+  "@reportProblemButton": {
+    "description": "Report a problem button"
+  },
+  "searchTitle": "بحث",
+  "searchHint": "بحث...",
+  "filterTitle": "تصفية",
+  "clearFiltersButton": "مسح التصفيات",
+  "applyFiltersButton": "تطبيق التصفيات",
+  "noSearchResultsMessage": "لا توجد نتائج",
+  "networkError": "فشل اتصال الشبكة. تحقق من اتصالك بالإنترنت.",
+  "timeoutError": "انتهت مهلة الطلب. يرجى المحاولة مرة أخرى.",
+  "serverError": "خطأ في الخادم. يرجى المحاولة لاحقاً.",
+  "unauthorizedError": "غير مصرح لك. يرجى تسجيل الدخول مرة أخرى.",
+  "databaseSeederTitle": "بذار قاعدة البيانات",
+  "@databaseSeederTitle": {
+    "description": "Title for database seeder widget"
+  },
+  "databaseSeederDescription": "هذه الأداة تقوم بإنشاء بيانات تجريبية متصلة لنظام الجامعة (الطالب، أعضاء هيئة التدريس، الإدارة).",
+  "@databaseSeederDescription": {
+    "description": "Description for database seeder widget"
+  },
+  "seedDatabaseButton": "بدء البذر",
+  "@seedDatabaseButton": {
+    "description": "Button to start database seeding"
+  },
+  "databaseSeederWarning": "⚠️ سيتم حذف أي بيانات تجريبية موجودة قبل البذر.",
+  "@databaseSeederWarning": {
+    "description": "Warning message for database seeder"
+  },
+  "databaseSeedingSuccess": "تم بذر قاعدة البيانات بنجاح!",
+  "@databaseSeedingSuccess": {
+    "description": "Success message for database seeding"
+  },
+  "databaseSeedingError": "فشل بذر قاعدة البيانات",
+  "@databaseSeedingError": {
+    "description": "Error message for database seeding"
+  },
+  "notFoundError": "البيانات غير موجودة.",
+  "validationRequired": "هذا الحقل مطلوب",
+  "validationInvalidEmail": "يرجى إدخال بريد إلكتروني صحيح",
+  "validationPasswordTooShort": "كلمة المرور يجب أن تكون 6 أحرف على الأقل",
+  "validationPasswordsDoNotMatch": "كلمات المرور غير متطابقة",
+  "onboardingTitle": "مرحباً بك في بوابة الجامعة",
+  "authErrorRoleMismatch": "ليس لديك صلاحية الدخول لهذه البوابة",
+  "authErrorUserNotFound": "لم يتم العثور على بيانات حسابك",
+  "authErrorNetworkFailed": "تحقق من اتصالك بالإنترنت",
+  "authErrorInvalidCredentials": "البريد الإلكتروني أو كلمة المرور غير صحيحة",
+  "authErrorAccountNotFound": "لم يتم العثور على بيانات حسابك",
+  "authErrorPortalMismatch": "ليس لديك صلاحية الدخول لهذه البوابة",
+  "authErrorUserDisabled": "تم تعطيل هذا الحساب",
+  "authErrorTooManyRequests": "محاولات كثيرة. يرجى المحاولة لاحقاً",
+  "onboardingSkipButton": "تخطي",
+  "onboardingNextButton": "التالي",
+  "onboardingGetStartedButton": "ابدأ الآن",
+  "tutorialCoursesTitle": "تابع مقرراتك الدراسية",
+  "tutorialGradesTitle": "اطلع على درجاتك",
+  "tutorialNotificationsTitle": "ابق على اطلاع",
+  "unauthorizedTitle": "تم رفض الوصول",
+  "@unauthorizedTitle": {
+    "description": "Title shown when user tries to access restricted path"
+  },
+  "unauthorizedMessage": "ليس لديك صلاحية للوصول إلى هذا القسم. تم تسجيل هذا المحاولة لأغراض أمنية.",
+  "@unauthorizedMessage": {
+    "description": "Message shown on unauthorized access page"
+  },
+  "returnToPortal": "العودة إلى بوابتي",
+  "@returnToPortal": {
+    "description": "Button to return to user's appropriate dashboard"
+  },
+  "gradeInvalidNumber": "أدخل رقماً صحيحاً",
+  "gradeMaxMidterm": "الحد الأقصى 40 درجة",
+  "gradeMaxFinal": "الحد الأقصى 40 درجة",
+  "gradeMaxAssignments": "الحد الأقصى 20 درجة",
+  "changeRoleTitle": "تغيير الدور",
+  "classDetailTitle": "تفاصيل الفصل",
+  "studentsListTab": "قائمة الطلاب",
+  "announcementsTab": "سجل الإعلانات",
+  "searchStudent": "بحث عن طالب...",
+  "addAnnouncement": "إضافة إعلان",
+  "addAnnouncementTitle": "إضافة إعلان جديد",
+  "announcementHint": "اكتب الإعلان هنا...",
+  "announcementAdded": "تم إضافة الإعلان بنجاح",
+  "deleteAnnouncement": "حذف الإعلان",
+  "deleteConfirmation": "هل أنت متأكد من رغبتك في حذف هذا الإعلان؟",
+  "announcementDeleted": "تم حذف الإعلان بنجاح",
+  "noAnnouncements": "لا توجد إعلانات بعد",
+  "noStudents": "لا يوجد طلاب",
+  "profileFacultyMember": "عضو هيئة تدريس متميز",
+  "profileExperienceYears": "سنوات الخبرة",
+  "profilePublishedResearch": "الأبحاث المنشورة",
+  "profileJobId": "الرقم الوظيفي",
+  "profileSpecialization": "التخصص",
+  "profileEmail": "البريد الإلكتروني",
+  "profileDigitalDocuments": "الوثائق الرقمية",
+  "profileDownloadCard": "تحميل البطاقة الجامعية",
+  "profileDownloadDecree": "تحميل قرار التعيين",
+  "profileLogout": "تسجيل الخروج",
+  "scheduleTerm": "خريف 2024",
+  "scheduleToday": "جدول اليوم",
+  "scheduleActiveNow": "جارٍ الآن",
+  "scheduleLectureRoom": "قاعة",
+  "scheduleFloor": "الدور",
+  "scheduleStudentsRegistered": "طالب مسجل",
+  "scheduleAttendanceButton": "رصد الحضور",
+  "scheduleUpcoming": "المحاضرة القادمة",
+  "scheduleTheoretical": "نظري",
+  "schedulePractical": "عملي",
+  "scheduleGreetingDoctor": "مرحباً د.",
+  "settingsEditProfile": "تعديل الملف الشخصي",
+  "settingsChangePassword": "تغيير كلمة المرور",
+  "settingsLanguageDefault": "العربية (الافتراضية)",
+  "settingsSystem": "إعدادات النظام",
+  "settingsBiometric": "الدخول بالبصمة",
+  "settingsSupport": "الدعم والمعلومات",
+  "attendanceSheetTitle": "تسجيل الحضور",
+  "attendanceSheetSubtitle": "إدارة حضور الطلاب ورفع المواد الدراسية للمحاضرة الحالية",
+  "attendanceCurrentLecture": "المحاضرة الحالية",
+  "attendanceRoom": "القاعة 104 - مبنى التقنية",
+  "attendanceStudentList": "قائمة الطلاب",
+  "attendanceStudentCount": "عدد الطلاب",
+  "attendancePresent": "حاضر",
+  "attendanceLate": "متأخر",
+  "attendanceAbsent": "غائب",
+  "attendanceUploadSection": "رفع ملفات المحاضرة",
+  "attendanceUploadHint": "اضغط هنا أو اسحب الملفات لرفعها",
+  "attendanceUploadTypes": "PDF, PPTX, DOCX (حتى 50 ميجابايت)",
+  "attendanceSaveReport": "حفظ وإرسال التقرير",
+  "attendanceSaved": "تم حفظ الحضور بنجاح",
+  "studentsTitle": "قائمة الطلاب والتواصل",
+  "studentsSubtitle": "إدارة الحضور، التواصل، والبيانات الأكاديمية",
+  "studentsNewAnnouncement": "إرسال إعلان جديد",
+  "studentsTargetAll": "الجميع",
+  "studentsTargetGroupA": "مجموعة أ",
+  "studentsTargetGroupB": "مجموعة ب",
+  "studentsTargetStruggling": "المتعثرين",
+  "studentsAnnouncementHint": "اكتب نص الإعلان هنا...",
+  "studentsBroadcastNow": "بث الإعلان الآن",
+  "studentsRegistered": "الطلاب المسجلين",
+  "studentsSearch": "بحث باسم الطالب أو الرقم الجامعي...",
+  "studentsRecentAnnouncements": "سجل الإعلانات الأخيرة",
+  "studentsConfirmations": "تأكيد استلام",
+  "studentsViews": "مشاهدة",
+  "studentsMessageSent": "تم إرسال الإعلان بنجاح",
+  "reportsTitle": "تقارير توزيع الدرجات",
+  "reportsSelectSemester": "الفصل الدراسي",
+  "reportsSelectCourse": "المقرر الدراسي",
+  "reportsSuccessRate": "نسبة النجاح العامة",
+  "reportsTotalStudents": "إجمالي الطلاب",
+  "reportsAverageGrade": "متوسط الدرجات",
+  "reportsDistributionTitle": "توزيع الدرجات",
+  "reportsGradeA": "ممتاز",
+  "reportsGradeB": "جيد جداً",
+  "reportsGradeC": "جيد",
+  "reportsGradeD": "مقبول",
+  "reportsGradeF": "رسوب",
+  "reportsExportPdf": "تصدير تقرير PDF",
+  "reportsExportSuccess": "تم تصدير التقرير بنجاح",
+  "assignmentsTitle": "التكليفات والدرجات",
+  "assignmentsSubtitle": "الفصل الدراسي الخريف 2024 - كلية تقنية المعلومات",
+  "assignmentsWaiting": "انتظار الرصد",
+  "assignmentsStudents": "طلاب",
+  "assignmentsDueTomorrow": "موعد التسليم غداً",
+  "assignmentsGraded": "الطلاب المرصودين",
+  "assignmentsAddTitle": "إضافة واجب جديد",
+  "assignmentsAssignmentTitle": "عنوان التكليف",
+  "assignmentsAssignmentTitleHint": "مثال: الواجب الأول - هياكل البيانات",
+  "assignmentsMaxGrade": "الدرجة الكلية",
+  "assignmentsDueDate": "تاريخ التسليم",
+  "assignmentsPublish": "نشر التكليف الجديد",
+  "assignmentsCoursePrefix": "المادة:",
+  "assignmentsGradingSection": "رصد الدرجات",
+  "assignmentsGradeLabel": "الدرجة",
+  "assignmentsShowMore": "عرض المزيد من الطلاب",
+  "assignmentsValidationError": "الرجاء التأكد من صحة البيانات المدخلة",
+  "facultyPortalDrawerTitle": "بوابة أعضاء هيئة التدريس",
+  "academicPlanTitle": "الخطة الدراسية والتتبع",
+  "semesterOne": "الفصل الأول",
+  "semesterTwo": "الفصل الثاني",
+  "semesterThree": "الفصل الثالث",
+  "semesterFour": "الفصل الرابع",
+  "noCoursesThisSemester": "لا توجد مواد مدرجة لهذا الفصل",
+  "planProgressRate": "معدل إنجاز الخطة الأكاديمية",
+  "planProgressDetails": "أنجزت بنجاح {completed} ساعة من إجمالي {total} ساعة معتمدة في خطتك الدراسية.",
+  "@planProgressDetails": {
+    "placeholders": {
+      "completed": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "courseStatusCompleted": "منجزة",
+  "courseStatusInProgress": "مسجلة حالياً",
+  "courseStatusRemaining": "متبقية",
+  "creditHoursLabel": "{credits} ساعات معتمدة",
+  "@creditHoursLabel": {
+    "placeholders": {
+      "credits": {
+        "type": "int"
+      }
+    }
+  },
+  "lecture": "محاضرة",
+  "editProfileTooltip": "تعديل الملف الشخصي",
+  "absenceExcuse": "عذر الغياب",
+  "examPapers": "أوراق الامتحانات",
+  "registrationRenewal": "تجديد القيد",
+  "viewAndTrackAcademicPlan": "عرض وتتبع الخطة الدراسية",
+  "branchMainName": "المجمع الرئيسي (الفتائح)",
+"branchMainAddress": "جامعة درنة - منطقة الفتائح، درنة، ليبيا",
+"deanMainName": "د. سالم مصطفـــى الاسطـــى",
+"deanMainTitle": "عميد كلية الهندسة",
+
+"branchShihaName": "جامعة درنه (شيحا)",
+"branchShihaAddress": "منطقة شيحا - درنة، ليبيا",
+"deanShihaName": "د/عبدالسلام الحداد",
+"deanShihaTitle": "عميد كلية الاقتصاد والقانون",
+
+"branchBabTobrukName": "كلية الطب البشري (باب طبرق)",
+"branchBabTobrukAddress": "منطقة باب طبرق - درنة، ليبيا",
+"deanBabTobrukName": "أ.د. جمال عبد الحميد الحصادي",
+"deanBabTobrukTitle": "عميد كلية الطب البشري",
+
+"branchAlqubaName": "جامعة درنة (القبة)",
+"branchAlqubaAddress": "القبة - ليبيا",
+"deanAlqubaName": "أ/ زهير عبدالله جادالمولى",
+"deanAlqubaTitle": "عميد كلية الهندسة فرع القبة",
+  "goodMorning": "صباح الخير",
+  "goodEvening": "مساء الخير",
+  "goodEveningReply": "مساء النور"
+}

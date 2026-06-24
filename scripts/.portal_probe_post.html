@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نتائج الطلاب - جامعة درنة</title>
+    <!-- W3.CSS + أيقونات + خط -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: url('yyy.jpg') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+            transition: all 0.3s ease;
+        }
+        h2 {
+            color: #1e3c72;
+            font-weight: 700;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .w3-input {
+            border-radius: 50px !important;
+            border: 1px solid #ddd !important;
+            padding: 15px 20px !important;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+        .w3-input:focus {
+            border-color: #1e3c72 !important;
+            box-shadow: 0 0 0 3px rgba(30, 60, 114, 0.2);
+        }
+        .w3-select {
+            border-radius: 50px !important;
+            border: 1px solid #ddd !important;
+            padding: 15px 20px !important;
+            background-color: white;
+            cursor: pointer;
+        }
+        .btn-search {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 15px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .btn-search:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(135deg, #2a5298 0%, #1e3c72 100%);
+        }
+        .result-card {
+            background: #f8fafc;
+            border-radius: 20px;
+            padding: 25px;
+            margin-top: 30px;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px dashed #e2e8f0;
+        }
+        .info-row:last-child {
+            border-bottom: none;
+        }
+        .info-label {
+            font-weight: 600;
+            color: #1e3c72;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .info-value {
+            font-weight: 500;
+            color: #2d3748;
+            background: white;
+            padding: 4px 16px;
+            border-radius: 50px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .grade-highlight {
+            background: linear-gradient(135deg, #ffb347, #ff8c00);
+            color: white;
+            font-weight: 700;
+        }
+        .btn-pdf {
+            background: white;
+            color: #1e3c72;
+            border: 2px solid #1e3c72;
+            border-radius: 50px;
+            padding: 12px 30px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+            width: auto;
+        }
+        .btn-pdf:hover {
+            background: #1e3c72;
+            color: white;
+            border-color: #1e3c72;
+        }
+        .error-box {
+            background: #fee2e2;
+            border-right: 6px solid #ef4444;
+            color: #b91c1c;
+            padding: 16px 20px;
+            border-radius: 16px;
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 500;
+        }
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #1e3c72;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .material-symbols-outlined {
+            vertical-align: middle;
+        }
+        @media (max-width: 600px) {
+            .glass-card { padding: 20px; }
+            .info-row { flex-direction: column; gap: 8px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="glass-card">
+        <h2>
+            <span class="material-symbols-outlined" style="font-size: 40px;">school</span>
+            نتائج الطلاب - جامعة درنة
+        </h2>
+
+        <form method="post" style="margin-bottom: 20px;">
+            <div class="w3-row-padding">
+                <div class="w3-col m6 s12" style="margin-bottom:15px;">
+                    <input type="text" name="id_Student" class="w3-input" placeholder="الرقم الدراسي" value="" required>
+                </div>
+                <div class="w3-col m6 s12" style="margin-bottom:15px;">
+                    <select name="coll" class="w3-select" required>
+                        <option value="" disabled selected>اختر الكلية</option>
+                        <option value="كلية القانون" >كلية القانون</option>
+                        <option value="كلية الهندسة" >كلية الهندسة</option>
+                        <option value="كلية العلوم" >كلية العلوم</option>
+                        <option value="كلية الاقتصاد" >كلية الاقتصاد</option>
+                        <option value="كلية التربية" >كلية التربية</option>
+                        <option value="كلية الآداب" >كلية الآداب</option>
+                        <option value="كلية الطب" >كلية الطب</option>
+                        <option value="كلية الصيدلة" >كلية الصيدلة</option>
+                    </select>
+                </div>
+            </div>
+            <button type="submit" name="Send" class="btn-search w3-btn w3-block">
+                <span class="material-symbols-outlined">search</span> بحث
+            </button>
+        </form>
+
+        
+        
+        <footer>
+            <span class="material-symbols-outlined">devices</span>
+            جـــــامعة  درنــــــــــه
+        </footer>
+    </div>
+
+    <script>
+        window.onload = function() {
+            const btn = document.getElementById('download');
+            if (btn) {
+                btn.addEventListener('click', () => {
+                    html2pdf().from(document.getElementById('main')).save('result.pdf');
+                });
+            }
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,646 @@
+// lib/features/admin/presentation/pages/manage_courses.dart
+//
+// صفحة إدارة المواد الدراسية – بحث، إضافة، تعديل، حذف، اختيار الدكتور
+// Riverpod + Firestore + RTL Arabic + Dark-blue/Gold theme
+// ──────────────────────────────────────────────────────────────────────────
+
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
+import 'package:flutter_project/features/auth/data/auth_service.dart';
+
+// ── Palette ────────────────────────────────────────────────────────────────
+const _kNavy     = Color(0xFF1A365D);
+const _kNavyDark = Color(0xFF0F2340);
+const _kGold     = Color(0xFFD4AF37);
+const _kCourse   = Color(0xFF00695C);   // teal accent for courses
+
+// ══════════════════════════════════════════════════════════════════════════
+//  DATA MODEL
+// ══════════════════════════════════════════════════════════════════════════
+
+class Course {
+  final String id;
+  final String code;
+  final String name;
+  final int credits;
+  final String? instructorId;
+  final String? instructorName;
+
+  const Course({
+    required this.id,
+    required this.code,
+    required this.name,
+    required this.credits,
+    this.instructorId,
+    this.instructorName,
+  });
+
+  factory Course.fromDoc(QueryDocumentSnapshot<Map<String, dynamic>> doc) {
+    final d = doc.data();
+    return Course(
+      id: doc.id,
+      code: (d['code'] ?? '') as String,
+      name: (d['name'] ?? '') as String,
+      credits: (d['credits'] as num?)?.toInt() ?? 0,
+      instructorId: d['instructorId'] as String?,
+      instructorName: d['instructorName'] as String?,
+    );
+  }
+}
+
+class _Instructor {
+  final String id;
+  final String name;
+  const _Instructor({required this.id, required this.name});
+}
+
+// ══════════════════════════════════════════════════════════════════════════
+//  PROVIDERS
+// ══════════════════════════════════════════════════════════════════════════
+
+final _coursesStreamProvider =
+    StreamProvider.autoDispose<List<Course>>((ref) {
+  return ref
+      .watch(firestoreProvider)
+      .collection('courses')
+      .orderBy('code')
+      .snapshots()
+      .map((s) => s.docs.map(Course.fromDoc).toList());
+});
+
+final _instructorsProvider =
+    FutureProvider.autoDispose<List<_Instructor>>((ref) async {
+  final snap = await ref
+      .watch(firestoreProvider)
+      .collection('users')
+      .where('role', isEqualTo: 'faculty')
+      .get();
+  return snap.docs
+      .map((d) => _Instructor(
+            id: d.id,
+            name: (d.data()['fullName'] ??
+                    d.data()['displayName'] ??
+                    d.data()['name'] ??
+                    d.id) as String,
+          ))
+      .toList();
+});
+
+// ══════════════════════════════════════════════════════════════════════════
+//  PAGE
+// ══════════════════════════════════════════════════════════════════════════
+
+class ManageCoursesPage extends ConsumerStatefulWidget {
+  const ManageCoursesPage({super.key});
+
+  @override
+  ConsumerState<ManageCoursesPage> createState() => _ManageCoursesPageState();
+}
+
+class _ManageCoursesPageState extends ConsumerState<ManageCoursesPage> {
+  final _searchCtrl = TextEditingController();
+  String _query = '';
+
+  @override
+  void dispose() {
+    _searchCtrl.dispose();
+    super.dispose();
+  }
+
+  List<Course> _filtered(List<Course> all) {
+    if (_query.isEmpty) return all;
+    final q = _query.toLowerCase();
+    return all
+        .where((c) =>
+            c.code.toLowerCase().contains(q) ||
+            c.name.toLowerCase().contains(q))
+        .toList();
+  }
+
+  // ── Dialog ────────────────────────────────────────────────────────────
+  Future<void> _openAddDialog() => _openEditDialog(null);
+
+  Future<void> _openEditDialog(Course? course) async {
+    final codeCtrl    = TextEditingController(text: course?.code);
+    final nameCtrl    = TextEditingController(text: course?.name);
+    final creditsCtrl = TextEditingController(
+        text: course?.credits != null ? '${course!.credits}' : '');
+    String? selInstructorId   = course?.instructorId;
+    String? selInstructorName = course?.instructorName;
+    final formKey = GlobalKey<FormState>();
+    bool saving = false;
+
+    final instructorsAsync = ref.read(_instructorsProvider);
+    final instructors = instructorsAsync.value ?? <_Instructor>[];
+
+    await showDialog<void>(
+      context: context,
+      builder: (ctx) => Directionality(
+        textDirection: TextDirection.rtl,
+        child: StatefulBuilder(
+          builder: (ctx, setDs) => AlertDialog(
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
+            title: Text(
+              course == null ? 'إضافة مادة دراسية' : 'تعديل المادة',
+              style: const TextStyle(fontFamily: 'Cairo', fontWeight: FontWeight.bold, color: _kNavy),
+            ),
+            content: SingleChildScrollView(
+              child: Form(
+                key: formKey,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    _CourseField(
+                      ctrl: codeCtrl,
+                      label: 'رمز المادة (مثال: CS101)',
+                      icon: Icons.qr_code_rounded,
+                    ),
+                    const SizedBox(height: 12),
+                    _CourseField(
+                      ctrl: nameCtrl,
+                      label: 'اسم المادة',
+                      icon: Icons.menu_book_rounded,
+                    ),
+                    const SizedBox(height: 12),
+                    _CourseField(
+                      ctrl: creditsCtrl,
+                      label: 'عدد الساعات',
+                      icon: Icons.timer_rounded,
+                      keyboard: TextInputType.number,
+                      validator: (v) {
+                        if (v == null || v.trim().isEmpty) return 'هذا الحقل مطلوب';
+                        if (int.tryParse(v.trim()) == null) return 'أدخل رقماً صحيحاً';
+                        return null;
+                      },
+                    ),
+                    const SizedBox(height: 16),
+                    // Instructor dropdown
+                    DropdownButtonFormField<String>(
+                      initialValue: selInstructorId,  // ✅ تم التصحيح
+                      isExpanded: true,
+                      decoration: InputDecoration(
+                        labelText: 'الدكتور المسند (اختياري)',
+                        labelStyle: const TextStyle(fontFamily: 'Cairo', color: _kNavy),
+                        prefixIcon: const Icon(Icons.person_pin_rounded, color: _kNavy),
+                        border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          borderSide: const BorderSide(color: _kNavy, width: 1.5),
+                        ),
+                      ),
+                      validator: null, // optional
+                      items: [
+                        DropdownMenuItem(
+                          value: null,
+                          child: const Text('— بدون تعيين —',
+                              style: TextStyle(fontFamily: 'Cairo', color: Theme.of(context).colorScheme.onSurfaceVariant)),
+                        ),
+                        ...instructors.map((ins) => DropdownMenuItem(
+                              value: ins.id,
+                              child: Text(ins.name,
+                                  style: const TextStyle(fontFamily: 'Cairo'),
+                                  overflow: TextOverflow.ellipsis),
+                            )),
+                      ],
+                      onChanged: (v) => setDs(() {
+                        selInstructorId = v;
+                        selInstructorName =
+                            instructors.firstWhere((i) => i.id == v,
+                                orElse: () => const _Instructor(id: '', name: '')).name;
+                        if (v == null) selInstructorName = null;
+                      }),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.pop(ctx),
+                child: const Text('إلغاء', style: TextStyle(fontFamily: 'Cairo', color: Theme.of(context).colorScheme.onSurfaceVariant)),
+              ),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: _kNavy,
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                ),
+                onPressed: saving
+                    ? null
+                    : () async {
+                        if (!formKey.currentState!.validate()) return;
+                        setDs(() => saving = true);
+                        try {
+                          final payload = <String, dynamic>{
+                            'code': codeCtrl.text.trim().toUpperCase(),
+                            'name': nameCtrl.text.trim(),
+                            'credits': int.parse(creditsCtrl.text.trim()),
+                            'instructorId': selInstructorId,
+                            'instructorName': selInstructorName,
+                            'updatedAt': FieldValue.serverTimestamp(),
+                          };
+                          if (course == null) {
+                            payload['createdAt'] = FieldValue.serverTimestamp();
+                            await FirebaseFirestore.instance
+                                .collection('courses')
+                                .add(payload);
+                          } else {
+                            await FirebaseFirestore.instance
+                                .collection('courses')
+                                .doc(course.id)
+                                .update(payload);
+                          }
+                          if (ctx.mounted) Navigator.pop(ctx);
+                          _snack('تم الحفظ بنجاح ✓', success: true);
+                        } catch (e) {
+                          _snack('حدث خطأ: $e');
+                        } finally {
+                          if (ctx.mounted) setDs(() => saving = false);
+                        }
+                      },
+                child: saving
+                    ? const SizedBox(
+                        width: 18,
+                        height: 18,
+                        child: CircularProgressIndicator(
+                            color: Colors.white, strokeWidth: 2),
+                      )
+                    : const Text('حفظ',
+                        style: TextStyle(fontFamily: 'Cairo', color: Colors.white)),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Future<void> _confirmDelete(Course course) async {
+    final confirm = await showDialog<bool>(
+      context: context,
+      builder: (_) => Directionality(
+        textDirection: TextDirection.rtl,
+        child: AlertDialog(
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+          title: Text('تأكيد الحذف',
+              style: TextStyle(fontFamily: 'Cairo',
+                  fontWeight: FontWeight.bold, color: Colors.red.shade700)),
+          content: Text(
+            'هل تريد حذف المادة "${course.name}" (${course.code})؟',
+            style: const TextStyle(fontFamily: 'Cairo'),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(context, false),
+              child: const Text('إلغاء', style: TextStyle(fontFamily: 'Cairo', color: Theme.of(context).colorScheme.onSurfaceVariant)),
+            ),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.red.shade700,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10)),
+              ),
+              onPressed: () => Navigator.pop(context, true),
+              child: const Text('حذف', style: TextStyle(fontFamily: 'Cairo', color: Colors.white)),
+            ),
+          ],
+        ),
+      ),
+    );
+
+    if (confirm == true) {
+      try {
+        await FirebaseFirestore.instance
+            .collection('courses')
+            .doc(course.id)
+            .delete();
+        _snack('تم حذف المادة', success: true);
+      } catch (e) {
+        _snack('فشل الحذف: $e');
+      }
+    }
+  }
+
+  void _snack(String msg, {bool success = false}) {
+    if (!mounted) return;
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      content: Text(msg, style: const TextStyle(fontFamily: 'Cairo', color: Colors.white)),
+      backgroundColor: success ? const Color(0xFF1B5E20) : Colors.red.shade700,
+      behavior: SnackBarBehavior.floating,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+      duration: const Duration(seconds: 2),
+    ));
+  }
+
+  // ── Build ─────────────────────────────────────────────────────────────
+  @override
+  Widget build(BuildContext context) {
+    final async = ref.watch(_coursesStreamProvider);
+
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: Scaffold(
+        backgroundColor: const Color(0xFFF0F4F8),
+        appBar: AppBar(
+          backgroundColor: _kNavy,
+          elevation: 0,
+          centerTitle: true,
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back_ios, color: Colors.white, size: 20),
+            onPressed: () => context.go('/admin/dashboard'),
+          ),
+          flexibleSpace: Container(
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                colors: [_kNavyDark, _kNavy],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+              ),
+            ),
+          ),
+          title: const Text('إدارة المواد الدراسية',
+              style: TextStyle(fontFamily: 'Cairo',
+                  color: Colors.white, fontWeight: FontWeight.bold)),
+          actions: [
+            IconButton(
+              icon: const Icon(Icons.library_add_rounded, color: _kGold),
+              tooltip: 'إضافة مادة',
+              onPressed: _openAddDialog,
+            ),
+            const SizedBox(width: 4),
+          ],
+        ),
+        body: Column(
+          children: [
+            // ── Search bar ───────────────────────────────────────────
+            Container(
+              color: _kNavy,
+              padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+              child: TextField(
+                controller: _searchCtrl,
+                style: const TextStyle(fontFamily: 'Cairo', color: Colors.white),
+                decoration: InputDecoration(
+                  hintText: 'بحث باسم المادة أو رمزها...',
+                  hintStyle: const TextStyle(fontFamily: 'Cairo', color: Colors.white54),
+                  prefixIcon: const Icon(Icons.search_rounded, color: Colors.white54),
+                  filled: true,
+                  fillColor: Colors.white.withValues(alpha: 0.12),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                    borderSide: BorderSide.none,
+                  ),
+                  contentPadding: const EdgeInsets.symmetric(vertical: 10),
+                ),
+                onChanged: (v) => setState(() => _query = v),
+              ),
+            ),
+
+            // ── Courses list ─────────────────────────────────────────
+            Expanded(
+              child: async.when(
+                loading: () => const Center(
+                    child: CircularProgressIndicator(color: _kNavy)),
+                error: (e, _) => Center(
+                  child: Text('تعذّر تحميل البيانات: $e',
+                      style: const TextStyle(fontFamily: 'Cairo', color: Colors.red)),
+                ),
+                data: (courses) {
+                  final filtered = _filtered(courses);
+                  if (filtered.isEmpty) {
+                    return Center(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Icon(Icons.menu_book_outlined,
+                              size: 64, color: Colors.grey.shade300),
+                          const SizedBox(height: 12),
+                          const Text('لا توجد مواد دراسية',
+                              style: TextStyle(fontFamily: 'Cairo', color: Theme.of(context).colorScheme.onSurfaceVariant)),
+                        ],
+                      ),
+                    );
+                  }
+                  return ListView.builder(
+                    padding: const EdgeInsets.fromLTRB(16, 12, 16, 80),
+                    itemCount: filtered.length,
+                    itemBuilder: (_, i) => _CourseCard(
+                      course: filtered[i],
+                      index: i,
+                      onEdit: () => _openEditDialog(filtered[i]),
+                      onDelete: () => _confirmDelete(filtered[i]),
+                    ),
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
+        floatingActionButton: FloatingActionButton.extended(
+          backgroundColor: _kNavy,
+          icon: const Icon(Icons.library_add_rounded, color: _kGold),
+          label: const Text('إضافة مادة',
+              style: TextStyle(fontFamily: 'Cairo', color: Colors.white)),
+          onPressed: _openAddDialog,
+        ).animate().slideY(begin: 0.4).fadeIn(duration: 500.ms),
+      ),
+    );
+  }
+}
+
+// ══════════════════════════════════════════════════════════════════════════
+//  COURSE CARD WIDGET
+// ══════════════════════════════════════════════════════════════════════════
+
+class _CourseCard extends StatelessWidget {
+  final Course course;
+  final int index;
+  final VoidCallback onEdit;
+  final VoidCallback onDelete;
+
+  const _CourseCard({
+    required this.course,
+    required this.index,
+    required this.onEdit,
+    required this.onDelete,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.only(bottom: 10),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(14),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.05),
+            blurRadius: 12,
+            offset: const Offset(0, 3),
+          ),
+        ],
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(14),
+        child: Row(
+          children: [
+            // Code badge
+            Container(
+              width: 54,
+              height: 54,
+              decoration: BoxDecoration(
+                color: _kCourse.withValues(alpha: 0.1),
+                borderRadius: BorderRadius.circular(12),
+                border: Border.all(color: _kCourse.withValues(alpha: 0.25)),
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Icon(Icons.menu_book_rounded, color: _kCourse, size: 18),
+                  Text(
+                    course.code,
+                    style: const TextStyle(
+                        fontFamily: 'Lexend',
+                        fontSize: 9,
+                        color: _kCourse,
+                        fontWeight: FontWeight.bold),
+                    overflow: TextOverflow.ellipsis,
+                    textAlign: TextAlign.center,
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(width: 12),
+            // Info
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    course.name,
+                    style: const TextStyle(
+                        fontFamily: 'Cairo',
+                        fontWeight: FontWeight.w700,
+                        fontSize: 14,
+                        color: _kNavy),
+                  ),
+                  const SizedBox(height: 4),
+                  Row(
+                    children: [
+                      _InfoChip(
+                        icon: Icons.timer_rounded,
+                        label: '${course.credits} ساعات',
+                        color: _kCourse,
+                      ),
+                      if (course.instructorName != null &&
+                          course.instructorName!.isNotEmpty) ...[
+                        const SizedBox(width: 6),
+                        Flexible(
+                          child: _InfoChip(
+                            icon: Icons.person_rounded,
+                            label: course.instructorName!,
+                            color: const Color(0xFF6A1B9A),
+                          ),
+                        ),
+                      ],
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            // Actions
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                IconButton(
+                  icon: const Icon(Icons.edit_rounded, size: 19, color: _kNavy),
+                  tooltip: 'تعديل',
+                  onPressed: onEdit,
+                  visualDensity: VisualDensity.compact,
+                ),
+                IconButton(
+                  icon: Icon(Icons.delete_rounded,
+                      size: 19, color: Colors.red.shade600),
+                  tooltip: 'حذف',
+                  onPressed: onDelete,
+                  visualDensity: VisualDensity.compact,
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    ).animate(delay: (index * 45).ms).fadeIn(duration: 350.ms).slideX(begin: 0.08);
+  }
+}
+
+class _InfoChip extends StatelessWidget {
+  final IconData icon;
+  final String label;
+  final Color color;
+  const _InfoChip({required this.icon, required this.label, required this.color});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 3),
+      decoration: BoxDecoration(
+        color: color.withValues(alpha: 0.1),
+        borderRadius: BorderRadius.circular(8),
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(icon, size: 11, color: color),
+          const SizedBox(width: 4),
+          Flexible(
+            child: Text(
+              label,
+              style: TextStyle(fontFamily: 'Cairo', fontSize: 10, color: color, fontWeight: FontWeight.w600),
+              overflow: TextOverflow.ellipsis,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+// ── Reusable text field ────────────────────────────────────────────────────
+class _CourseField extends StatelessWidget {
+  final TextEditingController ctrl;
+  final String label;
+  final IconData icon;
+  final TextInputType keyboard;
+  final String? Function(String?)? validator;
+
+  const _CourseField({
+    required this.ctrl,
+    required this.label,
+    required this.icon,
+    this.keyboard = TextInputType.text,
+    this.validator,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return TextFormField(
+      controller: ctrl,
+      keyboardType: keyboard,
+      style: const TextStyle(fontFamily: 'Cairo'),
+      validator: validator ??
+          (v) => (v == null || v.trim().isEmpty) ? 'هذا الحقل مطلوب' : null,
+      decoration: InputDecoration(
+        labelText: label,
+        labelStyle: const TextStyle(fontFamily: 'Cairo', color: _kNavy),
+        prefixIcon: Icon(icon, color: _kNavy),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
+          borderSide: const BorderSide(color: _kNavy, width: 1.5),
+        ),
+      ),
+    );
+  }
+}

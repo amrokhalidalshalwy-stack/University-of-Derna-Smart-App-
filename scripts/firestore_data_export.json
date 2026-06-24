@@ -1,0 +1,261 @@
+{
+  "majors": [],
+  "courses": [
+    {
+      "createdAt": "2026-06-13 13:15:43.110000+00:00",
+      "credits": 3,
+      "instructorName": "د. ليلى خالد الحسن",
+      "facultyId": "faculty_eng",
+      "schedule": [
+        "الأحد 10:00-12:00"
+      ],
+      "studentCount": 3,
+      "nameAr": "برمجة متقدمة",
+      "code": "CS401",
+      "departmentId": "dept_cs",
+      "room": "قاعة 201",
+      "enrolledStudentUids": [
+        "adIQbS1iBeNerIOKDFJLVoo9XzZ2",
+        "j2AeqGftEhQKfDGq0fKOlkMCQSq2",
+        "5UEyuSnaeycJVIxPv8EJRTVGCxZ2"
+      ],
+      "semester": "الفصل الثاني 2025-2026",
+      "instructorId": "Y4JizyiImDelbN0IXqt2Xt70qVn2",
+      "teacherUid": "Y4JizyiImDelbN0IXqt2Xt70qVn2",
+      "updatedAt": "2026-06-13 13:15:43.110000+00:00",
+      "nameEn": "Advanced Programming",
+      "name": "برمجة متقدمة",
+      "_id": "course_adv_prog"
+    },
+    {
+      "createdAt": "2026-06-13 13:15:43.829000+00:00",
+      "credits": 3,
+      "instructorName": "د. خالد عبد الله",
+      "facultyId": "faculty_eng",
+      "schedule": [
+        "الأحد 10:00-12:00"
+      ],
+      "studentCount": 3,
+      "nameAr": "الذكاء الاصطناعي",
+      "code": "CS405",
+      "departmentId": "dept_cs",
+      "room": "قاعة 201",
+      "enrolledStudentUids": [
+        "adIQbS1iBeNerIOKDFJLVoo9XzZ2",
+        "j2AeqGftEhQKfDGq0fKOlkMCQSq2",
+        "5UEyuSnaeycJVIxPv8EJRTVGCxZ2"
+      ],
+      "semester": "الفصل الثاني 2025-2026",
+      "instructorId": "jNgzYJH16CX2oyIVkkAsTtrR4PL2",
+      "teacherUid": "jNgzYJH16CX2oyIVkkAsTtrR4PL2",
+      "updatedAt": "2026-06-13 13:15:43.829000+00:00",
+      "nameEn": "Artificial Intelligence",
+      "name": "الذكاء الاصطناعي",
+      "_id": "course_ai"
+    },
+    {
+      "createdAt": "2026-06-13 13:15:43.360000+00:00",
+      "credits": 3,
+      "instructorName": "د. ليلى خالد الحسن",
+      "facultyId": "faculty_eng",
+      "schedule": [
+        "الأحد 10:00-12:00"
+      ],
+      "studentCount": 3,
+      "nameAr": "قواعد بيانات",
+      "code": "CS302",
+      "departmentId": "dept_cs",
+      "room": "قاعة 201",
+      "enrolledStudentUids": [
+        "adIQbS1iBeNerIOKDFJLVoo9XzZ2",
+        "j2AeqGftEhQKfDGq0fKOlkMCQSq2",
+        "5UEyuSnaeycJVIxPv8EJRTVGCxZ2"
+      ],
+      "semester": "الفصل الثاني 2025-2026",
+      "instructorId": "Y4JizyiImDelbN0IXqt2Xt70qVn2",
+      "teacherUid": "Y4JizyiImDelbN0IXqt2Xt70qVn2",
+      "updatedAt": "2026-06-13 13:15:43.360000+00:00",
+      "nameEn": "Database Systems",
+      "name": "قواعد بيانات",
+      "_id": "course_db"
+    },
+    {
+      "createdAt": "2026-06-13 13:15:43.596000+00:00",
+      "credits": 3,
+      "instructorName": "د. ليلى خالد الحسن",
+      "facultyId": "faculty_eng",
+      "schedule": [
+        "الأحد 10:00-12:00"
+      ],
+      "studentCount": 3,
+      "nameAr": "شبكات حاسوب",
+      "code": "CS303",
+      "departmentId": "dept_cs",
+      "room": "قاعة 201",
+      "enrolledStudentUids": [
+        "adIQbS1iBeNerIOKDFJLVoo9XzZ2",
+        "j2AeqGftEhQKfDGq0fKOlkMCQSq2",
+        "5UEyuSnaeycJVIxPv8EJRTVGCxZ2"
+      ],
+      "semester": "الفصل الثاني 2025-2026",
+      "instructorId": "Y4JizyiImDelbN0IXqt2Xt70qVn2",
+      "teacherUid": "Y4JizyiImDelbN0IXqt2Xt70qVn2",
+      "updatedAt": "2026-06-13 13:15:43.596000+00:00",
+      "nameEn": "Computer Networks",
+      "name": "شبكات حاسوب",
+      "_id": "course_networks"
+    },
+    {
+      "createdAt": "2026-06-13 13:15:44.058000+00:00",
+      "credits": 3,
+      "instructorName": "د. خالد عبد الله",
+      "facultyId": "faculty_eng",
+      "schedule": [
+        "الأحد 10:00-12:00"
+      ],
+      "studentCount": 3,
+      "nameAr": "الأمن السيبراني",
+      "code": "CS408",
+      "departmentId": "dept_cs",
+      "room": "قاعة 201",
+      "enrolledStudentUids": [
+        "adIQbS1iBeNerIOKDFJLVoo9XzZ2",
+        "j2AeqGftEhQKfDGq0fKOlkMCQSq2",
+        "5UEyuSnaeycJVIxPv8EJRTVGCxZ2"
+      ],
+      "semester": "الفصل الثاني 2025-2026",
+      "instructorId": "jNgzYJH16CX2oyIVkkAsTtrR4PL2",
+      "teacherUid": "jNgzYJH16CX2oyIVkkAsTtrR4PL2",
+      "updatedAt": "2026-06-13 13:15:44.058000+00:00",
+      "nameEn": "Cybersecurity",
+      "name": "الأمن السيبراني",
+      "_id": "course_security"
+    }
+  ],
+  "forum_posts": [],
+  "users": [
+    {
+      "email": "admin@uod.edu.ly",
+      "role": "admin",
+      "status": "approved",
+      "_id": "3Cm9AOwU2lfi7Yiw7s9wgKHFm3x1"
+    },
+    {
+      "uid": "4WVrbmqNNDat5LgcnA0s9XlPiW23",
+      "email": "admin@uod.edu.ly",
+      "createdAt": "2026-06-13 13:15:44.283000+00:00",
+      "role": "admin",
+      "fullNameEn": "System Admin",
+      "updatedAt": "2026-06-13 13:15:44.283000+00:00",
+      "fullNameAr": "مدير النظام",
+      "fullName": "مدير النظام",
+      "status": "approved",
+      "_id": "4WVrbmqNNDat5LgcnA0s9XlPiW23"
+    },
+    {
+      "createdAt": "2026-06-13 13:15:45.494000+00:00",
+      "name": "علي حسن الورفلي",
+      "fullNameEn": "Ali Hassan Al-Warfali",
+      "faculty": "كلية الهندسة",
+      "facultyId": "faculty_eng",
+      "major": "هندسة الحاسوب",
+      "gpa": "2.65",
+      "college": "كلية الهندسة",
+      "uid": "5UEyuSnaeycJVIxPv8EJRTVGCxZ2",
+      "departmentId": "dept_cs",
+      "email": "ali.hassan@uod.edu.ly",
+      "universityId": "20240003",
+      "role": "student",
+      "scheduleHash": "9abb9ac0f63d177f804959423c6cc62e7234b249b3fd7ebc838535d761dfbd47",
+      "completedHours": "15",
+      "updatedAt": "2026-06-16 19:43:21.298000+00:00",
+      "fullNameAr": "علي حسن الورفلي",
+      "phone": "0915466537",
+      "department": "هندسة الحاسوب",
+      "fullName": "علي حسن الورفلي",
+      "status": "approved",
+      "_id": "5UEyuSnaeycJVIxPv8EJRTVGCxZ2"
+    },
+    {
+      "status": "approved",
+      "fullNameEn": "Dr. Layla Khaled Al-Hassan",
+      "facultyId": "faculty_eng",
+      "college": "كلية الهندسة",
+      "uid": "Y4JizyiImDelbN0IXqt2Xt70qVn2",
+      "academicTitle": "أستاذ مشارك",
+      "email": "layla.hassan@uod.edu.ly",
+      "departmentId": "dept_cs",
+      "role": "faculty",
+      "academicDegree": "دكتوراه",
+      "specialization": "علوم الحاسوب",
+      "fullNameAr": "د. ليلى خالد الحسن",
+      "updatedAt": "2026-06-13 13:15:45.954000+00:00",
+      "fullName": "د. ليلى خالد الحسن",
+      "createdAt": "2026-06-13 13:15:45.954000+00:00",
+      "_id": "Y4JizyiImDelbN0IXqt2Xt70qVn2"
+    },
+    {
+      "createdAt": "2026-06-13 13:15:44.518000+00:00",
+      "name": "أحمد محمد علي",
+      "fullNameEn": "Ahmed Mohamed Ali",
+      "faculty": "كلية الهندسة",
+      "facultyId": "faculty_eng",
+      "major": "هندسة الحاسوب",
+      "gpa": "3.45",
+      "college": "كلية الهندسة",
+      "uid": "adIQbS1iBeNerIOKDFJLVoo9XzZ2",
+      "departmentId": "dept_cs",
+      "email": "ahmed.ali@uod.edu.ly",
+      "universityId": "20240001",
+      "role": "student",
+      "scheduleHash": "9abb9ac0f63d177f804959423c6cc62e7234b249b3fd7ebc838535d761dfbd47",
+      "completedHours": "15",
+      "updatedAt": "2026-06-18 23:38:05.390000+00:00",
+      "fullNameAr": "أحمد محمد علي",
+      "phone": "",
+      "department": "هندسة الحاسوب",
+      "fullName": "أحمد محمد علي",
+      "status": "approved",
+      "_id": "adIQbS1iBeNerIOKDFJLVoo9XzZ2"
+    },
+    {
+      "createdAt": "2026-06-13 13:15:44.998000+00:00",
+      "fullNameEn": "Fatima Omar Al-Mabrouk",
+      "faculty": "كلية الهندسة",
+      "facultyId": "faculty_eng",
+      "major": "هندسة الحاسوب",
+      "gpa": "3.82",
+      "college": "كلية الهندسة",
+      "uid": "j2AeqGftEhQKfDGq0fKOlkMCQSq2",
+      "departmentId": "dept_cs",
+      "email": "fatima.omar@uod.edu.ly",
+      "universityId": "20240002",
+      "role": "student",
+      "completedHours": "15",
+      "updatedAt": "2026-06-13 13:15:44.998000+00:00",
+      "fullNameAr": "فاطمة عمر المبروك",
+      "department": "هندسة الحاسوب",
+      "fullName": "فاطمة عمر المبروك",
+      "status": "approved",
+      "_id": "j2AeqGftEhQKfDGq0fKOlkMCQSq2"
+    },
+    {
+      "status": "approved",
+      "fullNameEn": "Dr. Khaled Abdallah",
+      "facultyId": "faculty_eng",
+      "college": "كلية الهندسة",
+      "uid": "jNgzYJH16CX2oyIVkkAsTtrR4PL2",
+      "academicTitle": "أستاذ مشارك",
+      "email": "khaled.abdallah@uod.edu.ly",
+      "departmentId": "dept_cs",
+      "role": "faculty",
+      "academicDegree": "دكتوراه",
+      "specialization": "الأمن السيبراني والذكاء الاصطناعي",
+      "fullNameAr": "د. خالد عبد الله",
+      "updatedAt": "2026-06-13 13:15:46.695000+00:00",
+      "fullName": "د. خالد عبد الله",
+      "createdAt": "2026-06-13 13:15:46.695000+00:00",
+      "_id": "jNgzYJH16CX2oyIVkkAsTtrR4PL2"
+    }
+  ]
+}

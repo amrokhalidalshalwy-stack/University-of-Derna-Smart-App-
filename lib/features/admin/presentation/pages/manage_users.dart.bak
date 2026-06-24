@@ -1,0 +1,630 @@
+// lib/features/admin/presentation/pages/manage_users.dart
+//
+// صفحة إدارة المستخدمين – بحث، فلترة، إضافة، تعديل، حذف
+// Riverpod + Firestore + RTL Arabic + Dark-blue/Gold theme
+// ──────────────────────────────────────────────────────────────────────────
+
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_project/core/constants/app_roles.dart';
+import 'package:flutter_project/features/auth/data/auth_service.dart';
+import 'package:go_router/go_router.dart';
+
+// ── Palette ────────────────────────────────────────────────────────────────
+const _kNavy     = Color(0xFF1A365D);
+const _kNavyDark = Color(0xFF0F2340);
+
+// ══════════════════════════════════════════════════════════════════════════
+//  DATA MODEL
+// ══════════════════════════════════════════════════════════════════════════
+
+class UserProfile {
+  final String id;
+  final String name;
+  final String email;
+  final UserRole role;
+
+  const UserProfile({
+    required this.id,
+    required this.name,
+    required this.email,
+    required this.role,
+  });
+
+  factory UserProfile.fromDoc(QueryDocumentSnapshot<Map<String, dynamic>> doc) {
+    final d = doc.data();
+    return UserProfile(
+      id: doc.id,
+      name: (d['fullName'] ?? d['displayName'] ?? d['name'] ?? '') as String,
+      email: (d['email'] ?? '') as String,
+      role: UserRole.fromString(d['role'] as String?),
+    );
+  }
+}
+
+// ══════════════════════════════════════════════════════════════════════════
+//  PROVIDERS
+// ══════════════════════════════════════════════════════════════════════════
+
+final _usersStreamProvider =
+    StreamProvider.autoDispose<List<UserProfile>>((ref) {
+  return ref
+      .watch(firestoreProvider)
+      .collection('users')
+      .orderBy('createdAt', descending: true)
+      .snapshots()
+      .map((s) => s.docs.map(UserProfile.fromDoc).toList());
+});
+
+// ══════════════════════════════════════════════════════════════════════════
+//  PAGE
+// ══════════════════════════════════════════════════════════════════════════
+
+class ManageUsersPage extends ConsumerStatefulWidget {
+  const ManageUsersPage({super.key});
+
+  @override
+  ConsumerState<ManageUsersPage> createState() => _ManageUsersPageState();
+}
+
+class _ManageUsersPageState extends ConsumerState<ManageUsersPage> {
+  final _searchCtrl = TextEditingController();
+  String _query = '';
+  // null = الكل
+  UserRole? _filterRole;
+
+  @override
+  void dispose() {
+    _searchCtrl.dispose();
+    super.dispose();
+  }
+
+  List<UserProfile> _filtered(List<UserProfile> all) {
+    var list = all.where((u) => u.role != UserRole.admin).toList();
+    if (_filterRole != null) list = list.where((u) => u.role == _filterRole).toList();
+    if (_query.isNotEmpty) {
+      final q = _query.toLowerCase();
+      list = list
+          .where((u) =>
+              u.name.toLowerCase().contains(q) ||
+              u.email.toLowerCase().contains(q))
+          .toList();
+    }
+    return list;
+  }
+
+  // ── Role helpers ──────────────────────────────────────────────────────
+  (String, Color) _roleInfo(UserRole role) {
+    switch (role) {
+      case UserRole.student:
+        return ('طالب', const Color(0xFF1565C0));
+      case UserRole.faculty:
+        return ('تدريس', const Color(0xFF6A1B9A));
+      default:
+        return ('ضيف', Colors.grey);
+    }
+  }
+
+  // ── Dialogs ───────────────────────────────────────────────────────────
+  Future<void> _openEditDialog(UserProfile user) async {
+    final nameCtrl  = TextEditingController(text: user.name);
+    final emailCtrl = TextEditingController(text: user.email);
+    final deptCtrl  = TextEditingController();
+    var selectedRole = user.role;
+    bool isActive = true;
+    final formKey = GlobalKey<FormState>();
+    bool saving = false;
+
+    // Load existing department and isActive from Firestore
+    final doc = await FirebaseFirestore.instance
+        .collection('users')
+        .doc(user.id)
+        .get();
+    if (doc.exists) {
+      deptCtrl.text = (doc.data()?['department'] as String?) ?? '';
+      isActive = doc.data()?['isActive'] as bool? ?? true;
+    }
+
+    if (!mounted) return;
+
+    await showDialog<void>(
+      context: context,
+      builder: (ctx) => Directionality(
+        textDirection: TextDirection.rtl,
+        child: StatefulBuilder(
+          builder: (ctx, setDs) => AlertDialog(
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
+            title: Text(
+              'تعديل المستخدم',
+              style: const TextStyle(fontFamily: 'Cairo', fontWeight: FontWeight.bold, color: _kNavy),
+            ),
+            content: SingleChildScrollView(
+              child: Form(
+                key: formKey,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    _Field(ctrl: nameCtrl,  label: 'الاسم الكامل', icon: Icons.person_rounded),
+                    const SizedBox(height: 12),
+                    _Field(
+                      ctrl: emailCtrl,
+                      label: 'البريد الإلكتروني',
+                      icon: Icons.email_rounded,
+                      keyboard: TextInputType.emailAddress,
+                      readOnly: true,
+                    ),
+                    const SizedBox(height: 12),
+                    _Field(ctrl: deptCtrl, label: 'القسم', icon: Icons.account_balance_rounded),
+                    const SizedBox(height: 16),
+                    // Role dropdown
+                    DropdownButtonFormField<UserRole>(
+                      initialValue: selectedRole,
+                      decoration: InputDecoration(
+                        labelText: 'الدور',
+                        labelStyle: const TextStyle(fontFamily: 'Cairo', color: _kNavy),
+                        prefixIcon: const Icon(Icons.badge_rounded, color: _kNavy),
+                        border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          borderSide: const BorderSide(color: _kNavy, width: 1.5),
+                        ),
+                      ),
+                      items: [UserRole.student, UserRole.faculty]
+                          .map((r) => DropdownMenuItem(
+                                value: r,
+                                child: Text(
+                                  r == UserRole.student ? 'طالب' : 'عضو هيئة تدريس',
+                                  style: const TextStyle(fontFamily: 'Cairo'),
+                                ),
+                              ))
+                          .toList(),
+                      onChanged: (v) => setDs(() => selectedRole = v!),
+                    ),
+                    const SizedBox(height: 12),
+                    // Active / Disabled toggle
+                    Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Colors.grey.shade300),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            isActive ? 'الحساب مفعّل' : 'الحساب معطّل',
+                            style: TextStyle(
+                              fontFamily: 'Cairo',
+                              color: isActive ? Colors.green.shade700 : Colors.red.shade700,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                          Switch(
+                            value: isActive,
+                            activeThumbColor: Colors.green.shade700,
+                            onChanged: (v) => setDs(() => isActive = v),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(height: 12),
+                    // Password reset button
+                    OutlinedButton.icon(
+                      icon: const Icon(Icons.lock_reset_rounded, size: 18),
+                      label: const Text('إرسال رابط إعادة تعيين كلمة المرور', style: TextStyle(fontFamily: 'Cairo', fontSize: 12)),
+                      style: OutlinedButton.styleFrom(
+                        foregroundColor: _kNavy,
+                        side: const BorderSide(color: _kNavy),
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                      ),
+                      onPressed: () async {
+                        try {
+                          await ref.read(authServiceProvider).sendPasswordResetEmail(emailCtrl.text.trim());
+                          _snack('تم إرسال رابط إعادة التعيين إلى ${emailCtrl.text}', success: true);
+                        } catch (e) {
+                          _snack('فشل الإرسال: $e');
+                        }
+                      },
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.pop(ctx),
+                child: const Text('إلغاء', style: TextStyle(fontFamily: 'Cairo', color: Theme.of(context).colorScheme.onSurfaceVariant)),
+              ),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: _kNavy,
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                ),
+                onPressed: saving
+                    ? null
+                    : () async {
+                        if (!formKey.currentState!.validate()) return;
+                        setDs(() => saving = true);
+                        try {
+                          await _updateUser(
+                            id: user.id,
+                            name: nameCtrl.text.trim(),
+                            role: selectedRole,
+                            department: deptCtrl.text.trim(),
+                            isActive: isActive,
+                          );
+                          if (ctx.mounted) Navigator.pop(ctx);
+                          _snack('تم الحفظ بنجاح ✓', success: true);
+                        } catch (e) {
+                          _snack('حدث خطأ: $e');
+                        } finally {
+                          if (ctx.mounted) setDs(() => saving = false);
+                        }
+                      },
+                child: saving
+                    ? const SizedBox(
+                        width: 18,
+                        height: 18,
+                        child: CircularProgressIndicator(color: Colors.white, strokeWidth: 2),
+                      )
+                    : const Text('حفظ', style: TextStyle(fontFamily: 'Cairo', color: Colors.white)),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Future<void> _confirmDelete(UserProfile user) async {
+    final confirm = await showDialog<bool>(
+      context: context,
+      builder: (_) => Directionality(
+        textDirection: TextDirection.rtl,
+        child: AlertDialog(
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+          title: Text('تأكيد الحذف',
+              style: TextStyle(fontFamily: 'Cairo', fontWeight: FontWeight.bold, color: Colors.red.shade700)),
+          content: Text(
+            'هل تريد حذف المستخدم "${user.name}"؟\nلا يمكن التراجع عن هذا الإجراء.',
+            style: const TextStyle(fontFamily: 'Cairo'),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(context, false),
+              child: const Text('إلغاء', style: TextStyle(fontFamily: 'Cairo', color: Theme.of(context).colorScheme.onSurfaceVariant)),
+            ),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.red.shade700,
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+              ),
+              onPressed: () => Navigator.pop(context, true),
+              child: const Text('حذف', style: TextStyle(fontFamily: 'Cairo', color: Colors.white)),
+            ),
+          ],
+        ),
+      ),
+    );
+
+    if (confirm == true) {
+      try {
+        await FirebaseFirestore.instance.collection('users').doc(user.id).delete();
+        _snack('تم حذف المستخدم', success: true);
+      } catch (e) {
+        _snack('فشل الحذف: $e');
+      }
+    }
+  }
+
+  // ── Firestore write ops ───────────────────────────────────────────────
+  Future<void> _updateUser({
+    required String id,
+    required String name,
+    required UserRole role,
+    String department = '',
+    bool isActive = true,
+  }) async {
+    await FirebaseFirestore.instance.collection('users').doc(id).update({
+      'fullName': name,
+      'role': role.value,
+      if (department.isNotEmpty) 'department': department,
+      'isActive': isActive,
+      'updatedAt': FieldValue.serverTimestamp(),
+    });
+  }
+
+  void _snack(String msg, {bool success = false}) {
+    if (!mounted) return;
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      content: Text(msg, style: const TextStyle(fontFamily: 'Cairo', color: Colors.white)),
+      backgroundColor: success ? const Color(0xFF1B5E20) : Colors.red.shade700,
+      behavior: SnackBarBehavior.floating,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+      duration: const Duration(seconds: 2),
+    ));
+  }
+
+  // ── Build ─────────────────────────────────────────────────────────────
+  @override
+  Widget build(BuildContext context) {
+    final async = ref.watch(_usersStreamProvider);
+
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: Scaffold(
+        backgroundColor: const Color(0xFFF0F4F8),
+        appBar: AppBar(
+          backgroundColor: _kNavy,
+          elevation: 0,
+          centerTitle: true,
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back_ios, color: Colors.white, size: 20),
+            onPressed: () => context.go('/admin/dashboard'),
+          ),
+          flexibleSpace: Container(
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                colors: [_kNavyDark, _kNavy],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+              ),
+            ),
+          ),
+          title: const Text('إدارة المستخدمين',
+              style: TextStyle(fontFamily: 'Cairo', color: Colors.white, fontWeight: FontWeight.bold)),
+        ),
+        body: Column(
+          children: [
+            // ── Search + Filter Bar ──────────────────────────────────
+            Container(
+              color: _kNavy,
+              padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+              child: Row(
+                children: [
+                  // Search
+                  Expanded(
+                    child: TextField(
+                      controller: _searchCtrl,
+                      style: const TextStyle(fontFamily: 'Cairo', color: Colors.white),
+                      decoration: InputDecoration(
+                        hintText: 'بحث بالاسم أو البريد...',
+                        hintStyle: const TextStyle(fontFamily: 'Cairo', color: Colors.white54),
+                        prefixIcon: const Icon(Icons.search_rounded, color: Colors.white54),
+                        filled: true,
+                        fillColor: Colors.white.withValues(alpha: 0.12),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(12),
+                          borderSide: BorderSide.none,
+                        ),
+                        contentPadding: const EdgeInsets.symmetric(vertical: 10),
+                      ),
+                      onChanged: (v) => setState(() => _query = v),
+                    ),
+                  ),
+                  const SizedBox(width: 10),
+                  // Role filter
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 12),
+                    decoration: BoxDecoration(
+                      color: Colors.white.withValues(alpha: 0.12),
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: DropdownButtonHideUnderline(
+                      child: DropdownButton<UserRole?>(
+                        value: _filterRole,
+                        dropdownColor: _kNavy,
+                        icon: const Icon(Icons.filter_list_rounded, color: Colors.white70, size: 18),
+                        items: [
+                          DropdownMenuItem(
+                            value: null,
+                            child: Text('الكل', style: const TextStyle(fontFamily: 'Cairo', color: Colors.white)),
+                          ),
+                          DropdownMenuItem(
+                            value: UserRole.student,
+                            child: Text('طالب', style: const TextStyle(fontFamily: 'Cairo', color: Colors.white)),
+                          ),
+                          DropdownMenuItem(
+                            value: UserRole.faculty,
+                            child: Text('تدريس', style: const TextStyle(fontFamily: 'Cairo', color: Colors.white)),
+                          ),
+                        ],
+                        onChanged: (v) => setState(() => _filterRole = v),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+
+            // ── User List ────────────────────────────────────────────
+            Expanded(
+              child: async.when(
+                loading: () => const Center(child: CircularProgressIndicator(color: _kNavy)),
+                error: (e, _) => Center(
+                  child: Text('تعذّر تحميل البيانات: $e',
+                      style: const TextStyle(fontFamily: 'Cairo', color: Colors.red)),
+                ),
+                data: (users) {
+                  final filtered = _filtered(users);
+                  if (filtered.isEmpty) {
+                    return Center(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Icon(Icons.people_outline_rounded,
+                              size: 64, color: Colors.grey.shade300),
+                          const SizedBox(height: 12),
+                          const Text('لا يوجد مستخدمون',
+                              style: TextStyle(fontFamily: 'Cairo', color: Theme.of(context).colorScheme.onSurfaceVariant)),
+                        ],
+                      ),
+                    );
+                  }
+                  return ListView.builder(
+                    padding: const EdgeInsets.fromLTRB(16, 12, 16, 80),
+                    itemCount: filtered.length,
+                    itemBuilder: (_, i) => _UserCard(
+                      user: filtered[i],
+                      roleInfo: _roleInfo(filtered[i].role),
+                      index: i,
+                      onEdit: () => _openEditDialog(filtered[i]),
+                      onDelete: () => _confirmDelete(filtered[i]),
+                    ),
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+// ══════════════════════════════════════════════════════════════════════════
+//  USER CARD WIDGET
+// ══════════════════════════════════════════════════════════════════════════
+
+class _UserCard extends StatelessWidget {
+  final UserProfile user;
+  final (String, Color) roleInfo;
+  final int index;
+  final VoidCallback onEdit;
+  final VoidCallback onDelete;
+
+  const _UserCard({
+    required this.user,
+    required this.roleInfo,
+    required this.index,
+    required this.onEdit,
+    required this.onDelete,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final (label, color) = roleInfo;
+    final initial = user.name.isNotEmpty ? user.name[0] : '؟';
+
+    return Container(
+      margin: const EdgeInsets.only(bottom: 10),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(14),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.05),
+            blurRadius: 12,
+            offset: const Offset(0, 3),
+          ),
+        ],
+      ),
+      child: ListTile(
+        contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
+        leading: CircleAvatar(
+          radius: 24,
+          backgroundColor: color.withValues(alpha: 0.14),
+          child: Text(
+            initial,
+            style: TextStyle(
+              fontFamily: 'Cairo',
+              color: color,
+              fontWeight: FontWeight.bold,
+              fontSize: 18,
+            ),
+          ),
+        ),
+        title: Text(
+          user.name.isEmpty ? '(بدون اسم)' : user.name,
+          style: TextStyle(
+            fontFamily: 'Cairo',
+            fontWeight: FontWeight.w700,
+            fontSize: 14,
+            color: _kNavy,
+          ),
+        ),
+        subtitle: Text(
+          user.email,
+          style: TextStyle(fontFamily: 'Cairo', fontSize: 11, color: Theme.of(context).colorScheme.onSurfaceVariant.withOpacity(0.7)),
+          overflow: TextOverflow.ellipsis,
+        ),
+        trailing: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            // Role chip
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+              decoration: BoxDecoration(
+                color: color.withValues(alpha: 0.12),
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: Text(label,
+                  style: TextStyle(
+                      fontFamily: 'Cairo',
+                      fontSize: 11, fontWeight: FontWeight.w700, color: color)),
+            ),
+            const SizedBox(width: 6),
+            // Edit
+            IconButton(
+              icon: const Icon(Icons.edit_rounded, size: 19, color: _kNavy),
+              tooltip: 'تعديل',
+              onPressed: onEdit,
+            ),
+            // Delete
+            IconButton(
+              icon: Icon(Icons.delete_rounded, size: 19, color: Colors.red.shade600),
+              tooltip: 'حذف',
+              onPressed: onDelete,
+            ),
+          ],
+        ),
+      ),
+    ).animate(delay: (index * 45).ms).fadeIn(duration: 350.ms).slideX(begin: 0.08);
+  }
+}
+
+// ══════════════════════════════════════════════════════════════════════════
+//  REUSABLE TEXT FIELD
+// ══════════════════════════════════════════════════════════════════════════
+
+class _Field extends StatelessWidget {
+  final TextEditingController ctrl;
+  final String label;
+  final IconData icon;
+  final bool readOnly;
+  final TextInputType keyboard;
+
+  const _Field({
+    required this.ctrl,
+    required this.label,
+    required this.icon,
+    this.readOnly = false,
+    this.keyboard = TextInputType.text,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return TextFormField(
+      controller: ctrl,
+      readOnly: readOnly,
+      keyboardType: keyboard,
+      style: const TextStyle(fontFamily: 'Cairo'),
+      validator:
+          (v) => (v == null || v.trim().isEmpty) ? 'هذا الحقل مطلوب' : null,
+      decoration: InputDecoration(
+        labelText: label,
+        labelStyle: const TextStyle(fontFamily: 'Cairo', color: _kNavy),
+        prefixIcon: Icon(icon, color: _kNavy),
+        filled: readOnly,
+        fillColor: readOnly ? Colors.grey.shade100 : null,
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
+          borderSide: const BorderSide(color: _kNavy, width: 1.5),
+        ),
+      ),
+    );
+  }
+}

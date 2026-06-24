@@ -1,0 +1,191 @@
+======================================================================
+تقرير فحص l10n — بوابة هيئة التدريس (نسخة موسّعة)
+======================================================================
+
+1) المسارات المفحوصة:
+   • lib/features/faculty/presentation/  (النشط — مُعرَّف في faculty_routes.dart)
+   • lib/features/attendance/presentation/pages/professor_absence_dashboard.dart
+
+   ملاحظة: يوجد مجلدات قديمة غير مستخدمة في المسارات:
+   lib/features/faculty/pages/ و lib/features/faculty/screens/
+
+   عدد ملفات Dart المفحوصة: 20
+
+2) مقارنة app_en.arb ↔ app_ar.arb (مستوى المشروع):
+   app_en.arb: 970 مفتاح | app_ar.arb: 968 مفتاح
+
+   ناقص في app_ar.arb (2):
+     • addPost
+     • forumTitle
+
+   ناقص في app_en.arb (0):
+     (لا يوجد)
+
+3) مفاتيح l10n مستخدمة في بوابة هيئة التدريس وغير موجودة في ARB:
+     (لا يوجد — 143 مفتاحًا مستخدمًا وكلها موجودة)
+
+4) النصوص Hardcoded (138 حالة فريدة):
+
+   📄 lib/features/attendance/presentation/pages/professor_absence_dashboard.dart
+      س376 [string literal] [إنجليزي] Error sending notification
+
+   📄 lib/features/faculty/presentation/pages/exam_paper_upload_page.dart
+      س64 [string literal] [عربي] منتصف الفصل
+      س65 [string literal] [عربي] نهاية الفصل
+      س66 [string literal] [عربي] مقرر
+      س67 [string literal] [عربي] أخرى
+      س83 [SnackBar] [عربي] حجم الملف يجب أن لا يتجاوز 10 ميجابايت
+      س96 [SnackBar] [عربي] الرجاء تعبئة جميع الحقول وإرفاق ورقة الامتحان
+      س108 [Exception] [عربي] المستخدم غير مسجل الدخول
+      س148 [Text()] [عربي] تم رفع ورقة الامتحان بنجاح
+      س159 [SnackBar] [عربي] حدث خطأ أثناء الرفع: $e
+      س173 [title] [عربي] رفع ورقة الامتحان
+      س187 [string literal] [عربي] المادة المعنية
+      س193 [Text()] [عربي] اختر المادة
+      س197 [string literal] [عربي] نوع الامتحان
+      س203 [Text()] [عربي] اختر نوع الامتحان
+      س207 [string literal] [عربي] ورقة الامتحان (PDF)
+      س223 [Text()] [عربي] اضغط لاختيار ملف PDF
+      س224 [Text()] [عربي] الحد الأقصى: 10 ميجابايت
+      س232 [Text()] [عربي] إزالة الملف
+      س244 [Text()] [عربي] جاري الرفع: ${(_uploadProgress * 100).toStringAsFixed(1)}%
+      س259 [Text()] [عربي] رفع وحفظ
+
+   📄 lib/features/faculty/presentation/pages/faculty_assignments_page.dart
+      س178 [string literal] [عربي] ${l10n.assignmentsCoursePrefix} أمن الشبكات
+      س214 [string literal] [عربي] إجمالي الطلاب: 0
+      س418 [string literal] [عربي] من $_totalCount
+      س779 [string literal] [عربي] رقم قيد: ${student.registrationId}
+
+   📄 lib/features/faculty/presentation/pages/faculty_attendance_sheet_page.dart
+      س47 [string literal] [عربي] أحمد محمد الفيتوري
+      س53 [string literal] [عربي] سارة إبراهيم العبيدي
+      س59 [string literal] [عربي] علي محمود الورفلي
+      س65 [string literal] [عربي] مريم خالد المبروك
+      س70 [string literal] [عربي] عمر سليمان الشيباني
+      س75 [string literal] [عربي] فاطمة عبدالله الزروق
+      س164 [string literal] [عربي] هندسة البرمجيات 2
+      س178 [string literal] [عربي] هندسة البرمجيات 2
+      س187 [string literal] [عربي] هندسة البرمجيات 2
+      س316 [string literal] [عربي] رفع الملفات يتطلب تطبيق الجوال — قيد التطوير
+      س485 [string literal] [عربي] صباحاً
+      س707 [string literal] [عربي] رقم قيد: ${student.registrationNo}
+      س809 [string literal] [عربي] ❌ يجب تسجيل الدخول أولاً
+      س826 [string literal] [عربي] ❌ ليس لديك صلاحية تسجيل حضور هذه المادة
+      س882 [string literal] [عربي] حدث خطأ: $e
+
+   📄 lib/features/faculty/presentation/pages/faculty_dashboard_page.dart
+      س473 [string literal] [عربي] عضو هيئة تدريس متميز
+      س501 [string literal] [عربي] ${l10n.facultyWelcome}، $fullName
+      س534 [string literal] [عربي] جاري التحميل...
+      س666 [string literal] [عربي] محاضرات اليوم
+      س730 [string literal] [عربي] لا توجد محاضرات مجدولة حالياً
+      س788 [string literal] [عربي] قاعة
+      س790 [string literal] [عربي] ${course.studentCount} طالب
+      س838 [string literal] [عربي] خطأ في تحميل المحاضرات
+      س864 [string literal] [عربي] تقارير توزيع الدرجات
+      س915 [title] [عربي] متوسط الدرجات
+      س917 [subtitle] [عربي] من جميع المواد
+      س925 [title] [عربي] نسبة النجاح
+      س927 [subtitle] [عربي] في الفصل الحالي
+      س981 [title] [عربي] طلبات معلقة
+      س994 [title] [عربي] حصص الأسبوع
+
+   📄 lib/features/faculty/presentation/pages/faculty_excuses_page.dart
+      س74 [string literal] [عربي] أعذار الغياب
+
+   📄 lib/features/faculty/presentation/pages/faculty_profile_page.dart
+      س39 [string literal] [عربي] د. محمد علي
+      س42 [string literal] [عربي] هندسة البرمجيات
+      س44 [string literal] [عربي] كلية تقنية المعلومات
+      س315 [string literal] [عربي] جاري تحميل البطاقة الجامعية...
+      س333 [string literal] [عربي] جاري تحميل قرار التعيين...
+      س609 [string literal] [عربي] هل أنت متأكد من رغبتك في تسجيل الخروج من البوابة؟
+
+   📄 lib/features/faculty/presentation/pages/faculty_reports_page.dart
+      س34 [string literal] [عربي] خريف 2023 - 2024
+      س35 [string literal] [عربي] ربيع 2023 - 2024
+      س140 [string literal] [عربي] خطأ في تحميل المقررات
+
+   📄 lib/features/faculty/presentation/pages/faculty_schedule_page.dart
+      س24 [string literal] [عربي] الأحد
+      س25 [string literal] [عربي] الاثنين
+      س26 [string literal] [عربي] الثلاثاء
+      س27 [string literal] [عربي] الأربعاء
+      س28 [string literal] [عربي] الخميس
+      س101 [string literal] [عربي] تنبيهات الجدول مفعلة تلقائياً
+      س292 [string literal] [عربي] لا توجد محاضرات مجدولة لهذا اليوم
+      س330 [string literal] [عربي] قاعة تقنية المعلومات
+      س480 [string literal] [عربي] صباحاً
+      س480 [string literal] [عربي] ظهراً
+
+   📄 lib/features/faculty/presentation/pages/faculty_settings_page.dart
+      س36 [title] [عربي] تلقائي (النظام)
+      س41 [title] [عربي] العربية
+      س62 [string literal] [عربي] العربية
+      س105 [string literal] [عربي] عضو هيئة التدريس
+      س180 [string literal] [عربي] أستاذ مشارك - كلية الهندسة
+      س181 [string literal] [عربي] عضو هيئة التدريس الموقر
+      س234 [string literal] [عربي] رابط تغيير كلمة المرور سيصلك عبر البريد
+      س361 [string literal] [عربي] مركز المساعدة قيد التحميل...
+      س378 [string literal] [عربي] سياسة الخصوصية لجامعة درنة 2026
+      س580 [string literal] [عربي] تأكيد تسجيل الخروج
+      س589 [string literal] [عربي] هل أنت متأكد من رغبتك في تسجيل الخروج من البوابة؟
+      س598 [string literal] [عربي] إلغاء
+      س619 [string literal] [عربي] تسجيل خروج
+
+   📄 lib/features/faculty/presentation/pages/send_message_page.dart
+      س85 [string literal] [عربي] تم إرسال التبليغ بنجاح
+      س103 [Text()] [عربي] العودة
+      س119 [title] [عربي] إرسال تبليغ
+      س135 [Text()] [عربي] جاري الإرسال...
+      س146 [Text()] [عربي] المادة / الشعبة
+      س160 [validator] [عربي] الرجاء اختيار المادة
+      س165 [Text()] [عربي] عنوان التبليغ
+      س170 [hintText] [عربي] اكتب عنوان التبليغ هنا
+      س177 [validator] [عربي] الرجاء كتابة العنوان
+      س181 [Text()] [عربي] نص التبليغ
+      س187 [hintText] [عربي] اكتب نص التبليغ أو الإعلان للطلاب هنا...
+      س194 [validator] [عربي] الرجاء كتابة النص
+      س212 [Text()] [عربي] إرسال
+
+   📄 lib/features/faculty/presentation/widgets/dashboard_home_tab.dart
+      س64 [string literal] [عربي] مرحباً، د. ${name.isNotEmpty ? name : 
+      س79 [string literal] [عربي] جاري التحميل...
+      س88 [string literal] [عربي] مرحباً، د.
+      س113 [label] [عربي] المواد المُدرَّسة
+      س123 [label] [عربي] عدد الطلاب
+      س130 [label] [عربي] محاضرات الأسبوع
+      س142 [string literal] [عربي] إجراءات سريعة
+      س159 [label] [عربي] تسجيل الحضور
+      س168 [label] [عربي] رفع محاضرة
+      س177 [label] [عربي] رفع امتحان
+      س186 [label] [عربي] إضافة واجب
+      س195 [label] [عربي] إدخال الدرجات
+      س207 [string literal] [عربي] آخر النشاطات
+      س232 [title] [عربي] تم اعتماد درجات مقرر تحليل الأنظمة
+      س233 [string literal] [عربي] منذ ساعتين
+      س239 [title] [عربي] إشعار من الإدارة: موعد امتحانات النصفي
+      س240 [string literal] [عربي] أمس
+      س246 [title] [عربي] تسجيل حضور برمجة الويب مكتمل
+      س247 [string literal] [عربي] منذ يومين
+      س263 [string literal] [عربي] محاضرات اليوم
+      س274 [string literal] [عربي] عرض الكل
+      س294 [string literal] [عربي] لا توجد محاضرات مجدولة حالياً
+      س325 [string literal] [عربي] قاعة
+      س326 [string literal] [عربي] ${course.studentCount} طالب
+      س345 [string literal] [عربي] خطأ في تحميل المحاضرات
+      س371 [string literal] [عربي] تقدم رصد الدرجات
+      س380 [string literal] [عربي] تحليل الأنظمة
+      س382 [string literal] [عربي] الذكاء الاصطناعي
+      س384 [string literal] [عربي] برمجة الويب
+
+   📄 lib/features/faculty/presentation/widgets/faculty_drawer.dart
+      س53 [string literal] [عربي] عضو هيئة تدريس
+      س80 [title] [عربي] الملف الشخصي
+      س90 [title] [عربي] الجدول الدراسي
+      س100 [title] [عربي] تسجيل الحضور
+      س110 [title] [عربي] قائمة الطلاب والتواصل
+      س120 [title] [عربي] التكليفات والدرجات
+      س130 [title] [عربي] تقارير توزيع الدرجات
+      س143 [title] [عربي] الإعدادات

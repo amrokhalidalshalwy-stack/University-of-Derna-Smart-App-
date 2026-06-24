@@ -1,0 +1,392 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_project/features/admin/data/admin_service.dart';
+import 'package:flutter_project/features/auth/data/auth_service.dart';
+import 'package:flutter_project/l10n/app_localizations.dart';
+import 'package:flutter_project/core/theme/app_colors.dart';
+import 'package:flutter_project/shared/widgets/animated_widgets.dart';
+
+class AdminDashboardPage extends ConsumerWidget {
+  const AdminDashboardPage({super.key});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final stream = ref.watch(registrationsStreamProvider);
+    final l10n = AppLocalizations.of(context)!;
+
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: Scaffold(
+        backgroundColor: AppColors.pageBackground,
+        drawer: _buildDrawer(context, ref, l10n),
+        appBar: AppBar(
+          backgroundColor: AppColors.navyBlue,
+          elevation: 0,
+          title: Text(
+            l10n.adminControlCenter,
+            style: const TextStyle(
+              fontFamily: 'Cairo',
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          centerTitle: true,
+          iconTheme: const IconThemeData(color: Colors.white),
+          actions: [
+            IconButton(
+              icon: const Icon(
+                Icons.security_rounded,
+                color: AppColors.tealGreen,
+              ),
+              onPressed: () {},
+            ).animate(onPlay: (controller) => controller.repeat(reverse: true))
+             .fadeIn(duration: 1.seconds, curve: Curves.easeInOut)
+             .fadeOut(),
+          ],
+        ),
+        body: SafeArea(
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.all(20),
+            child: stream.when(
+              loading: () => const Center(
+                child: Padding(
+                  padding: EdgeInsets.all(40.0),
+                  child: CircularProgressIndicator(color: AppColors.navyBlue),
+                ),
+              ),
+              error: (e, _) => Center(
+                child: Text(
+                  '${l10n.adminDashboardErrorText}: $e',
+                  style: const TextStyle(fontFamily: 'Cairo', color: Colors.red),
+                ),
+              ),
+              data: (regs) {
+                final pending = regs.where((r) => ['pending_final_approval', 'under_review', 'requires_additional'].contains(r['status'])).length;
+                final approved = regs.where((r) => r['status'] == 'approved').length;
+                final rejected = regs.where((r) => ['rejected', 'auto_rejected'].contains(r['status'])).length;
+                final total = regs.length;
+
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    // Status Header
+                    Container(
+                      padding: const EdgeInsets.all(20),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(16),
+                        border: Border.all(color: Colors.grey.shade200),
+                        boxShadow: [
+                          BoxShadow(color: Colors.black.withValues(alpha: 0.03), blurRadius: 10, offset: const Offset(0, 4)),
+                        ],
+                      ),
+                      child: Row(
+                        children: [
+                          Container(
+                            padding: const EdgeInsets.all(12),
+                            decoration: BoxDecoration(
+                              color: AppColors.tealGreen.withValues(alpha: 0.1),
+                              shape: BoxShape.circle,
+                            ),
+                            child: const Icon(Icons.admin_panel_settings_rounded, color: AppColors.tealGreen, size: 32),
+                          ),
+                          const SizedBox(width: 16),
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  l10n.adminDashboardStatusSafe,
+                                  style: const TextStyle(fontFamily: 'Cairo', color: AppColors.navyBlue, fontWeight: FontWeight.bold, fontSize: 15),
+                                ),
+                                Text(
+                                  l10n.adminDashboardWelcome,
+                                  style: const TextStyle(fontFamily: 'Cairo', color: Colors.grey, fontSize: 12),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Container(
+                            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                            decoration: BoxDecoration(
+                              color: AppColors.tealGreen.withValues(alpha: 0.1),
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: Text(
+                              l10n.adminDashboardSystemOnline,
+                              style: const TextStyle(color: AppColors.tealGreen, fontSize: 10, fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ).animate().fadeIn(duration: 400.ms).slideY(begin: 0.05),
+
+                    const SizedBox(height: 24),
+                    Text(
+                      l10n.adminDashboardLiveAnalysis,
+                      style: const TextStyle(fontFamily: 'Cairo', fontWeight: FontWeight.bold, fontSize: 16, color: AppColors.navyBlue),
+                    ),
+                    const SizedBox(height: 16),
+
+                    // KPI Grid
+                    GridView.count(
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      crossAxisCount: 2,
+                      mainAxisSpacing: 16,
+                      crossAxisSpacing: 16,
+                      childAspectRatio: 1.1,
+                      children: [
+                        _StatCard(title: l10n.adminDashboardTotalRecords, value: '$total', icon: Icons.data_usage_rounded, color: AppColors.navyBlue, delay: 100),
+                        _StatCard(title: l10n.adminDashboardPendingReqs, value: '$pending', icon: Icons.pending_actions_rounded, color: Colors.orange, badge: pending > 0, delay: 150),
+                        _StatCard(title: l10n.adminDashboardApproved, value: '$approved', icon: Icons.verified_user_rounded, color: AppColors.tealGreen, delay: 200),
+                        _StatCard(title: l10n.adminDashboardRejected, value: '$rejected', icon: Icons.gpp_bad_rounded, color: Colors.red, delay: 250),
+                      ],
+                    ),
+
+                    const SizedBox(height: 30),
+                    Text(
+                      l10n.adminDashboardQuickActions,
+                      style: const TextStyle(fontFamily: 'Cairo', fontWeight: FontWeight.bold, fontSize: 16, color: AppColors.navyBlue),
+                    ),
+                    const SizedBox(height: 16),
+
+                    // Actions
+                    _ActionCard(
+                      icon: Icons.shield_rounded,
+                      label: l10n.adminDashboardVerifQueue,
+                      badge: pending,
+                      color: AppColors.navyBlue,
+                      delay: 100,
+                      onTap: () => context.go('/admin/verifications'),
+                    ),
+                    const SizedBox(height: 12),
+                    _ActionCard(
+                      icon: Icons.hub_rounded,
+                      label: l10n.adminDashboardUserMgmt,
+                      color: AppColors.navyBlue,
+                      delay: 150,
+                      onTap: () => context.go('/admin/users'),
+                    ),
+                    const SizedBox(height: 12),
+                    _ActionCard(
+                      icon: Icons.settings_rounded,
+                      label: 'إعدادات النظام',
+                      color: AppColors.navyBlue,
+                      delay: 200,
+                      onTap: () => context.go('/admin/settings'),
+                    ),
+                    const SizedBox(height: 12),
+                    _ActionCard(
+                      icon: Icons.memory_rounded,
+                      label: l10n.adminDashboardSystemLogs,
+                      color: AppColors.navyBlue,
+                      delay: 250,
+                      onTap: () => context.pushNamed('admin_logs'),
+                    ),
+                  ],
+                );
+              },
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildDrawer(BuildContext context, WidgetRef ref, AppLocalizations l10n) {
+    return Drawer(
+      backgroundColor: Colors.white,
+      child: Column(
+        children: [
+          Container(
+            padding: const EdgeInsets.only(top: 60, bottom: 20),
+            color: AppColors.navyBlue,
+            width: double.infinity,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Icon(Icons.admin_panel_settings, color: Colors.white, size: 50),
+                const SizedBox(height: 12),
+                Text(
+                  l10n.adminDashboardDrawerTitle,
+                  style: const TextStyle(fontFamily: 'Cairo', color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16),
+                ),
+              ],
+            ),
+          ),
+          ListTile(
+            leading: const Icon(Icons.dashboard_rounded, color: AppColors.navyBlue),
+            title: Text(l10n.adminDashboardDrawerDashboard, style: const TextStyle(fontFamily: 'Cairo', color: AppColors.navyBlue, fontWeight: FontWeight.bold)),
+            onTap: () => Navigator.pop(context),
+          ),
+          ListTile(
+            leading: const Icon(Icons.verified_user_rounded, color: Colors.grey),
+            title: Text(l10n.adminDashboardDrawerRegistrations, style: const TextStyle(fontFamily: 'Cairo', color: Colors.black87)),
+            onTap: () {
+              Navigator.pop(context);
+              context.go('/admin/verifications');
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.settings_rounded, color: Colors.grey),
+            title: const Text('إعدادات النظام', style: TextStyle(fontFamily: 'Cairo', color: Colors.black87)),
+            onTap: () {
+              Navigator.pop(context);
+              context.go('/admin/settings');
+            },
+          ),
+          const Spacer(),
+          const Divider(color: Colors.black12),
+          ListTile(
+            leading: const Icon(Icons.power_settings_new_rounded, color: Colors.red),
+            title: Text(l10n.adminDashboardDrawerEndSession, style: const TextStyle(fontFamily: 'Cairo', color: Colors.red)),
+            onTap: () async {
+              await ref.read(authServiceProvider).signOut();
+              if (context.mounted) context.go('/gateway');
+            },
+          ),
+          const SizedBox(height: 20),
+        ],
+      ),
+    );
+  }
+}
+
+class _StatCard extends StatelessWidget {
+  final String title, value;
+  final IconData icon;
+  final Color color;
+  final bool badge;
+  final int delay;
+
+  const _StatCard({
+    required this.title,
+    required this.value,
+    required this.icon,
+    required this.color,
+    this.badge = false,
+    required this.delay,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: Colors.grey.shade200),
+        boxShadow: [
+          BoxShadow(color: Colors.black.withValues(alpha: 0.02), blurRadius: 8, offset: const Offset(0, 4)),
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Container(
+                padding: const EdgeInsets.all(8),
+                decoration: BoxDecoration(color: color.withValues(alpha: 0.1), shape: BoxShape.circle),
+                child: Icon(icon, color: color, size: 24),
+              ),
+              if (badge)
+                Container(
+                  width: 10,
+                  height: 10,
+                  decoration: const BoxDecoration(color: Colors.red, shape: BoxShape.circle),
+                ).animate(onPlay: (c) => c.repeat(reverse: true)).fade(duration: 500.ms),
+            ],
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                value,
+                style: TextStyle(fontFamily: 'Cairo', fontWeight: FontWeight.bold, fontSize: 24, color: AppColors.navyBlue),
+              ),
+              Text(
+                title,
+                style: const TextStyle(fontFamily: 'Cairo', fontSize: 12, color: Colors.grey),
+              ),
+            ],
+          ),
+        ],
+      ),
+    ).animate().fadeIn(duration: 400.ms, delay: delay.ms).scale(begin: const Offset(0.95, 0.95));
+  }
+}
+
+class _ActionCard extends StatelessWidget {
+  final IconData icon;
+  final String label;
+  final Color color;
+  final int badge;
+  final int delay;
+  final VoidCallback onTap;
+
+  const _ActionCard({
+    required this.icon,
+    required this.label,
+    required this.color,
+    required this.onTap,
+    this.badge = 0,
+    required this.delay,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return TapScale(
+      onTap: onTap,
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(16),
+          border: Border.all(color: Colors.grey.shade200),
+          boxShadow: [
+            BoxShadow(color: Colors.black.withValues(alpha: 0.02), blurRadius: 8, offset: const Offset(0, 2)),
+          ],
+        ),
+        child: Row(
+          children: [
+            Container(
+              padding: const EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                color: color.withValues(alpha: 0.1),
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: Icon(icon, color: color, size: 22),
+            ),
+            const SizedBox(width: 16),
+            Expanded(
+              child: Text(
+                label,
+                style: const TextStyle(fontFamily: 'Cairo', fontWeight: FontWeight.bold, fontSize: 14, color: AppColors.navyBlue),
+              ),
+            ),
+            if (badge > 0)
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                decoration: BoxDecoration(
+                  color: Colors.red,
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: Text(
+                  '$badge',
+                  style: const TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.bold),
+                ),
+              ),
+            const SizedBox(width: 8),
+            const Icon(Icons.arrow_forward_ios_rounded, size: 16, color: Colors.grey),
+          ],
+        ),
+      ),
+    ).animate().fadeIn(duration: 400.ms, delay: delay.ms).slideX(begin: 0.05);
+  }
+}

@@ -1,0 +1,369 @@
+import 'package:flutter_project/core/services/error_tracking_service.dart';
+import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter_project/l10n/app_localizations.dart';
+import 'package:flutter_project/core/theme/app_theme.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+
+class PrivacyPolicyPage extends StatelessWidget {
+  const PrivacyPolicyPage({super.key});
+
+  Future<void> _launchEmail(BuildContext context, AppLocalizations l10n) async {
+    try {
+      final Uri emailUri = Uri(
+        scheme: 'mailto',
+        path: 'almsmarysnd15@gmail.com',
+        query: Uri.encodeFull('subject=${l10n.privacyPolicyTitle}'),
+      );
+
+      if (await canLaunchUrl(emailUri)) {
+        await launchUrl(emailUri, mode: LaunchMode.externalApplication);
+      } else {
+        throw 'cannot_open_email';
+      }
+    } catch (e, stackTrace) {
+      ErrorTrackingService.recordError(e, stackTrace, context: '❌ email error');
+      if (!context.mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(l10n.privacyPolicyEmailError),
+          behavior: SnackBarBehavior.floating,
+        ),
+      );
+    }
+  }
+
+  Future<void> _launchUrl(BuildContext context, Uri url) async {
+    final l10n = AppLocalizations.of(context)!;
+    try {
+      final launched = await launchUrl(url, mode: LaunchMode.externalApplication);
+      if (!launched && context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(l10n.privacyPolicyEmailError)),
+        );
+      }
+    } catch (e) {
+      if (!context.mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('${l10n.errorPrefix}$e')),
+      );
+    }
+  }
+
+  Future<void> _launchWhatsApp(BuildContext context) async {
+    const phoneNumber = '218928687657';
+    await _launchUrl(context, Uri.parse('https://wa.me/$phoneNumber'));
+  }
+
+  Future<void> _launchFacebook(BuildContext context) async {
+    await _launchUrl(
+      context,
+      Uri.parse('https://www.facebook.com/share/16eS6kjXGa/'),
+    );
+  }
+
+  Future<void> _launchInstagram(BuildContext context) async {
+    await _launchUrl(
+      context,
+      Uri.parse(
+        'https://www.instagram.com/cts_derna?igsh=NHExazczamFmNXQz',
+      ),
+    );
+  }
+
+  Widget _buildSectionCard({
+    required BuildContext context,
+    required String title,
+    required String body,
+    required IconData icon,
+    required int index,
+  }) {
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
+    
+    return Card(
+      elevation: isDark ? 2 : 4,
+      shadowColor: AppTheme.primaryColor.withValues(alpha: 0.1),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+      margin: const EdgeInsets.only(bottom: 16),
+      color: isDark ? theme.colorScheme.surface : Colors.white,
+      child: Padding(
+        padding: const EdgeInsets.all(20),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                Container(
+                  padding: const EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    color: AppTheme.primaryColor.withValues(alpha: 0.1),
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: Icon(icon, color: AppTheme.primaryColor, size: 24),
+                ),
+                const SizedBox(width: 16),
+                Expanded(
+                  child: Text(
+                    title,
+                    style: theme.textTheme.titleMedium?.copyWith(
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'Cairo',
+                      color: isDark ? Colors.white : AppTheme.primaryColor,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 16),
+            Text(
+              body,
+              style: theme.textTheme.bodyMedium?.copyWith(
+                height: 1.6,
+                fontFamily: 'Cairo',
+                color: isDark ? Colors.grey.shade300 : Colors.grey.shade800,
+              ),
+            ),
+          ],
+        ),
+      ),
+    ).animate().fadeIn(delay: (100 * index).ms).slideY(begin: 0.1);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
+    final l10n = AppLocalizations.of(context)!;
+
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          l10n.privacyPolicyTitle,
+          style: const TextStyle(fontFamily: 'Cairo'),
+        ),
+        centerTitle: true,
+        backgroundColor: theme.appBarTheme.backgroundColor,
+        elevation: 0,
+      ),
+      backgroundColor: theme.scaffoldBackgroundColor,
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.all(20),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            // Intro section
+            Container(
+              padding: const EdgeInsets.all(20),
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [
+                    AppTheme.primaryColor,
+                    AppTheme.secondaryColor,
+                  ],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                ),
+                borderRadius: BorderRadius.circular(16),
+              ),
+              child: Column(
+                children: [
+                  const Icon(Icons.privacy_tip_outlined, color: Colors.white, size: 48),
+                  const SizedBox(height: 12),
+                  Text(
+                    l10n.privacyPolicyHeadingInfo,
+                    style: theme.textTheme.titleLarge?.copyWith(
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'Cairo',
+                      color: Colors.white,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    l10n.privacyPolicyIntro,
+                    style: theme.textTheme.bodyMedium?.copyWith(
+                      height: 1.5,
+                      fontFamily: 'Cairo',
+                      color: Colors.white.withValues(alpha: 0.9),
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ],
+              ),
+            ).animate().fadeIn().scale(),
+            
+            const SizedBox(height: 24),
+            
+            _buildSectionCard(
+              context: context,
+              title: l10n.privacyPolicyCollectedTitle,
+              body: l10n.privacyPolicyCollectedBody,
+              icon: Icons.data_usage_rounded,
+              index: 1,
+            ),
+            _buildSectionCard(
+              context: context,
+              title: l10n.privacyPolicyUsageTitle,
+              body: l10n.privacyPolicyUsageBody,
+              icon: Icons.supervised_user_circle_rounded,
+              index: 2,
+            ),
+            _buildSectionCard(
+              context: context,
+              title: l10n.privacyPolicyProtectionTitle,
+              body: l10n.privacyPolicyProtectionBody,
+              icon: Icons.security_rounded,
+              index: 3,
+            ),
+            _buildSectionCard(
+              context: context,
+              title: l10n.privacyPolicySharingTitle,
+              body: l10n.privacyPolicySharingBody,
+              icon: Icons.share_rounded,
+              index: 4,
+            ),
+            _buildSectionCard(
+              context: context,
+              title: l10n.privacyPolicyAmendmentsTitle,
+              body: l10n.privacyPolicyAmendmentsBody,
+              icon: Icons.update_rounded,
+              index: 5,
+            ),
+
+            const SizedBox(height: 16),
+            
+            // Contact Section
+            Card(
+              elevation: isDark ? 2 : 4,
+              shadowColor: AppTheme.primaryColor.withValues(alpha: 0.1),
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+              color: isDark ? theme.colorScheme.surface : Colors.white,
+              child: Padding(
+                padding: const EdgeInsets.all(20),
+                child: Column(
+                  children: [
+                    Text(
+                      l10n.privacyPolicyContact,
+                      style: theme.textTheme.titleMedium?.copyWith(
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'Cairo',
+                        color: isDark ? Colors.white : AppTheme.primaryColor,
+                      ),
+                    ),
+                    const SizedBox(height: 12),
+                    GestureDetector(
+                      onTap: () => _launchEmail(context, l10n),
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                        decoration: BoxDecoration(
+                          color: AppTheme.primaryColor.withValues(alpha: 0.1),
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Icon(Icons.email_outlined, color: AppTheme.primaryColor, size: 20),
+                            const SizedBox(width: 8),
+                            Text(
+                              'almsmarysnd15@gmail.com',
+                              style: theme.textTheme.bodyMedium?.copyWith(
+                                fontFamily: 'Cairo',
+                                fontWeight: FontWeight.w600,
+                                color: theme.colorScheme.primary,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 24),
+                    const Divider(),
+                    const SizedBox(height: 16),
+                    Text(
+                      l10n.privacyPolicySocialTitle,
+                      style: theme.textTheme.titleSmall?.copyWith(
+                        fontFamily: 'Cairo',
+                        fontWeight: FontWeight.bold,
+                        color: isDark ? Colors.white70 : Colors.black54,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                    const SizedBox(height: 16),
+                    Wrap(
+                      spacing: 12,
+                      runSpacing: 12,
+                      alignment: WrapAlignment.center,
+                      children: [
+                        _SocialButton(
+                          icon: FontAwesomeIcons.whatsapp,
+                          label: 'WhatsApp',
+                          color: const Color(0xFF25D366),
+                          onTap: () => _launchWhatsApp(context),
+                        ),
+                        _SocialButton(
+                          icon: FontAwesomeIcons.facebook,
+                          label: 'Facebook',
+                          color: const Color(0xFF1877F2),
+                          onTap: () => _launchFacebook(context),
+                        ),
+                        _SocialButton(
+                          icon: FontAwesomeIcons.instagram,
+                          label: 'Instagram',
+                          color: const Color(0xFFE4405F),
+                          onTap: () => _launchInstagram(context),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ).animate().fadeIn(delay: 600.ms).slideY(begin: 0.1),
+            
+            const SizedBox(height: 30),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _SocialButton extends StatelessWidget {
+  final FaIconData icon; // تم ضبطها لتستقبل IconData بشكل عام ومرن
+  final String label;
+  final Color color;
+  final VoidCallback onTap;
+
+  const _SocialButton({
+    required this.icon,
+    required this.label,
+    required this.color,
+    required this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton.icon(
+      icon: FaIcon(icon, color: Colors.white, size: 18),
+      label: Text(
+        label,
+        style: const TextStyle(
+          fontFamily: 'Cairo',
+          fontWeight: FontWeight.w600,
+          color: Colors.white,
+        ),
+      ),
+      style: ElevatedButton.styleFrom(
+        backgroundColor: color,
+        elevation: 0,
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(12),
+        ),
+      ),
+      onPressed: onTap,
+    );
+  }
+}
+

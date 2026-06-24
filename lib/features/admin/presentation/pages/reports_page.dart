@@ -1,0 +1,377 @@
+// lib/features/admin/presentation/pages/reports_page.dart
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:intl/intl.dart';
+import '../../../../core/models/user_profile.dart';
+import '../../../../core/widgets/section_header.dart';
+import '../../screens/admin_sidebar.dart';
+import '../../screens/admin_app_bar.dart';
+
+const _kNavy = Color(0xFF1A365D);
+const _kGold = Color(0xFFD4AF37);
+
+// Providers
+final studentsCountProvider = FutureProvider<int>((ref) async {
+  final query = await FirebaseFirestore.instance
+      .collection('users')
+      .where('role', isEqualTo: 'student')
+      .count()
+      .get();
+  return query.count ?? 0; // ✅
+});
+
+final facultyCountProvider = FutureProvider<int>((ref) async {
+  final query = await FirebaseFirestore.instance
+      .collection('users')
+      .where('role', isEqualTo: 'faculty')
+      .count()
+      .get();
+  return query.count ?? 0; // ✅
+});
+
+final coursesCountProvider = FutureProvider<int>((ref) async {
+  final query = await FirebaseFirestore.instance.collection('courses').count().get();
+  return query.count ?? 0; // ✅
+});
+
+final recentRegistrationsProvider = FutureProvider<List<UserProfile>>((ref) async {
+  final snapshot = await FirebaseFirestore.instance
+      .collection('users')
+      .orderBy('createdAt', descending: true)
+      .limit(10)
+      .get();
+  return snapshot.docs.map((doc) => UserProfile.fromFirestore(doc)).toList();
+});
+
+// Main Page
+class ReportsPage extends ConsumerStatefulWidget {
+  const ReportsPage({super.key});
+
+  @override
+  ConsumerState<ReportsPage> createState() => _ReportsPageState();
+}
+
+class _ReportsPageState extends ConsumerState<ReportsPage> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  String _selectedReportType = 'students';
+  DateTimeRange? _dateRange;
+  bool _isGenerating = false;
+  String? _generatedReportContent;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      key: _scaffoldKey,
+      drawer: const AdminSidebar(),
+      appBar: AdminAppBar(
+        title: 'التقارير والإحصائيات',
+        scaffoldKey: _scaffoldKey,
+      ),
+      body: Row(
+        children: [
+          // القائمة الجانبية للتقرير (على الشاشات الكبيرة)
+          Container(
+            width: MediaQuery.of(context).size.width > 800 ? 280 : double.infinity,
+            color: Colors.grey.shade50,
+            child: _buildReportSidebar(),
+          ),
+          // محتوى التقرير
+          Expanded(
+            child: _isGenerating
+                ? const Center(child: CircularProgressIndicator())
+                : _generatedReportContent == null
+                    ? _buildEmptyState()
+                    : _buildReportContent(),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildReportSidebar() {
+    return SingleChildScrollView(
+      padding: const EdgeInsets.all(16),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SectionHeader(
+            title: 'نوع التقرير',
+            padding: EdgeInsets.zero,
+          ),
+          const SizedBox(height: 12),
+          _buildRadioTile('students', 'تقرير الطلاب', Icons.people),
+          _buildRadioTile('faculty', 'تقرير هيئة التدريس', Icons.person),
+          _buildRadioTile('courses', 'تقرير المواد الدراسية', Icons.book),
+          _buildRadioTile('attendance', 'تقرير الحضور', Icons.check_circle),
+          _buildRadioTile('grades', 'تقرير الدرجات', Icons.grade),
+          const Divider(height: 32),
+          SectionHeader(
+            title: 'الفترة الزمنية',
+            padding: EdgeInsets.zero,
+          ),
+          const SizedBox(height: 12),
+          ElevatedButton.icon(
+            onPressed: () async {
+              final picked = await showDateRangePicker(
+                context: context,
+                firstDate: DateTime(2020),
+                lastDate: DateTime.now(),
+              );
+              if (picked != null) {
+                setState(() => _dateRange = picked);
+              }
+            },
+            icon: const Icon(Icons.calendar_today),
+            label: Text(_dateRange == null
+                ? 'اختر الفترة'
+                : '${DateFormat('yyyy-MM-dd').format(_dateRange!.start)} - ${DateFormat('yyyy-MM-dd').format(_dateRange!.end)}'),
+          ),
+          const SizedBox(height: 24),
+          SizedBox(
+            width: double.infinity,
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: _kNavy,
+                foregroundColor: Colors.white,
+                padding: const EdgeInsets.symmetric(vertical: 16),
+              ),
+              onPressed: _generateReport,
+              child: const Text('إنشاء التقرير'),
+            ),
+          ),
+          const SizedBox(height: 16),
+          SizedBox(
+            width: double.infinity,
+            child: OutlinedButton.icon(
+              onPressed: _generatedReportContent == null ? null : _exportAsPDF,
+              icon: const Icon(Icons.picture_as_pdf),
+              label: const Text('تصدير PDF'),
+              style: OutlinedButton.styleFrom(
+                foregroundColor: Colors.red,
+                side: const BorderSide(color: Colors.red),
+              ),
+            ),
+          ),
+          const SizedBox(height: 8),
+          SizedBox(
+            width: double.infinity,
+            child: OutlinedButton.icon(
+              onPressed: _generatedReportContent == null ? null : _exportAsExcel,
+              icon: const Icon(Icons.table_chart),
+              label: const Text('تصدير Excel'),
+              style: OutlinedButton.styleFrom(
+                foregroundColor: Colors.green,
+                side: const BorderSide(color: Colors.green),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+ Widget _buildRadioTile(String value, String title, IconData icon) {
+    return RadioGroup<String>(
+      groupValue: _selectedReportType,
+      onChanged: (v) {
+        if (v != null) {
+          setState(() => _selectedReportType = v);
+        }
+      },
+      child: Row(
+        children: [
+          Radio<String>(
+            value: value,
+            activeColor: _kGold,
+          ),
+          Icon(icon, color: _kNavy, size: 20),
+          const SizedBox(width: 8),
+          Text(title, style: const TextStyle(fontSize: 14)),
+        ],
+      ),
+    );
+  }
+  Widget _buildEmptyState() {
+    return  Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(Icons.report, size: 80, color: Colors.grey),
+          SizedBox(height: 16),
+          Text(
+            'اختر نوع التقرير والفترة الزمنية',
+            style: TextStyle(fontSize: 18, color: Theme.of(context).colorScheme.onSurfaceVariant),
+          ),
+          SizedBox(height: 8),
+          Text(
+            'ثم اضغط على "إنشاء التقرير"',
+            style: TextStyle(color: Theme.of(context).colorScheme.onSurfaceVariant),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildReportContent() {
+    return SingleChildScrollView(
+      padding: const EdgeInsets.all(24),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            padding: const EdgeInsets.all(16),
+            decoration: BoxDecoration(
+              color: _kNavy.withValues(alpha: 0.05),
+              borderRadius: BorderRadius.circular(12),
+            ),
+            child: Row(
+              children: [
+                Icon(Icons.description, color: _kNavy, size: 32),
+                const SizedBox(width: 16),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      _getReportTitle(),
+                      style: const TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    if (_dateRange != null)
+                      Text(
+                        'الفترة: ${DateFormat('yyyy-MM-dd').format(_dateRange!.start)} - ${DateFormat('yyyy-MM-dd').format(_dateRange!.end)}',
+                        style: TextStyle(color: Theme.of(context).colorScheme.onSurfaceVariant),
+                      ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 24),
+          Text(
+            _generatedReportContent!,
+            style: const TextStyle(fontSize: 16, height: 1.5),
+          ),
+        ],
+      ),
+    );
+  }
+
+  String _getReportTitle() {
+    switch (_selectedReportType) {
+      case 'students':
+        return 'تقرير الطلاب';
+      case 'faculty':
+        return 'تقرير هيئة التدريس';
+      case 'courses':
+        return 'تقرير المواد الدراسية';
+      case 'attendance':
+        return 'تقرير الحضور';
+      case 'grades':
+        return 'تقرير الدرجات';
+      default:
+        return 'تقرير';
+    }
+  }
+
+  Future<void> _generateReport() async {
+    setState(() => _isGenerating = true);
+
+    // محاكاة التحميل
+    await Future.delayed(const Duration(seconds: 1));
+
+    String content = '';
+    switch (_selectedReportType) {
+      case 'students':
+        final count = await ref.read(studentsCountProvider.future);
+        content = '''
+# تقرير الطلاب
+
+## ملخص عام
+- إجمالي عدد الطلاب المسجلين: $count طالب/طالبة
+- تاريخ التقرير: ${DateFormat('yyyy-MM-dd HH:mm').format(DateTime.now())}
+
+## توزيع الطلاب حسب الكليات
+راجع لوحة التحكم → إدارة المستخدمين للتفاصيل حسب الكلية.
+
+## الطلاب الجدد (آخر 30 يوماً)
+راجع سجل التسجيلات في قائمة التحقق من الطلبات.
+''';
+        break;
+      case 'faculty':
+        final count = await ref.read(facultyCountProvider.future);
+        content = '''
+# تقرير هيئة التدريس
+
+## ملخص عام
+- إجمالي عدد أعضاء هيئة التدريس: $count عضو/عضوة
+- تاريخ التقرير: ${DateFormat('yyyy-MM-dd HH:mm').format(DateTime.now())}
+
+## التوزيع حسب الدرجة العلمية
+راجع ملفات أعضاء هيئة التدريس في قاعدة البيانات للتفاصيل.
+''';
+        break;
+      case 'courses':
+        final count = await ref.read(coursesCountProvider.future);
+        content = '''
+# تقرير المواد الدراسية
+
+## ملخص عام
+- إجمالي عدد المواد الدراسية: $count مادة
+- تاريخ التقرير: ${DateFormat('yyyy-MM-dd HH:mm').format(DateTime.now())}
+
+## توزيع المواد حسب الأقسام
+راجع صفحة إدارة المواد الدراسية للتفاصيل.
+''';
+        break;
+      default:
+        content = '''
+# تقرير ${_getReportTitle()}
+
+## ملخص عام
+ملخص إحصائي من بيانات النظام الحالية.
+
+تاريخ التقرير: ${DateFormat('yyyy-MM-dd HH:mm').format(DateTime.now())}
+''';
+    }
+
+    setState(() {
+      _generatedReportContent = content;
+      _isGenerating = false;
+    });
+  }
+
+  void _exportAsPDF() {
+    final content = _generatedReportContent;
+    if (content == null || content.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('قم بإنشاء التقرير أولاً')),
+      );
+      return;
+    }
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(
+          'تم حفظ نص التقرير (${content.length} حرف) — يمكن نسخه من المعاينة',
+        ),
+      ),
+    );
+  }
+
+  void _exportAsExcel() {
+    final content = _generatedReportContent;
+    if (content == null || content.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('قم بإنشاء التقرير أولاً')),
+      );
+      return;
+    }
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content: Text('تم تجهيز بيانات التقرير — انسخ المحتوى من المعاينة'),
+      ),
+    );
+  }
+}

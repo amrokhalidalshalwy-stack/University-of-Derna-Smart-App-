@@ -1,0 +1,77 @@
+# Environment variables — NEVER commit real keys
+.env
+.env.*
+!.env.example
+# Firebase Admin SDK / Service Accounts — NEVER commit
+serviceAccountKey.json
+**/serviceAccountKey.json
+*serviceAccount*.json
+*service_account*.json
+*-firebase-adminsdk-*.json
+*.pem
+
+# Firebase / Google Services
+**/google-services.json
+GoogleService-Info.plist
+
+# Firebase tools executables
+firebase-tools-instant-win*.exe
+firebase.exe
+
+# Portal debug HTML dumps (DEBUG_PORTAL_HTML=1)
+scripts/debug/
+
+# Node.js
+node_modules/
+scripts/node_modules/
+
+# Flutter / Dart
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.pub/
+.pub-cache/
+build/
+/build/
+**/doc/api/
+**/ios/Flutter/.last_build_id
+
+# Android
+android/key.properties
+android/app/*.jks
+/android/app/debug
+/android/app/profile
+/android/app/release
+
+# IDEs
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# VS Code
+#.vscode/
+
+# Generated files
+*.class
+*.log
+*.pyc
+*.swp
+app.*.symbols
+app.*.map.json
+
+# System files
+.DS_Store
+.atom/
+.build/
+.buildlog/
+.history
+.svn/
+.swiftpm/
+migrate_working_dir/
+
+scripts/service-account.json
+
+firebase-tools-instant-win*.exe
+firebase.exe
+scripts/node_modules/

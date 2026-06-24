@@ -1,0 +1,236 @@
+import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter_project/core/theme/app_theme.dart';
+
+class UniversityBranchesMapPage extends StatefulWidget {
+  const UniversityBranchesMapPage({super.key});
+
+  @override
+  State<UniversityBranchesMapPage> createState() => _UniversityBranchesMapPageState();
+}
+
+class _UniversityBranchesMapPageState extends State<UniversityBranchesMapPage> {
+  // University of Derna — Official Branch Coordinates
+  static const _branches = [
+    {
+      'id': 'branch_shiha',
+      'nameAr': 'مجمع كليات شيحا — درنة',
+      'nameEn': 'Shiha Colleges Complex — Derna',
+      'city': 'درنة',
+      'lat': 32.7552,
+      'lng': 22.6293,
+    },
+    {
+      'id': 'branch_fatayeh',
+      'nameAr': 'كليات الفتايح — درنة',
+      'nameEn': 'Al-Fatayeh Colleges — Derna',
+      'city': 'درنة',
+      'lat': 32.7158,
+      'lng': 22.6824,
+    },
+    {
+      'id': 'branch_qubba',
+      'nameAr': 'فرع القبة',
+      'nameEn': 'Al-Qubba Branch',
+      'city': 'القبة',
+      'lat': 32.7635,
+      'lng': 22.2442,
+    },
+    {
+      'id': 'branch_shahat',
+      'nameAr': 'فرع شحات',
+      'nameEn': 'Shahat Branch',
+      'city': 'شحات',
+      'lat': 32.7090,
+      'lng': 21.8596,
+    },
+  ];
+
+  // Initial camera: centered between all 4 branches
+  static const CameraPosition _initialCamera = CameraPosition(
+    target: LatLng(32.7350, 22.2500),
+    zoom: 9.2,
+  );
+
+  Set<Marker> _buildMarkers(BuildContext context) {
+    return _branches.map((branch) {
+      final id = branch['id'] as String;
+      final nameAr = branch['nameAr'] as String;
+      final nameEn = branch['nameEn'] as String;
+      final city = branch['city'] as String;
+      final lat = branch['lat'] as double;
+      final lng = branch['lng'] as double;
+
+      return Marker(
+        markerId: MarkerId(id),
+        position: LatLng(lat, lng),
+        infoWindow: InfoWindow(
+          title: nameAr,
+          snippet: '$nameEn • $city',
+          onTap: () => _onMarkerInfoTap(context, branch),
+        ),
+        icon: BitmapDescriptor.defaultMarkerWithHue(
+          BitmapDescriptor.hueAzure,
+        ),
+      );
+    }).toSet();
+  }
+
+  void _onMarkerInfoTap(
+    BuildContext context,
+    Map<String, dynamic> branch,
+  ) {
+    showModalBottomSheet(
+      context: context,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+      ),
+      builder: (_) => Padding(
+        padding: const EdgeInsets.all(24),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // Handle bar
+            Center(
+              child: Container(
+                width: 40,
+                height: 4,
+                decoration: BoxDecoration(
+                  color: Colors.grey.shade300,
+                  borderRadius: BorderRadius.circular(2),
+                ),
+              ),
+            ),
+            const SizedBox(height: 16),
+
+            // Branch name
+            Text(
+              branch['nameAr'] as String,
+              style: const TextStyle(
+                fontFamily: 'Cairo',
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+                color: Color(0xFF0D1B2A),
+              ),
+            ),
+            const SizedBox(height: 4),
+            Text(
+              branch['nameEn'] as String,
+              style: TextStyle(
+                fontSize: 14,
+                color: Colors.grey.shade600,
+              ),
+            ),
+            const SizedBox(height: 12),
+
+            // City chip
+            Chip(
+              avatar: const Icon(
+                Icons.location_city,
+                size: 16,
+                color: Colors.white,
+              ),
+              label: Text(
+                branch['city'] as String,
+                style: const TextStyle(
+                  fontFamily: 'Cairo',
+                  color: Colors.white,
+                  fontSize: 13,
+                ),
+              ),
+              backgroundColor: const Color(0xFF0D1B2A),
+            ),
+            const SizedBox(height: 16),
+
+            // Coordinates row
+            Row(
+              children: [
+                const Icon(Icons.my_location, size: 16, color: Colors.grey),
+                const SizedBox(width: 8),
+                Text(
+                  'Lat: ${branch['lat']}  •  Lng: ${branch['lng']}',
+                  style: TextStyle(
+                    fontSize: 12,
+                    color: Colors.grey.shade500,
+                    fontFamily: 'monospace',
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 20),
+
+            // Open in Google Maps button
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton.icon(
+                icon: const Icon(Icons.directions),
+                label: const Text(
+                  'فتح في خرائط Google',
+                  style: TextStyle(fontFamily: 'Cairo'),
+                ),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color(0xFF0D1B2A),
+                  foregroundColor: Colors.white,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  padding: const EdgeInsets.symmetric(vertical: 14),
+                ),
+                onPressed: () {
+                  final lat = branch['lat'];
+                  final lng = branch['lng'];
+                  final name = Uri.encodeComponent(
+                    branch['nameEn'] as String,
+                  );
+                  final url =
+                      'https://www.google.com/maps/search/?api=1'
+                      '&query=$lat,$lng&query_place_id=$name';
+                  launchUrl(Uri.parse(url), mode: LaunchMode.externalApplication);
+                },
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Future<void> _applyMapStyle(GoogleMapController controller) async {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+
+    if (isDark) {
+      // Load dark style from assets or use inline JSON
+      // controller.setMapStyle(darkMapStyle);
+    }
+    // Light mode → default Google Maps style (no change needed)
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text(
+          'فروع جامعة درنة',
+          style: TextStyle(fontFamily: 'Cairo'),
+        ),
+        centerTitle: true,
+        backgroundColor: AppTheme.primaryColor,
+        foregroundColor: Colors.white,
+      ),
+      body: GoogleMap(
+        initialCameraPosition: _initialCamera,
+        markers: _buildMarkers(context),
+        myLocationButtonEnabled: true,
+        myLocationEnabled: true,
+        zoomControlsEnabled: true,
+        mapToolbarEnabled: false,
+        compassEnabled: true,
+        onMapCreated: (GoogleMapController controller) {
+          _applyMapStyle(controller);
+        },
+      ),
+    );
+  }
+}

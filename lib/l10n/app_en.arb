@@ -1,0 +1,2097 @@
+{
+  "@@locale": "en",
+  "appTitle": "University of Derna",
+  "settingsTitle": "Settings",
+  "homeTitle": "Home",
+  "language": "Language",
+  "theme": "Dark Mode",
+  "themeSystem": "System",
+  "themeLight": "Light",
+  "themeDark": "Dark",
+  "notifications": "Alerts",
+  "privacy": "Privacy",
+  "twoFactor": "Two-Factor Auth",
+  "comingSoonTitle": "Coming Soon",
+  "comingSoonBody": "This feature will be available in a future update.",
+  "ok": "OK",
+  "academicRecord": "Academic Record",
+  "appWelcomeTag":"Welcome to the Academic Sanctuary",
+  "resultsGrades": "Results & Grades",
+  "digitalLibrary": "Digital Library",
+  "universityEmail": "University Email",
+  "documentRequest": "Document Request",
+  "appMotto": "University of Derna: One Platform, Integrated Future",
+  "appWelcomeTag": "Welcome to the Academic Sanctuary",
+  "appWelcomeBody": "Start your educational journey now and discover a world of knowledge and opportunities waiting for you at our leading university.",
+  "openHorizons": "Open Your Horizons Now",
+  "termsContinue": "Continue",
+  "universityStats": "University Statistics",
+  "viewAndTrackAcademicPlan": "View and Track Academic Plan",
+  "studentsCount": "Students",
+  "collegesCount": "Academic Colleges",
+  "facultyCount": "Faculty Members",
+  "termsOfService": "Terms of Service",
+  "rightsReserved": "© 2026 University of Derna. All Rights Reserved.",
+  "loginTitle": "Sign In",
+  "loginSubtitle": "Enter your credentials to access your university account",
+  "email": "Email Address",
+  "password": "Password",
+  "forgotPassword": "Forgot Password?",
+  "agreeToTerms": "I agree to the terms and access permissions",
+  "loginButton": "Sign In",
+  "noAccount": "Don't have an account?",
+  "createAccount": "Create New Account",
+  "secureSystem": "University management system is fully protected and encrypted",
+  "smartCollege": "Smart College",
+  "welcomeBack": "Welcome, {name}",
+  "unspecifiedMajor": "Unspecified Major",
+  "cumulativeGpa": "Cumulative GPA",
+  "completedHours": "Completed Hours",
+  "academicServices": "Academic Services",
+  "grades": "Grades",
+  "gradesTitle": "Results & Grades",
+  "attendance": "Attendance",
+  "noAttendanceData": "No attendance data yet",
+  "error": "Error",
+  "errorLoadingGrades": "Error loading grades",
+  "searchCourse": "Search for a course...",
+  "all": "All",
+  "undefinedSemester": "Undefined semester",
+  "hoursEarned": "hours earned",
+  "coursesCount": "courses",
+  "gpaLabel": "Cumulative GPA",
+  "noSearchResults": "No search results",
+  "noGradesRecorded": "No grades recorded yet",
+  "tryDifferentSearch": "Try a different search term",
+  "finalExam": "Final",
+  "midtermExam": "Midterm",
+  "hours": "hours",
+  "excellent": "Excellent",
+  "veryGood": "Very Good",
+  "good": "Good",
+  "acceptable": "Acceptable",
+  "failed": "Failed",
+  "schedule": "Schedule",
+  "latestNotifications": "Latest Notifications",
+  "noNotifications": "No notifications",
+  "loadingError": "Loading error",
+  "pleaseLogin": "Please sign in",
+  "dataUnavailable": "Data unavailable",
+  "myStudy": "My Study",
+  "appPreferences": "App Preferences",
+  "notificationsEnabled": "Enabled",
+  "notificationsDisabled": "Disabled",
+  "showNotificationCenter": "Show Notification Center",
+  "accountAndSecurity": "Account & Security",
+  "changePassword": "Change Password",
+  "aboutUniversity": "About University",
+  "aboutApp": "About App",
+  "technicalSupport": "Technical Support",
+  "faqs": "FAQs",
+  "signOut": "Sign Out",
+  "languageAuto": "Auto (System)",
+  "languageAr": "Arabic",
+  "languageEn": "English",
+  "agreeToTermsLabel": "I agree to terms and permissions",
+  "loading": "Loading...",
+  "invalidEmail": "Invalid email format",
+  "emailRequired": "Email is required",
+  "passwordRequired": "Password is required",
+  "passwordTooShort": "Password must be at least 6 characters",
+  "usernameRequired": "Username is required",
+  "usernameTooShort": "Please enter your name as registered in the college",
+  "registrationNumberRequired": "Registration number is required",
+  "invalidRegistrationNumber": "Registration number must be 8 or 9 digits",
+  "confirmPasswordRequired": "Please confirm password",
+  "passwordsDoNotMatch": "Passwords do not match",
+  "signUpTitle": "Create New Account",
+  "signUpSubtitle": "Start your academic journey with us",
+  "fullNameLabel": "Full Name",
+  "fullNameHint": "Enter your full name as registered",
+  "registrationNumberLabel": "Student ID (Registration Number)",
+  "registrationNumberHint": "Example: 202100000",
+  "passwordHint": "At least 6 characters",
+  "confirmPasswordLabel": "Confirm Password",
+  "confirmPasswordHint": "Re-enter password",
+  "signUpButton": "Create Account",
+  "alreadyHaveAccount": "Already have an account?",
+  "legalAgreement": "By clicking \"Create Account\", you agree to the Terms of Service and Privacy Policy of the University of Derna.",
+  "signUpSuccess": "Account created successfully! Welcome to the University of Derna.",
+  "forgotPasswordTitle": "Forgot Password",
+  "forgotPasswordSubtitle": "Enter your email to reset your password",
+  "sendButton": "Send",
+  "resetEmailSent": "Password reset link sent to your email",
+  "genericError": "Something went wrong. Please try again.",
+  "userNotFound": "Email address not found",
+  "defaultStudentName": "Student",
+  "defaultStudentEmail": "student@uod.edu.ly",
+  "supportSubject": "Technical Support Request - University of Derna App",
+  "profileTitle": "Profile",
+  "userNotFoundMsg": "User data not found",
+  "editProfilePhoto": "Edit Profile Photo",
+  "registrationNumberPrefix": "ID: ",
+  "academicInfo": "Academic Information",
+  "contactInfo": "Contact Information",
+  "majorLabel": "Major",
+  "emailLabel": "Email",
+  "errorPrefix": "Error: ",
+  "gradesTitle": "Results & Grades",
+  "earnedHours": "Earned Hours",
+  "coursesCount": "{count} Courses",
+  "noGradesMsg": "No grades recorded yet",
+  "semesterFallback": "Unspecified Semester",
+  "hoursSuffix": "Hours",
+  "finalExamLabel": "Final",
+  "midtermLabel": "Midterm",
+  "totalLabel": "Total",
+  "excellent": "Excellent",
+  "veryGood": "Very Good",
+  "good": "Good",
+  "pass": "Pass",
+  "fail": "Fail",
+  "gradesError": "Error loading grades",
+  "attendanceTitle": "Attendance & Absences",
+  "attendanceError": "Error loading attendance data",
+  "noAttendanceMsg": "No attendance records yet",
+  "totalAbsences": "Total Absences",
+  "totalAttendancePct": "Overall Attendance Rate",
+  "atRiskWarning": "Warning: {count} {count, plural, =1{course} other{courses}} at risk (attendance rate below 75%)",
+  "atRiskBadge": "⚠️ At Risk",
+  "totalLecturesLabel": "{count} Total",
+  "attendedLecturesLabel": "{count} Attended",
+  "absencesLabel": "{count} Absent",
+  "scheduleTitle": "Academic Schedule",
+  "noLecturesTitle": "No lectures for today",
+  "noLecturesSubtitle": "Data from local storage. Pull to refresh.",
+  "refreshAction": "Refresh",
+  "daySaturday": "Saturday",
+  "daySunday": "Sunday",
+  "dayMonday": "Monday",
+  "dayTuesday": "Tuesday",
+  "dayWednesday": "Wednesday",
+  "dayThursday": "Thursday",
+  "currentSemesterTitle": "Current Semester",
+  "currentGpaLabel": "Current GPA",
+  "nextClassTitle": "Next Lecture",
+  "quickAccessTitle": "Quick Access",
+  "fullScheduleLink": "Full Schedule",
+  "attendanceRecordLink": "Attendance Record",
+  "gradesReportLink": "Grades Report",
+  "departmentScientific": "Academic Department",
+  "majorAndTrack": "Major & Track",
+  "collegeAffairs": "University Affairs",
+  "branchMainName": "Main Campus (Al-Fataih)",
+"branchMainAddress": "Derna University - Al-Fataih District, Derna, Libya",
+"deanMainName": "Dr. Salem Mostafa Al-Osta",
+"deanMainTitle": "Dean of the Faculty of Engineering",
+
+"branchShihaName": "Derna University (Shiha Branch)",
+"branchShihaAddress": "Shiha District - Derna, Libya",
+"deanShihaName": "Dr. Abdulsalam Al-Haddad",
+"deanShihaTitle": "Dean of the Faculty of Economics and Law",
+"branchBabTobrukName": "Faculty of Medicine (Bab Tobruk)",
+"branchBabTobrukAddress": "Bab Tobruk District - Derna, Libya",
+"deanBabTobrukName": "Prof. Dr. Jamal Abdul Hamid Al-Hassadi",
+"deanBabTobrukTitle": "Dean of the Faculty of Human Medicine",
+
+"branchAlqubaName": "Derna University (Al-Quba)",
+"branchAlqubaAddress": "Al-Quba - Libya",
+"deanAlqubaName": "Mr. Zuhair Abdullah Gadallah",
+
+"deanAlqubaTitle": "Dean of the Faculty of Engineering - Al-Quba Branch",
+  "announcementsAndLocation": "Announcements & Location",
+  "notificationsTitle": "Notifications",
+  "noNotificationsSaved": "No saved notifications",
+  "pullToRefreshSync": "Pull down to refresh and sync with the server.",
+  "notificationDefault": "Notification",
+  "majorSoftwareEngineering": "Software Engineering",
+  "collegeNews": "News",
+  "collegeDepartments": "Departments",
+  "departmentInfoTitle": "Academic Department",
+  "academicAdvisorTitle": "Academic Advisor",
+  "departmentNewsTitle": "Department News & Events",
+  "collegeItSubtitle": "Faculty of Information Technology — University of Derna",
+  "advisorNameSample": "Dr. Ahmed Al-Obaidi",
+  "advisorRoleSample": "Level 3 Academic Advisor",
+  "newsResearchTitle": "Research project registration is open",
+  "newsResearchDate": "2 days ago",
+  "newsResearchDescription": "Registration for research projects is now open for the current semester. Interested students are requested to submit their proposals before the deadline set by the department.",
+  "newsAiSeminarTitle": "Seminar: AI in education",
+  "newsAiSeminarDate": "4 days ago",
+  "newsAiSeminarDescription": "The college is organizing a scientific seminar on the latest applications of artificial intelligence in the education field, with the attendance of a group of experts and specialized academics.",
+  "newsExamsTitle": "Final exam schedule updated",
+  "newsExamsDate": "1 week ago",
+  "newsExamsDescription": "The final exam schedule for the current semester has been updated. Please review the new schedule and ensure your exam dates in all subjects.",
+  "collegeAnnouncementsTitle": "College Announcements",
+  "collegeLocationTitle": "College Location",
+  "deanOfficeTitle": "Dean's Office",
+  "graduationAlertTitle": "Important: upcoming graduation ceremony",
+  "graduationAlertBody": "The graduation ceremony will be held at the end of this month in the main university auditorium.",
+  "openInteractiveMap": "Open interactive map",
+  "deanNameSample": "Dr. Zuhair Abdullah",
+  "deanTitleSample": "Dean, Faculty of Engineering – Al-Quba Branch",
+  "contactCall": "Call",
+  "contactMessage": "Message",
+  "contactEmail": "Email",
+  "authError": "Authentication error",
+  "studentPortal": "Student Portal",
+  "facultyPortal": "Faculty Portal",
+  "adminPortal": "Admin Portal",
+  "studentPortalDesc": "Courses, grades, schedules, and academic services",
+  "facultyPortalDesc": "Lectures, assessment, attendance, and assignments",
+  "adminPortalDesc": "Settings, users, security, and reports",
+  "gatewayUniversityBadge": "University of Derna",
+  "gatewayMainTitle": "UOD Smart Portal",
+  "gatewaySubtitle": "An integrated digital platform for the university community",
+  "portalEnterStudent": "Enter",
+  "portalEnterFaculty": "Sign in",
+  "portalEnterAdmin": "Connect",
+  "guestPortalDivider": "or",
+  "guestPortalEnter": "Continue as guest",
+  "softwareEngineering": "Software Engineering",
+  "adminControlCenter": "Command & Control Center",
+  "adminVerifyAccounts": "Account verification queue",
+  "userManagementTitle": "User management",
+  "noUsersFound": "No users found",
+  "roleLabel": "Role",
+  "facultyPortalTitle": "Faculty Portal",
+  "appName": "University of Derna App",
+  "@appName": {
+    "description": "Application name"
+  },
+  "confirmPassword": "Confirm Password",
+  "@confirmPassword": {
+    "description": "Confirm password field label"
+  },
+  "signIn": "Sign In",
+  "@signIn": {
+    "description": "Sign in button"
+  },
+  "signUp": "Sign Up",
+  "@signUp": {
+    "description": "Sign up button"
+  },
+  "arabic": "Arabic",
+  "@arabic": {
+    "description": "Arabic language option"
+  },
+  "english": "English",
+  "@english": {
+    "description": "English language option"
+  },
+  "settings": "Settings",
+  "@settings": {
+    "description": "Settings screen title"
+  },
+  "profile": "Profile",
+  "@profile": {
+    "description": "Profile screen title"
+  },
+  "home": "Home",
+  "@home": {
+    "description": "Home tab label"
+  },
+  "fullName": "Full Name",
+  "@fullName": {
+    "description": "Full name field label"
+  },
+  "errorRequired": "{field} is required",
+  "@errorRequired": {
+    "description": "Validation error for required fields",
+    "placeholders": {
+      "field": {
+        "type": "String"
+      }
+    }
+  },
+  "errorInvalidEmail": "Please enter a valid email address",
+  "@errorInvalidEmail": {
+    "description": "Email validation error"
+  },
+  "errorPasswordLength": "Password must be at least 8 characters",
+  "@errorPasswordLength": {
+    "description": "Password length error"
+  },
+  "errorPasswordMatch": "Passwords do not match",
+  "@errorPasswordMatch": {
+    "description": "Password mismatch error"
+  },
+  "successAccountCreated": "Account created successfully",
+  "@successAccountCreated": {
+    "description": "Registration success"
+  },
+  "retry": "Retry",
+  "@retry": {
+    "description": "Retry button"
+  },
+  "cancel": "Cancel",
+  "@cancel": {
+    "description": "Cancel button"
+  },
+  "confirm": "Confirm",
+  "@confirm": {
+    "description": "Confirm button"
+  },
+  "save": "Save",
+  "@save": {
+    "description": "Save button"
+  },
+  "delete": "Delete",
+  "@delete": {
+    "description": "Delete button"
+  },
+  "noDataFound": "No data found",
+  "smartTimetableTitle": "Smart Timetable",
+  "advancedProgrammingSubject": "Advanced Programming",
+  "room101Time": "Room 101 - 8:00 AM to 10:00 AM",
+  "databaseSubject": "Database",
+  "lab3Time": "Lab 3 - 10:30 AM to 12:30 PM",
+  "versionLabel": "Version",
+  "lastUpdateLabel": "Last Update",
+  "may2024": "June 2026",
+  "developerLabel": "Developer",
+  "itDepartmentDerna": "Eng. Amro Khaled Al-Shalwi",
+  "developerEmail": "eng.amro@uod.edu.ly",
+  "aboutAppDescription": "The University of Derna app aims to facilitate student access to academic and administrative services through an integrated platform, striving towards comprehensive digital transformation.",
+  "@noDataFound": {
+    "description": "Empty state message"
+  },
+  "authPasswordStrengthWeakest": "Very Weak",
+  "authPasswordStrengthWeak": "Weak",
+  "authPasswordStrengthFair": "Fair",
+  "authPasswordStrengthGood": "Good",
+  "authPasswordStrengthStrong": "Strong ✓",
+  "authFullNameArabic": "Full Name (Arabic)",
+  "authFullNameEnglish": "Full Name (English)",
+  "authNationalId": "National ID",
+  "authPhoneNumber": "Phone Number",
+  "authDateOfBirth": "Date of Birth",
+  "authGender": "Gender",
+  "authGenderMale": "Male",
+  "authGenderFemale": "Female",
+  "authCollege": "College",
+  "authDepartment": "Department",
+  "authStudentId": "Student ID",
+  "authErrorNameArabicRequired": "Arabic name is required",
+  "authErrorNameEnglishRequired": "English name is required",
+  "authErrorNameArabicOnly": "Arabic name must contain Arabic characters only.",
+  "authErrorNameEnglishOnly": "English name must contain English characters only.",
+  "authErrorNationalIdRequired": "National ID is required",
+  "authErrorNationalIdFormat": "National ID must be 12 digits",
+  "authErrorPhoneFormat": "Invalid phone number",
+  "authErrorTermsRequired": "You must agree to the terms",
+  "authErrorCollegeRequired": "Please select a college",
+  "authTermsAndConditions": "Terms and Conditions",
+  "authAgreeToTerms": "I agree to the",
+  "authPrivacyPolicy": "Privacy Policy",
+  "authStepPersonalInfo": "Personal Information",
+  "authStepAcademicInfo": "Academic Information",
+  "authStepAccountSetup": "Account Setup",
+  "authStepNext": "Next",
+  "authStepPrevious": "Previous",
+  "authStepSubmit": "Submit",
+  "authRegistrationSuccess": "Registration submitted successfully",
+  "authRegistrationPending": "Your application is under review",
+  "authVerificationSent": "Verification email sent",
+  "authWelcomeTitle": "UOD Smart Portal",
+  "authWelcomeSubtitle": "Sign in to continue",
+  "authRememberMe": "Remember me",
+  "authNoAccount": "Don't have an account?",
+  "authHaveAccount": "Already have an account?",
+  "authLoginAdminTitle": "Central System Administration",
+  "authLoginFacultyTitle": "Faculty Portal",
+  "authLoginAdminSubtitle": "Please enter authorized credentials",
+  "authLoginFacultySubtitle": "Welcome to your academic portal",
+  "authLoginEmailHint": "example@uod.edu.ly",
+  "authStepReview": "Review",
+  "authErrorDateOfBirthRequired": "Please select date of birth",
+  "authRegistrationScorePrefix": "Preliminary score:",
+  "authRegistrationStatus": "Status:",
+  "authRegistrationFinalDecision": "You will be notified of the final decision via email within 3-5 business days.",
+  "authSubmitRequest": "Submit Request",
+  "authHintFullNameArabic": "Mohammed Ahmed Ali Mohammed",
+  "authHintFullNameEnglish": "Mohammed Ahmed Ali",
+  "authHintPhone": "+218910000000",
+  "authHintNationalId": "123456789012",
+  "authSelectDateOfBirth": "Select Date of Birth",
+  "authErrorGenderRequired": "Please select a gender",
+  "authErrorDepartmentRequired": "Please select a department",
+  "authHintSelectCollegeFirst": "Select college first",
+  "authHintSelectDepartment": "Select department",
+  "authSemester": "Semester",
+  "authErrorSemesterRequired": "Please select a semester",
+  "authExpectedGraduationYear": "Expected Graduation Year",
+  "authSecondaryGpa": "Secondary School GPA (0 - 100)",
+  "authHintSecondaryGpa": "Example: 85.5",
+  "authErrorSecondaryGpaRequired": "GPA is required",
+  "authErrorSecondaryGpaRange": "Enter a number between 0 and 100",
+  "authCertificateType": "Certificate Type",
+  "authErrorCertificateRequired": "Please select a certificate type",
+  "authErrorPasswordLength": "Password must be at least 8 characters",
+  "authConfirmPassword": "Confirm Password",
+  "authErrorPasswordMismatch": "Passwords do not match",
+  "authErrorInvalidCredentials": "Incorrect email or password",
+  "authErrorAccountNotFound": "Account data not found",
+  "authErrorPortalMismatch": "You are not authorized for this portal",
+  "authErrorUserDisabled": "This account has been disabled",
+  "authErrorTooManyRequests": "Too many attempts. Please try again later",
+  "authErrorNetworkFailed": "Check your internet connection",
+  "authErrorRoleMismatch": "You are not authorized for this portal",
+  "authErrorUserNotFound": "Account data not found",
+  "authReviewData": "Review Data",
+  "authLabelFullNameArabic": "Name (Arabic)",
+  "authLabelFullNameEnglish": "Name (English)",
+  "authLabelEmail": "Email",
+  "authLabelPhone": "Phone",
+  "authLabelNationalId": "National ID",
+  "authLabelGender": "Gender",
+  "authLabelCollege": "College",
+  "authLabelDepartment": "Department",
+  "authLabelSemester": "Semester",
+  "authLabelGraduationYear": "Graduation Year",
+  "authLabelGpa": "GPA",
+  "authLabelCertificateType": "Certificate Type",
+  "authAgreeToTermsOfService": "I agree to Terms of Service",
+  "authAgreeToPrivacyPolicy": "I agree to Privacy Policy",
+  "settingsAppearance": "Appearance",
+  "settingsDarkMode": "Dark Night Mode",
+  "settingsLanguage": "Application Language",
+  "settingsNotifications": "System Notifications",
+  "settingsNotifEnabled": "Enable Notifications",
+  "settingsNotifGrades": "Grade Updates",
+  "settingsNotifAnnouncements": "Announcements",
+  "settingsAccount": "Account Settings",
+  "settingsPrivacy": "Privacy & Policy",
+  "settingsHelp": "Help Center & FAQs",
+  "settingsAbout": "About University Portal",
+  "settingsVersion": "Version",
+  "settingsLogoutConfirm": "Are you sure you want to sign out?",
+  "profileEditTitle": "Edit Profile",
+  "profilePersonalInfo": "Personal Information",
+  "profileAcademicInfo": "Academic Information",
+  "profileContactInfo": "Contact Information",
+  "profileFullName": "Full Name",
+  "profileStudentId": "Student ID",
+  "profileCollege": "College",
+  "profileDepartment": "Department",
+  "profileLevel": "Academic Level",
+  "profileGpa": "GPA",
+  "profilePhone": "Phone Number",
+  "profileAddress": "Address",
+  "profileSaveChanges": "Save Changes",
+  "profileChangePhoto": "Change Photo",
+  "profileUpdateSuccess": "Profile updated successfully",
+  "profileUpdateError": "Failed to update profile",
+  "changePasswordTitle": "Change Password",
+  "changePasswordCurrent": "Current Password",
+  "changePasswordNew": "New Password",
+  "changePasswordConfirm": "Confirm New Password",
+  "changePasswordSuccess": "Password changed successfully",
+  "changePasswordErrorWrong": "Current password is incorrect",
+  "changePasswordErrorSame": "New password must differ from current",
+  "privacyPolicyTitle": "Privacy Policy",
+  "privacyPolicyLastUpdated": "Last updated",
+  "privacyPolicyDataUsage": "Data Usage",
+  "privacyPolicyContact": "Contact Us",
+  "notificationsEmpty": "No notifications yet",
+  "notificationsMarkAllRead": "Mark all as read",
+  "notificationsClearAll": "Clear all",
+  "notificationsNew": "New",
+  "notificationsToday": "Today",
+  "notificationsYesterday": "Yesterday",
+  "notificationsEarlier": "Earlier",
+  "settingsAllFieldsRequired": "Please fill in all fields",
+  "settingsChangePasswordError": "An error occurred while changing the password",
+  "supportTitle": "Support",
+  "supportFormSubtitle": "Please fill in the form below and we will contact you soon.",
+  "supportName": "Name",
+  "supportSubjectField": "Subject",
+  "supportMessage": "Message",
+  "supportMessageRequired": "Please write the message",
+  "supportNameRequired": "Please enter your name",
+  "supportEmailRequired": "Please enter your email",
+  "supportEmailInvalid": "Please enter a valid email address",
+  "supportSent": "Message sent successfully",
+  "supportSend": "Send",
+  "privacyPolicyHeadingInfo": "Privacy Policy for College of Technical Sciences – Derna",
+  "privacyPolicyIntro": "The College of Technical Sciences Derna is committed to protecting the privacy of its app users and maintaining the confidentiality of their personal data. This policy explains how information provided by students, faculty, and all users is collected, used, and protected.",
+  "privacyPolicyCollectedTitle": "Information We Collect:",
+  "privacyPolicyCollectedBody": "- Personal data such as name, registration number, email.\n- Interaction data with the app and provided services.\n- Device information and usage preferences.",
+  "privacyPolicyUsageTitle": "How We Use Information:",
+  "privacyPolicyUsageBody": "The College of Technical Sciences Derna uses this information to improve services, ensure effective communication with users, and provide technical support when needed.",
+  "privacyPolicyProtectionTitle": "Data Protection:",
+  "privacyPolicyProtectionBody": "The college is committed to taking all necessary technical and administrative measures to protect user data from unauthorized access, modification, or disclosure.",
+  "privacyPolicySharingTitle": "Sharing Information with Third Parties:",
+  "privacyPolicySharingBody": "The College of Technical Sciences Derna does not sell or share user data with any external party except where required by law or with the user's consent.",
+  "privacyPolicyAmendmentsTitle": "Amendments to the Privacy Policy:",
+  "privacyPolicyAmendmentsBody": "The college may update this policy from time to time. Users will be notified of any material changes through the app or via appropriate communication channels.",
+  "privacyPolicySocialTitle": "To contact the college via social media, use the buttons below:",
+  "privacyPolicyEmailError": "An error occurred while opening the email app",
+  "adminDashboardTitle": "Control Center",
+  "adminDashboardWelcome": "Welcome to the Central Control Unit",
+  "adminDashboardStatusSafe": "System Status: Secure & Connected",
+  "adminDashboardLiveAnalysis": "Live Data Analysis",
+  "adminDashboardTotalRecords": "Total Records",
+  "adminDashboardPendingReqs": "Pending Requests",
+  "adminDashboardApproved": "Approved",
+  "adminDashboardRejected": "Rejected",
+  "adminDashboardActiveUsers": "Active Users",
+  "adminDashboardTotalStudents": "Total Students",
+  "adminDashboardQuickActions": "Quick Control Units",
+  "adminDashboardSystemLogs": "System Logs (Logs)",
+  "adminDashboardUserMgmt": "User Management",
+  "adminDashboardVerifQueue": "Registration Requests",
+  "adminDashboardDrawerTitle": "Central System Administration",
+  "adminDashboardDrawerDashboard": "Dashboard",
+  "adminDashboardDrawerRegistrations": "Registration Requests",
+  "adminDashboardDrawerEndSession": "End Session",
+  "adminDashboardErrorText": "System error occurred",
+  "verifQueueTitle": "Verification Queue",
+  "verifQueueTabAll": "All",
+  "verifQueueTabPending": "Pending Approval",
+  "verifQueueTabUnderReview": "Under Review",
+  "verifQueueTabRequiresInfo": "Additional Review",
+  "verifQueueEmpty": "No applications in this queue",
+  "viewAll": "View All",
+  "verifQueueApprove": "Approve",
+  "verifQueueReject": "Reject",
+  "verifQueueApproveConfirm": "Confirm Approval",
+  "verifQueueRejectConfirm": "Confirm Rejection",
+  "verifQueueApproveMsg": "Are you sure you want to approve this application?",
+  "verifQueueRejectMsg": "Are you sure you want to reject this application?",
+  "verifQueueRejectReason": "Rejection Reason",
+  "verifQueueRejectReasonHint": "Choose the reason",
+  "verifQueueRejectCustomHint": "Write the reason...",
+  "verifQueueOtherReason": "Other",
+  "verifQueueScore": "Score",
+  "verifQueueApplicantName": "Applicant",
+  "verifQueueCollege": "College",
+  "verifQueueSubmittedDate": "Submitted",
+  "verifQueueApproveSuccess": "Application approved successfully",
+  "verifQueueRejectSuccess": "Application rejected",
+  "verifQueueErrorAction": "Failed to process application",
+  "verifQueueYes": "Yes",
+  "verifQueueNo": "No",
+  "verifQueueConfirmTitle": "Confirm",
+  "verifQueueFieldNameEn": "Name (English)",
+  "verifQueueFieldEmail": "Email",
+  "verifQueueFieldPhone": "Phone",
+  "verifQueueFieldNationalId": "National ID",
+  "verifQueueFieldGender": "Gender",
+  "verifQueueFieldSemester": "Semester",
+  "verifQueueFieldGpa": "GPA",
+  "verifQueueFieldGraduationYear": "Graduation Year",
+  "systemLogsTitle": "System Logs",
+  "systemLogsEmpty": "No activity logs yet",
+  "systemLogsErrorLoad": "Failed to load logs",
+  "systemLogsActionApproved": "Approved Account",
+  "systemLogsActionRejected": "Rejected Account",
+  "systemLogsActionOther": "Action",
+  "systemLogsAdmin": "Admin",
+  "systemLogsTarget": "Target User",
+  "systemLogsTimestamp": "Time",
+  "systemLogsDetails": "Details",
+  "statusPendingFinalApproval": "Pending Final Approval",
+  "statusUnderReview": "Under Review",
+  "statusRequiresAdditional": "Requires Additional Info",
+  "statusAutoRejected": "Auto Rejected",
+  "statusApproved": "Approved",
+  "statusRejected": "Rejected",
+  "statusSuspended": "Suspended",
+  "rejectReasonInsufficientData": "Insufficient academic data",
+  "rejectReasonDocumentIssues": "Document issues",
+  "rejectReasonDuplicateAccount": "Duplicate account",
+  "rejectReasonIncompleteInfo": "Incomplete information",
+  "rejectReasonCapacityFull": "Capacity full in major",
+  "rejectReasonAgeRequirement": "Age requirement not met",
+  "pendingStatusTitlePending": "Your Application is Under Review",
+  "pendingStatusTitleRejected": "Application Not Accepted",
+  "pendingStatusBodyPending": "Thank you for registering at the University of Derna. Your application is {status} and you will be notified of the final decision via email within 3-5 business days.",
+  "pendingStatusBodyRejected": "Your registration has been rejected. You can contact Admissions for more information.",
+  "pendingStatusRefresh": "Update Status",
+  "pendingStatusSignOut": "Sign Out",
+  "pendingStatusContact": "For inquiries: admissions@uod.edu.ly",
+  "systemLogsSystem": "System",
+  "adminDashboardSystemOnline": "SYSTEM ONLINE",
+  "@adminDashboardSystemOnline": {
+    "description": "Badge shown when admin system is online"
+  },
+  "notApplicable": "N/A",
+  "@notApplicable": {
+    "description": "Fallback when a value is not available"
+  },
+  "gradesSyncTooltip": "Sync from University Portal",
+  "@gradesSyncTooltip": {
+    "description": "Tooltip for syncing grades from portal"
+  },
+  "gradesSyncSuccess": "Sync complete — {count} records",
+  "@gradesSyncSuccess": {
+    "description": "Shown after successful sync with record count",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "gradesSyncFailed": "Sync failed",
+  "@gradesSyncFailed": {
+    "description": "Shown when grades sync fails"
+  },
+  "gradesGpSuffix": "GP",
+  "@gradesGpSuffix": {
+    "description": "Suffix for grade points"
+  },
+  "feesTitle": "Fees",
+  "@feesTitle": {
+    "description": "Title for fees page"
+  },
+  "feesSavedRecords": "Saved Fee Records",
+  "@feesSavedRecords": {
+    "description": "Label for saved fee records"
+  },
+  "feesItems": "Items",
+  "@feesItems": {
+    "description": "Items count label"
+  },
+  "feesLocalRecord": "Fee Records (Local)",
+  "@feesLocalRecord": {
+    "description": "Title for local fee records list"
+  },
+  "feesEmpty": "No local fee data available",
+  "@feesEmpty": {
+    "description": "Message when no local fee records exist"
+  },
+  "feesDefaultTitle": "Fee",
+  "@feesDefaultTitle": {
+    "description": "Default title fallback for a fee"
+  },
+  "feesPayButton": "Pay Outstanding Fees",
+  "@feesPayButton": {
+    "description": "Button to pay fees"
+  },
+  "feesPaid": "Paid",
+  "@feesPaid": {
+    "description": "Status label for paid fees"
+  },
+  "feesUnpaid": "Unpaid",
+  "@feesUnpaid": {
+    "description": "Status label for unpaid fees"
+  },
+  "facultyMyClasses": "My Classes",
+  "@facultyMyClasses": {
+    "description": "My classes tab label"
+  },
+  "facultyWelcome": "Welcome, Doctor",
+  "@facultyWelcome": {
+    "description": "Welcome message for faculty doctor"
+  },
+  "facultyWelcomeSubtitle": "Wishing you a productive and distinguished semester.",
+  "@facultyWelcomeSubtitle": {
+    "description": "Welcome subtitle for faculty"
+  },
+  "facultyAcademicOverview": "Quick Academic Overview",
+  "@facultyAcademicOverview": {
+    "description": "Academic stats overview title"
+  },
+  "facultyEnrolledStudents": "Enrolled Students",
+  "@facultyEnrolledStudents": {
+    "description": "Label for total students count"
+  },
+  "facultyCourses": "Courses",
+  "@facultyCourses": {
+    "description": "Label for total courses count"
+  },
+  "facultyWeeklyAttendance": "Weekly Course Attendance Rate",
+  "@facultyWeeklyAttendance": {
+    "description": "Attendance chart title"
+  },
+  "facultyNoCourses": "No courses available currently",
+  "@facultyNoCourses": {
+    "description": "Shown when there are no courses"
+  },
+  "facultyClassSub": "Dept. {dept} | Semester {sem}",
+  "@facultyClassSub": {
+    "description": "Details for a course item",
+    "placeholders": {
+      "dept": {
+        "type": "String"
+      },
+      "sem": {
+        "type": "String"
+      }
+    }
+  },
+  "facultySelectCourse": "Select Course",
+  "@facultySelectCourse": {
+    "description": "Dropdown hint to select course"
+  },
+  "facultyErrorLoadingCourses": "Error loading courses",
+  "@facultyErrorLoadingCourses": {
+    "description": "Shown when courses fail to load"
+  },
+  "facultySelectCourseForStudents": "Please select a course to view students list",
+  "@facultySelectCourseForStudents": {
+    "description": "Placeholder before selecting a course"
+  },
+  "facultyNoStudents": "No students found",
+  "@facultyNoStudents": {
+    "description": "Empty state for class students list"
+  },
+  "facultyGradesTitle": "Record Academic Grades",
+  "@facultyGradesTitle": {
+    "description": "Title for grades tab"
+  },
+  "facultySelectCourseForGrades": "Please select a course to open grades sheet",
+  "@facultySelectCourseForGrades": {
+    "description": "Placeholder before selecting a course in grades"
+  },
+  "facultyTotalScorePrefix": "Total: {score}",
+  "@facultyTotalScorePrefix": {
+    "description": "Total score prefix label",
+    "placeholders": {
+      "score": {
+        "type": "double"
+      }
+    }
+  },
+  "facultyMidtermLabel": "Midterm (40)",
+  "@facultyMidtermLabel": {
+    "description": "Label for midterm marks entry"
+  },
+  "facultyFinalLabel": "Final (40)",
+  "@facultyFinalLabel": {
+    "description": "Label for final marks entry"
+  },
+  "facultyAssignmentsLabel": "Assignments (20)",
+  "@facultyAssignmentsLabel": {
+    "description": "Label for assignments marks entry"
+  },
+  "eRequestsTitle": "E-Requests Portal",
+  "myRequests": "My Requests",
+  "noRequestsYet": "No requests submitted yet",
+  "noRequestsDescription": "You can submit your electronic requests from the sections below",
+  "requestTypeGraduationCertificate": "Graduation Certificate",
+  "requestTypeOfficialTranscript": "Official Transcript",
+  "requestTypeSemesterDeferral": "Semester Deferral",
+  "requestTypeMajorChange": "Major Change",
+  "requestStatusPending": "Under Review",
+  "requestStatusApproved": "Approved",
+  "requestStatusRejected": "Rejected",
+  "requestStatusReadyForPickup": "Ready for Pickup",
+  "submitRequest": "Submit Request",
+  "cancelRequest": "Cancel Request",
+  "cancelRequestConfirm": "Are you sure you want to cancel this request?",
+  "cancelRequestWarning": "This action cannot be undone",
+  "requestSubmitted": "Request submitted successfully",
+  "requestCancelled": "Request cancelled",
+  "requestDetails": "Request Details",
+  "requestTimeline": "Request Timeline",
+  "timelineSubmitted": "Submitted",
+  "timelineReview": "Under Review",
+  "timelineDecision": "Decision Made",
+  "timelineReady": "Ready for Pickup",
+  "adminNote": "Admin Note",
+  "optionalNotes": "Notes (optional)",
+  "numberOfCopies": "Number of Copies",
+  "language": "Language",
+  "languageArabic": "Arabic",
+  "languageEnglish": "English",
+  "semesterToDefer": "Semester to Defer",
+  "reasonForRequest": "Reason for Request",
+  "reasonRequired": "Reason is required",
+  "newMajor": "Requested New Major",
+  "selectSemester": "Select Semester",
+  "selectMajor": "Select Major",
+  "validationError": "Validation Error",
+  "requestFailed": "Request submission failed",
+  "pleaseTryAgain": "Please try again",
+  "eRequests": "E-Requests",
+  "collegeCampusLabel": "Campus: {name}",
+  "@collegeCampusLabel": {
+    "description": "Label for college campus location",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "campusDerna": "Derna",
+  "@campusDerna": {
+    "description": "Derna campus name"
+  },
+  "campusQubbah": "Al-Qubbah",
+  "@campusQubbah": {
+    "description": "Al-Qubbah campus name"
+  },
+  "collegeWelcomeTitle": "Welcome to {name}",
+  "@collegeWelcomeTitle": {
+    "description": "Welcome message for a college",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "collegeWelcomeSubtitle": "College content, announcements, and departments are available from the tabs below.",
+  "@collegeWelcomeSubtitle": {
+    "description": "Welcome instructions on college homepage"
+  },
+  "collegeNoDepartments": "No registered departments for this college yet.",
+  "@collegeNoDepartments": {
+    "description": "Fallback when college has no departments listed"
+  },
+  "collegeNewsTitle": "{name} News",
+  "@collegeNewsTitle": {
+    "description": "Header title for college news section",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "collegeNewsAnnouncement": "Academic Announcement",
+  "@collegeNewsAnnouncement": {
+    "description": "Label for academic announcements news"
+  },
+  "collegeNewsLabel": "College News",
+  "@collegeNewsLabel": {
+    "description": "Label for general college news"
+  },
+  "collegeNewsPlaceholder": "News will be connected to Firestore later.",
+  "@collegeNewsPlaceholder": {
+    "description": "Placeholder for offline/mock news"
+  },
+  "universityName": "University of Derna",
+  "@universityName": {
+    "description": "The official university name"
+  },
+  "guestViewList": "List View",
+  "@guestViewList": {
+    "description": "Tooltip/text to switch to list view in guest portal"
+  },
+  "guestViewGrid": "Grid View",
+  "@guestViewGrid": {
+    "description": "Tooltip/text to switch to grid view in guest portal"
+  },
+  "guestSearchHint": "Search for college or department...",
+  "@guestSearchHint": {
+    "description": "Placeholder inside search bar"
+  },
+  "guestCollegesCount": "{count} Colleges",
+  "@guestCollegesCount": {
+    "description": "Total count of academic colleges",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "guestPortalTitle": "Guest Portal",
+  "@guestPortalTitle": {
+    "description": "Portal heading for unauthenticated users"
+  },
+  "guestNoResultsFor": "No results found for \"{search}\"",
+  "@guestNoResultsFor": {
+    "description": "Message when search query matches nothing",
+    "placeholders": {
+      "search": {
+        "type": "String"
+      }
+    }
+  },
+  "guestSignUpCTA": "Register Now at University of Derna",
+  "@guestSignUpCTA": {
+    "description": "Footer CTA to register new accounts"
+  },
+  "guestDepartmentsCount": "{count} Departments",
+  "@guestDepartmentsCount": {
+    "description": "Department count of a faculty",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "guestAcademicDepartments": "Academic Departments",
+  "@guestAcademicDepartments": {
+    "description": "Section header in college details bottom sheet"
+  },
+  "guestRegisterInCollege": "Register in this College",
+  "@guestRegisterInCollege": {
+    "description": "CTA button to sign up directly to a specific college"
+  },
+  "collegesTitle": "Colleges",
+  "@collegesTitle": {
+    "description": "Title for colleges listing or explorer"
+  },
+  "searchCollegesHint": "Search colleges...",
+  "@searchCollegesHint": {
+    "description": "Search field hint on colleges explorer"
+  },
+  "noCollegesFoundMessage": "No colleges found",
+  "@noCollegesFoundMessage": {
+    "description": "Empty state when college search has no results"
+  },
+  "departmentsCount": "{count} departments",
+  "@departmentsCount": {
+    "description": "Department count label for a college",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "viewDetailsButton": "View Details",
+  "@viewDetailsButton": {
+    "description": "Button to open college or faculty details"
+  },
+  "timetableTitle": "Timetable",
+  "@timetableTitle": {
+    "description": "Title for the academic timetable screen"
+  },
+  "weekTabLabel": "Week",
+  "@weekTabLabel": {
+    "description": "Week tab on timetable screen"
+  },
+  "monthTabLabel": "Month",
+  "@monthTabLabel": {
+    "description": "Month tab on timetable screen"
+  },
+  "noSessionsMessage": "No sessions scheduled",
+  "@noSessionsMessage": {
+    "description": "Empty state when no timetable sessions exist"
+  },
+  "sessionTimeFormat": "{startTime} - {endTime}",
+  "@sessionTimeFormat": {
+    "description": "Session time range (always displayed LTR)",
+    "placeholders": {
+      "startTime": {
+        "type": "String"
+      },
+      "endTime": {
+        "type": "String"
+      }
+    }
+  },
+  "guestContinueButton": "Continue as Guest",
+  "@guestContinueButton": {
+    "description": "Primary action to enter guest mode"
+  },
+  "guestWarningMessage": "Your data won't be saved across devices",
+  "@guestWarningMessage": {
+    "description": "Warning shown before continuing as guest"
+  },
+  "proceedButton": "Proceed",
+  "@proceedButton": {
+    "description": "Confirm action in guest warning dialog"
+  },
+  "cancelButton": "Cancel",
+  "@cancelButton": {
+    "description": "Cancel action in guest warning dialog"
+  },
+  "transcriptTitle": "Semester Transcript",
+  "@transcriptTitle": {
+    "description": "Title for semester transcript screen"
+  },
+  "transcriptSemesterLabel": "Semester: {semester}",
+  "@transcriptSemesterLabel": {
+    "description": "Semester label on transcript screen",
+    "placeholders": {
+      "semester": {
+        "type": "String"
+      }
+    }
+  },
+  "transcriptStudentIdLabel": "Student ID: {id}",
+  "@transcriptStudentIdLabel": {
+    "description": "Student ID label on transcript screen",
+    "placeholders": {
+      "id": {
+        "type": "String"
+      }
+    }
+  },
+  "transcriptGpaLabel": "GPA: {gpa}",
+  "@transcriptGpaLabel": {
+    "description": "GPA label on transcript screen",
+    "placeholders": {
+      "gpa": {
+        "type": "String"
+      }
+    }
+  },
+  "transcriptLoadingMessage": "Loading transcript...",
+  "@transcriptLoadingMessage": {
+    "description": "Shown while transcript is loading"
+  },
+  "transcriptGeneratingMessage": "Generating PDF...",
+  "@transcriptGeneratingMessage": {
+    "description": "Shown while PDF is being generated"
+  },
+  "transcriptNoDataMessage": "No transcript data available",
+  "@transcriptNoDataMessage": {
+    "description": "Shown when no transcript data exists"
+  },
+  "transcriptRetryButton": "Retry",
+  "@transcriptRetryButton": {
+    "description": "Retry loading transcript"
+  },
+  "transcriptOfflineBanner": "Using cached version - offline mode",
+  "@transcriptOfflineBanner": {
+    "description": "Banner when showing cached transcript offline"
+  },
+  "transcriptNoCacheMessage": "No cached transcript available offline",
+  "@transcriptNoCacheMessage": {
+    "description": "Shown when offline with no cache"
+  },
+  "transcriptRefreshButton": "Refresh from server",
+  "@transcriptRefreshButton": {
+    "description": "Refresh transcript from server"
+  },
+  "transcriptLastUpdatedLabel": "Last updated: {date}",
+  "@transcriptLastUpdatedLabel": {
+    "description": "Last cache update timestamp",
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "transcriptOpenPdfButton": "Open PDF",
+  "@transcriptOpenPdfButton": {
+    "description": "Open transcript PDF"
+  },
+  "transcriptDownloadButton": "Download",
+  "@transcriptDownloadButton": {
+    "description": "Download transcript PDF"
+  },
+  "notificationsEmptyMessage": "No notifications yet",
+  "@notificationsEmptyMessage": {
+    "description": "Empty state message"
+  },
+  "notificationsMarkAllReadButton": "Mark all as read",
+  "@notificationsMarkAllReadButton": {
+    "description": "Button to mark all notifications read"
+  },
+  "notificationNewBadge": "New",
+  "@notificationNewBadge": {
+    "description": "Badge for unread notifications"
+  },
+  "notificationTimeAgo": "{time} ago",
+  "@notificationTimeAgo": {
+    "description": "Relative time for a notification",
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "notificationDeleteButton": "Delete",
+  "@notificationDeleteButton": {
+    "description": "Delete notification button"
+  },
+  "alertsTitle": "Alerts",
+  "@alertsTitle": {
+    "description": "Title for alerts page"
+  },
+  "announcementsTitle": "Announcements",
+  "@announcementsTitle": {
+    "description": "Title for announcements page"
+  },
+  "notificationSettingsButton": "Notification Settings",
+  "@notificationSettingsButton": {
+    "description": "Button to open notification settings"
+  },
+  "messagesTitle": "Messages",
+  "@messagesTitle": {
+    "description": "Title for messages screen"
+  },
+  "inboxTitle": "Inbox",
+  "@inboxTitle": {
+    "description": "Title for inbox screen"
+  },
+  "chatTitle": "Chat",
+  "@chatTitle": {
+    "description": "Title for chat screen"
+  },
+  "messagesEmptyMessage": "No messages yet",
+  "@messagesEmptyMessage": {
+    "description": "Empty state when there are no messages"
+  },
+  "messageSearchHint": "Type your message here...",
+  "@messageSearchHint": {
+    "description": "Search field hint on messages"
+  },
+  "messageComposeButton": "New Message",
+  "@messageComposeButton": {
+    "description": "Button to compose a new message"
+  },
+  "messageReplyButton": "Reply",
+  "@messageReplyButton": {
+    "description": "Reply to a message"
+  },
+  "absenceExcuseTitle": "Submit Absence Excuse",
+  "@absenceExcuseTitle": {
+    "description": "Title for absence excuse submission page"
+  },
+  "subjectLabel": "Subject",
+  "@subjectLabel": {
+    "description": "Label for subject selection"
+  },
+  "absencePeriodLabel": "Absence Period",
+  "@absencePeriodLabel": {
+    "description": "Label for absence date range"
+  },
+  "selectDatesHint": "Tap to select dates",
+  "@selectDatesHint": {
+    "description": "Hint text for date picker"
+  },
+  "excuseTypeLabel": "Excuse Type",
+  "@excuseTypeLabel": {
+    "description": "Label for excuse type selection"
+  },
+  "excuseTypeSick": "Sick Leave",
+  "@excuseTypeSick": {
+    "description": "Sick leave excuse type"
+  },
+  "excuseTypeEmergency": "Emergency",
+  "@excuseTypeEmergency": {
+    "description": "Emergency excuse type"
+  },
+  "excuseTypeFamily": "Family Reasons",
+  "@excuseTypeFamily": {
+    "description": "Family reasons excuse type"
+  },
+  "excuseTypeOther": "Other",
+  "@excuseTypeOther": {
+    "description": "Other excuse type"
+  },
+  "descriptionLabel": "Description and Reason",
+  "@descriptionLabel": {
+    "description": "Label for excuse description"
+  },
+  "descriptionHint": "Write excuse details here...",
+  "@descriptionHint": {
+    "description": "Hint text for description field"
+  },
+  "attachmentsLabel": "Attachments (Optional, required for sick leave)",
+  "@attachmentsLabel": {
+    "description": "Label for file attachments"
+  },
+  "tapToAttach": "Tap to attach file or image",
+  "@tapToAttach": {
+    "description": "Hint for attachment upload area"
+  },
+  "maxFileSize": "Maximum: 5 MB",
+  "@maxFileSize": {
+    "description": "Maximum file size hint"
+  },
+  "removeAttachment": "Remove",
+  "@removeAttachment": {
+    "description": "Button to remove attachment"
+  },
+  "submitRequest": "Submit Request",
+  "@submitRequest": {
+    "description": "Submit button text"
+  },
+  "takePhoto": "Take Photo",
+  "@takePhoto": {
+    "description": "Option to take photo"
+  },
+  "chooseFromGallery": "Choose from Gallery",
+  "@chooseFromGallery": {
+    "description": "Option to choose from gallery"
+  },
+  "choosePdf": "Choose PDF File",
+  "@choosePdf": {
+    "description": "Option to choose PDF file"
+  },
+  "fileSizeError": "File size must not exceed 5 MB",
+  "@fileSizeError": {
+    "description": "Error when file is too large"
+  },
+  "selectDateError": "Please select absence period",
+  "@selectDateError": {
+    "description": "Error when date range not selected"
+  },
+  "medicalAttachmentRequired": "Medical attachment required for sick leave",
+  "@medicalAttachmentRequired": {
+    "description": "Error when medical attachment missing"
+  },
+  "userNotLoggedIn": "User not logged in",
+  "@userNotLoggedIn": {
+    "description": "Error when user not authenticated"
+  },
+  "excuseAlreadySubmitted": "An excuse for this subject has already been submitted for the same date",
+  "@excuseAlreadySubmitted": {
+    "description": "Error when duplicate excuse submitted"
+  },
+  "uploadingRequest": "Uploading request...",
+  "@uploadingRequest": {
+    "description": "Loading message during upload"
+  },
+  "excuseSubmittedSuccess": "Excuse submitted successfully and will be reviewed by college administration",
+  "@excuseSubmittedSuccess": {
+    "description": "Success message after excuse submission"
+  },
+  "backToHome": "Back to Home",
+  "@backToHome": {
+    "description": "Button to return to home"
+  },
+  "selectSubjectError": "Please select subject",
+  "@selectSubjectError": {
+    "description": "Error when subject not selected"
+  },
+  "selectExcuseTypeError": "Please select excuse type",
+  "@selectExcuseTypeError": {
+    "description": "Error when excuse type not selected"
+  },
+  "writeReasonError": "Please write the reason",
+  "@writeReasonError": {
+    "description": "Error when reason not provided"
+  },
+  "enrollmentRenewalTitle": "Enrollment Renewal",
+  "@enrollmentRenewalTitle": {
+    "description": "Title for enrollment renewal page"
+  },
+  "selectPaymentMethodError": "Please select payment method first",
+  "@selectPaymentMethodError": {
+    "description": "Error when payment method not selected"
+  },
+  "submissionError": "Error during submission: {error}",
+  "@submissionError": {
+    "description": "Error during submission",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "startRenewalProcess": "Start Renewal Process",
+  "@startRenewalProcess": {
+    "description": "Button to start renewal process"
+  },
+  "confirmPayment": "Confirm Payment and Submit",
+  "@confirmPayment": {
+    "description": "Button to confirm payment"
+  },
+  "back": "Back",
+  "@back": {
+    "description": "Back button"
+  },
+  "reviewDataStep": "Review Data",
+  "@reviewDataStep": {
+    "description": "Step title for data review"
+  },
+  "paymentMethodStep": "Payment Method",
+  "@paymentMethodStep": {
+    "description": "Step title for payment method"
+  },
+  "requestStatusStep": "Request Status",
+  "@requestStatusStep": {
+    "description": "Step title for request status"
+  },
+  "studentNameLabel": "Student Name:",
+  "@studentNameLabel": {
+    "description": "Label for student name"
+  },
+  "studentIdLabel": "Student ID:",
+  "@studentIdLabel": {
+    "description": "Label for student ID"
+  },
+  "collegeLabel": "College:",
+  "@collegeLabel": {
+    "description": "Label for college"
+  },
+  "academicYearLabel": "Academic Year:",
+  "@academicYearLabel": {
+    "description": "Label for academic year"
+  },
+  "deadlineLabel": "Deadline:",
+  "@deadlineLabel": {
+    "description": "Label for deadline"
+  },
+  "feesRequiredLabel": "Required Fees:",
+  "@feesRequiredLabel": {
+    "description": "Label for required fees"
+  },
+  "paymentMethodBank": "Bank Transfer",
+  "@paymentMethodBank": {
+    "description": "Bank transfer payment method"
+  },
+  "paymentMethodLibyaBank": "Libya Bank",
+  "@paymentMethodLibyaBank": {
+    "description": "Libya Bank payment method"
+  },
+  "paymentMethodOnline": "Online Payment",
+  "@paymentMethodOnline": {
+    "description": "Online payment method"
+  },
+  "republicBank": "Republic Bank",
+  "@republicBank": {
+    "description": "Republic Bank name"
+  },
+  "bankAccountNumber": "Account Number: 123-456789-00",
+  "@bankAccountNumber": {
+    "description": "Bank account number"
+  },
+  "beneficiary": "Beneficiary: University of Derna",
+  "@beneficiary": {
+    "description": "Payment beneficiary"
+  },
+  "attachReceipt": "Attach Transfer Receipt",
+  "@attachReceipt": {
+    "description": "Button to attach payment receipt"
+  },
+  "receiptAttached": "Payment receipt attached successfully",
+  "@receiptAttached": {
+    "description": "Success message when receipt attached"
+  },
+  "libyaCentralBank": "Libya Central Bank",
+  "@libyaCentralBank": {
+    "description": "Libya Central Bank name"
+  },
+  "cardPayment": "Payment via Bank Card",
+  "@cardPayment": {
+    "description": "Card payment option"
+  },
+  "comingSoon": "Coming Soon",
+  "@comingSoon": {
+    "description": "Coming soon badge"
+  },
+  "requestApproved": "Your Request Approved ✓",
+  "@requestApproved": {
+    "description": "Status when request approved"
+  },
+  "requestApprovedMessage": "Your enrollment renewal has been approved. Welcome to the new academic year.",
+  "@requestApprovedMessage": {
+    "description": "Message when request approved"
+  },
+  "requestRejected": "Request Rejected",
+  "@requestRejected": {
+    "description": "Status when request rejected"
+  },
+  "requestRejectedMessage": "Your enrollment renewal request has been rejected. Please contact Admissions and Registration for inquiries.",
+  "@requestRejectedMessage": {
+    "description": "Message when request rejected"
+  },
+  "requestPending": "Your Request Under Review",
+  "@requestPending": {
+    "description": "Status when request pending"
+  },
+  "requestPendingMessage": "Your request has been received successfully. It will be reviewed by Admissions and Registration and you will be notified of the result.",
+  "@requestPendingMessage": {
+    "description": "Message when request pending"
+  },
+  "referenceNumberLabel": "Reference Number:",
+  "@referenceNumberLabel": {
+    "description": "Label for reference number"
+  },
+  "examPapersTitle": "Exam Papers",
+  "@examPapersTitle": {
+    "description": "Title for exam papers page"
+  },
+  "quizzesCategory": "Quizzes",
+  "@quizzesCategory": {
+    "description": "Quiz exam category"
+  },
+  "midtermCategory": "Midterm Exam",
+  "@midtermCategory": {
+    "description": "Midterm exam category"
+  },
+  "finalCategory": "Final Exam",
+  "@finalCategory": {
+    "description": "Final exam category"
+  },
+  "noPapersInSection": "No papers in this section currently",
+  "@noPapersInSection": {
+    "description": "Empty state when no papers in category"
+  },
+  "loadingPapersError": "Error loading exam papers: {error}",
+  "@loadingPapersError": {
+    "description": "Error loading exam papers",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "unknownDate": "Unknown Date",
+  "@unknownDate": {
+    "description": "Fallback when date unknown"
+  },
+  "uploadDateLabel": "Upload Date: {date}",
+  "@uploadDateLabel": {
+    "description": "Label for upload date",
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "unknownSubject": "Unknown Subject",
+  "@unknownSubject": {
+    "description": "Fallback when subject unknown"
+  },
+  "viewPaper": "View",
+  "@viewPaper": {
+    "description": "Button to view exam paper"
+  },
+  "fileLinkUnavailable": "File link unavailable",
+  "@fileLinkUnavailable": {
+    "description": "Error when file link unavailable"
+  },
+  "mockSubject1": "Advanced Programming - CS301",
+  "@mockSubject1": {
+    "description": "Mock subject 1"
+  },
+  "mockSubject2": "Data Structures - CS202",
+  "@mockSubject2": {
+    "description": "Mock subject 2"
+  },
+  "mockSubject3": "Artificial Intelligence - CS405",
+  "@mockSubject3": {
+    "description": "Mock subject 3"
+  },
+  "mockSubject4": "Discrete Mathematics - MA104",
+  "@mockSubject4": {
+    "description": "Mock subject 4"
+  },
+  "messageForwardButton": "Forward",
+  "@messageForwardButton": {
+    "description": "Forward a message"
+  },
+  "forumTitle": "Student Forum",
+  "@forumTitle": {
+    "description": "Title for student forum"
+  },
+  "addPost": "Add Post",
+  "@addPost": {
+    "description": "Button to add a new post"
+  },
+  "helpCenterTitle": "Help Center",
+  "@helpCenterTitle": {
+    "description": "Title for help center hub"
+  },
+  "faqTitle": "Frequently Asked Questions",
+  "@faqTitle": {
+    "description": "Title for FAQ screen"
+  },
+  "contactUsTitle": "Contact Us",
+  "@contactUsTitle": {
+    "description": "Title for contact screen"
+  },
+  "faqSearchHint": "Search FAQs...",
+  "@faqSearchHint": {
+    "description": "Search hint on FAQ screen"
+  },
+  "supportTicketButton": "Submit a Ticket",
+  "@supportTicketButton": {
+    "description": "Submit support ticket button"
+  },
+  "supportEmailLabel": "Email Support",
+  "@supportEmailLabel": {
+    "description": "Email support channel label"
+  },
+  "supportPhoneLabel": "Call Support",
+  "@supportPhoneLabel": {
+    "description": "Phone support channel label"
+  },
+  "reportProblemButton": "Report a Problem",
+  "@reportProblemButton": {
+    "description": "Report a problem button"
+  },
+  "searchTitle": "Search",
+  "searchHint": "Search...",
+  "filterTitle": "Filter",
+  "clearFiltersButton": "Clear Filters",
+  "applyFiltersButton": "Apply Filters",
+  "noSearchResultsMessage": "No results found",
+  "networkError": "Network connection failed. Check your internet.",
+  "timeoutError": "Request timed out. Please try again.",
+  "serverError": "Server error. Please try again later.",
+  "unauthorizedError": "You are not authorized. Please login again.",
+  "databaseSeederTitle": "Database Seeder",
+  "@databaseSeederTitle": {
+    "description": "Title for database seeder widget"
+  },
+  "databaseSeederDescription": "This tool creates interconnected test data for the university system (Student, Faculty, Admin).",
+  "@databaseSeederDescription": {
+    "description": "Description for database seeder widget"
+  },
+  "seedDatabaseButton": "Start Seeding",
+  "@seedDatabaseButton": {
+    "description": "Button to start database seeding"
+  },
+  "databaseSeederWarning": "⚠️ Any existing test data will be deleted before seeding.",
+  "@databaseSeederWarning": {
+    "description": "Warning message for database seeder"
+  },
+  "databaseSeedingSuccess": "Database seeded successfully!",
+  "@databaseSeedingSuccess": {
+    "description": "Success message for database seeding"
+  },
+  "databaseSeedingError": "Database seeding failed",
+  "@databaseSeedingError": {
+    "description": "Error message for database seeding"
+  },
+  "notFoundError": "Data not found.",
+  "validationRequired": "This field is required",
+  "validationInvalidEmail": "Please enter a valid email",
+  "validationPasswordTooShort": "Password must be at least 6 characters",
+  "validationPasswordsDoNotMatch": "Passwords do not match",
+  "onboardingTitle": "Welcome to University Portal",
+  "onboardingSkipButton": "Skip",
+  "onboardingNextButton": "Next",
+  "onboardingGetStartedButton": "Get Started",
+  "tutorialCoursesTitle": "Track Your Courses",
+  "tutorialGradesTitle": "View Your Grades",
+  "tutorialNotificationsTitle": "Stay Updated",
+  "unauthorizedTitle": "Access Denied",
+  "@unauthorizedTitle": {
+    "description": "Title shown when user tries to access restricted path"
+  },
+  "unauthorizedMessage": "You do not have permission to access this section. This attempt has been logged for security purposes.",
+  "@unauthorizedMessage": {
+    "description": "Message shown on unauthorized access page"
+  },
+  "returnToPortal": "Return to My Portal",
+  "@returnToPortal": {
+    "description": "Button to return to user's appropriate dashboard"
+  },
+  "gradeInvalidNumber": "Enter a valid number",
+  "gradeMaxMidterm": "Max score is 40",
+  "gradeMaxFinal": "Max score is 40",
+  "gradeMaxAssignments": "Max score is 20",
+  "changeRoleTitle": "Change Role",
+  "classDetailTitle": "Class Details",
+  "studentsListTab": "Students",
+  "announcementsTab": "Announcements",
+  "searchStudent": "Search for a student...",
+  "addAnnouncement": "Add Announcement",
+  "addAnnouncementTitle": "New Announcement",
+  "announcementHint": "Write your announcement here...",
+  "announcementAdded": "Announcement added successfully",
+  "deleteAnnouncement": "Delete Announcement",
+  "deleteConfirmation": "Are you sure you want to delete this announcement?",
+  "announcementDeleted": "Announcement deleted successfully",
+  "noAnnouncements": "No announcements yet",
+  "noStudents": "No students found",
+  "profileFacultyMember": "Distinguished Faculty Member",
+  "profileExperienceYears": "Years of Experience",
+  "profilePublishedResearch": "Published Research",
+  "profileJobId": "Job ID",
+  "profileSpecialization": "Specialization",
+  "profileEmail": "Email Address",
+  "profileDigitalDocuments": "Digital Documents",
+  "profileDownloadCard": "Download Electronic Card",
+  "profileDownloadDecree": "Download Appointment Decree",
+  "profileLogout": "Logout",
+  "scheduleTerm": "Fall 2024",
+  "scheduleToday": "Today's Schedule",
+  "scheduleActiveNow": "Active Now",
+  "scheduleLectureRoom": "Room",
+  "scheduleFloor": "Floor",
+  "scheduleStudentsRegistered": "students registered",
+  "scheduleAttendanceButton": "Record Attendance",
+  "scheduleUpcoming": "Upcoming Lecture",
+  "scheduleTheoretical": "Theoretical",
+  "schedulePractical": "Practical",
+  "scheduleGreetingDoctor": "Hello Dr.",
+  "settingsEditProfile": "Edit Profile Information",
+  "settingsChangePassword": "Change Secure Password",
+  "settingsLanguageDefault": "Arabic (Default)",
+  "settingsSystem": "System Preferences",
+  "settingsBiometric": "Biometric Fingerprint Login",
+  "settingsSupport": "Support & Information",
+  "attendanceSheetTitle": "Attendance Registration",
+  "attendanceSheetSubtitle": "Manage student attendance and upload lecture materials",
+  "attendanceCurrentLecture": "Current Lecture",
+  "attendanceRoom": "Room 104 - Technology Building",
+  "attendanceStudentList": "Student List",
+  "attendanceStudentCount": "Total students",
+  "attendancePresent": "Present",
+  "attendanceLate": "Late",
+  "attendanceAbsent": "Absent",
+  "attendanceUploadSection": "Upload Lecture Files",
+  "attendanceUploadHint": "Tap here or drag files to upload",
+  "attendanceUploadTypes": "PDF, PPTX, DOCX (up to 50 MB)",
+  "attendanceSaveReport": "Save & Submit Report",
+  "attendanceSaved": "Attendance saved successfully",
+  "studentsTitle": "Students Directory & Communication",
+  "studentsSubtitle": "Manage attendance, communication, and academic data",
+  "studentsNewAnnouncement": "Send New Announcement",
+  "studentsTargetAll": "All",
+  "studentsTargetGroupA": "Group A",
+  "studentsTargetGroupB": "Group B",
+  "studentsTargetStruggling": "Struggling Students",
+  "studentsAnnouncementHint": "Write your announcement here...",
+  "studentsBroadcastNow": "Broadcast Now",
+  "studentsRegistered": "Registered Students",
+  "studentsSearch": "Search by name or university ID...",
+  "studentsRecentAnnouncements": "Recent Announcements Log",
+  "studentsConfirmations": "confirmations",
+  "studentsViews": "views",
+  "studentsMessageSent": "Announcement sent successfully",
+  "reportsTitle": "Grade Distribution Reports",
+  "reportsSelectSemester": "Academic Semester",
+  "reportsSelectCourse": "Course",
+  "reportsSuccessRate": "Overall Pass Rate",
+  "reportsTotalStudents": "Total Students",
+  "reportsAverageGrade": "Grade Average",
+  "reportsDistributionTitle": "Grade Distribution Chart",
+  "reportsGradeA": "Excellent",
+  "reportsGradeB": "Very Good",
+  "reportsGradeC": "Good",
+  "reportsGradeD": "Pass",
+  "reportsGradeF": "Fail",
+  "reportsExportPdf": "Export PDF Report",
+  "reportsExportSuccess": "Report exported successfully",
+  "assignmentsTitle": "Assignments & Grades",
+  "assignmentsSubtitle": "Fall 2024 Semester - IT Faculty",
+  "assignmentsWaiting": "Waiting for grading",
+  "assignmentsStudents": "students",
+  "assignmentsDueTomorrow": "Due tomorrow",
+  "assignmentsGraded": "Graded Students",
+  "assignmentsAddTitle": "Add New Assignment",
+  "assignmentsAssignmentTitle": "Assignment Title",
+  "assignmentsAssignmentTitleHint": "e.g. Assignment 1 - Data Structures",
+  "assignmentsMaxGrade": "Max Grade",
+  "assignmentsDueDate": "Due Date",
+  "assignmentsPublish": "Publish New Assignment",
+  "assignmentsCoursePrefix": "Course:",
+  "assignmentsGradingSection": "Grade Entry",
+  "assignmentsGradeLabel": "Grade",
+  "assignmentsShowMore": "Show More Students",
+  "assignmentsValidationError": "Please check input values",
+  "facultyPortalDrawerTitle": "Faculty Portal",
+  "academicPlanTitle": "Academic Plan & Tracking",
+  "semesterOne": "Semester 1",
+  "semesterTwo": "Semester 2",
+  "semesterThree": "Semester 3",
+  "semesterFour": "Semester 4",
+  "noCoursesThisSemester": "No courses listed for this semester",
+  "planProgressRate": "Academic Plan Progress Rate",
+  "planProgressDetails": "You have successfully completed {completed} out of {total} credit hours in your academic plan.",
+  "@planProgressDetails": {
+    "placeholders": {
+      "completed": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "courseStatusCompleted": "Completed",
+  "courseStatusInProgress": "In Progress",
+  "courseStatusRemaining": "Remaining",
+  "creditHoursLabel": "{credits} credit hours",
+  "@creditHoursLabel": {
+    "placeholders": {
+      "credits": {
+        "type": "int"
+      }
+    }
+  },
+  "lecture": "Lecture",
+  "editProfileTooltip": "Edit Profile",
+  "absenceExcuse": "Absence Excuse",
+  "examPapers": "Exam Papers",
+  "registrationRenewal": "Registration Renewal",
+  "goodMorning": "Good Morning",
+  "goodEvening": "Good Evening",
+  "goodEveningReply": "Good Evening",
+  "studentForum": "Student Forum",
+  "@studentForum": {
+    "description": "Title for the student forum page"
+  },
+  "back": "Back",
+  "send": "Send",
+  "cancel": "Cancel",
+  "errorOccurred": "An error occurred",
+  "am": "AM",
+  "pm": "PM",
+  "sendMessageTitle": "Send Announcement",
+  "sending": "Sending...",
+  "sendMessageSuccess": "Announcement sent successfully",
+  "selectCourseError": "Please select a course",
+  "courseSection": "Course / Section",
+  "announcementSubjectTitle": "Announcement Subject",
+  "announcementSubjectPlaceholder": "Write announcement subject here",
+  "announcementSubjectError": "Please write a subject",
+  "announcementBodyTitle": "Announcement Body",
+  "announcementBodyPlaceholder": "Write your announcement or notice to students here...",
+  "announcementBodyError": "Please write the announcement text",
+  "systemTheme": "System Default",
+  "langAr": "العربية",
+  "langEn": "English",
+  "facultyMember": "Faculty Member",
+  "associateProfessor": "Associate Professor - Faculty of Engineering",
+  "distinguishedFacultyMember": "Distinguished Faculty Member",
+  "passwordResetNote": "A password reset link will be sent to your email",
+  "logoutConfirmTitle": "Confirm Logout",
+  "logoutConfirmBody": "Are you sure you want to log out of the portal?",
+  "sunday": "Sunday",
+  "monday": "Monday",
+  "tuesday": "Tuesday",
+  "wednesday": "Wednesday",
+  "thursday": "Thursday",
+  "ahmed": "Ahmed",
+  "hourShortcut": "h",
+  "hall": "Hall",
+  "student": "Student",
+  "questionMark": "?",
+  "fileSizeLimitNote": "File size must not exceed 10 MB",
+  "validationError": "Please fill all fields and attach the exam paper",
+  "uploadSuccess": "Exam paper uploaded successfully",
+  "uploadFailed": "Error occurred during upload",
+  "uploadPageTitle": "Upload Exam Paper",
+  "selectCourse": "Select Course",
+  "selectExamType": "Select Exam Type",
+  "pdfPlaceholder": "Tap to select a PDF file",
+  "maxSizeLimit": "Max: 10MB",
+  "removeFile": "Remove File",
+  "midtermExam": "Midterm",
+  "finalExam": "Final Exam",
+  "quiz": "Quiz",
+  "other": "Other",
+  "userNotLoggedIn": "User is not logged in",
+  "targetCourse": "Target Course",
+  "examType": "Exam Type",
+  "examPaperPdf": "Exam Paper (PDF)",
+  "uploading": "Uploading...",
+  "uploadAndSave": "Upload & Save",
+  "studentsPageSelectCourse": "Select Course:",
+  "excusesTitle": "Absence Excuses",
+  "@excusesTitle": {
+    "description": "Title for faculty excuses page"
+  },
+  "excusesNoExcuses": "No excuses submitted yet",
+  "@excusesNoExcuses": {
+    "description": "Empty state message when no excuses are submitted"
+  },
+  "excusesWithoutReason": "No reason provided",
+  "@excusesWithoutReason": {
+    "description": "Default text when no reason is provided"
+  },
+  "excusesStatusSubmitted": "Submitted",
+  "@excusesStatusSubmitted": {
+    "description": "Status label for submitted excuse"
+  },
+  "excusesReasonLabel": "Reason",
+  "@excusesReasonLabel": {
+    "description": "Label for excuse reason"
+  },
+  "excusesViewAttachment": "View Attachment",
+  "@excusesViewAttachment": {
+    "description": "Button label to view attachment"
+  },
+  "excusesApproved": "✅ Excuse approved successfully",
+  "@excusesApproved": {
+    "description": "Success message when excuse is approved"
+  },
+  "excusesRejected": "✅ Excuse rejected successfully",
+  "@excusesRejected": {
+    "description": "Success message when excuse is rejected"
+  },
+  "excusesErrorOccurred": "❌ Error occurred: {error}",
+  "@excusesErrorOccurred": {
+    "description": "Error message with error details",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "excusesFacultyMember": "Faculty Member",
+  "@excusesFacultyMember": {
+    "description": "Default faculty member name"
+  },
+  "classDetailTargetAudience": "Target Audience",
+  "@classDetailTargetAudience": {
+    "description": "Label for target audience selection"
+  },
+  "classDetailAffectedStudents": "Affected",
+  "@classDetailAffectedStudents": {
+    "description": "Target audience option for affected students"
+  },
+  "classDetailGroupA": "Group A",
+  "@classDetailGroupA": {
+    "description": "Target audience option for group A"
+  },
+  "classDetailGroupB": "Group B",
+  "@classDetailGroupB": {
+    "description": "Target audience option for group B"
+  },
+  "classDetailPostAnnouncement": "Post Announcement Now",
+  "@classDetailPostAnnouncement": {
+    "description": "Button label to post announcement"
+  },
+  "classDetailStartChat": "Start direct chat with {name}",
+  "@classDetailStartChat": {
+    "description": "Message when starting chat with student",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "classDetailUniversityId": "University ID: {id}",
+  "@classDetailUniversityId": {
+    "description": "University ID label with value",
+    "placeholders": {
+      "id": {
+        "type": "String"
+      }
+    }
+  },
+  "classDetailLoadingError": "Loading error: {error}",
+  "@classDetailLoadingError": {
+    "description": "Error message when loading fails",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "classDetailNoTitle": "No title",
+  "@classDetailNoTitle": {
+    "description": "Default text when announcement has no title"
+  },
+  "classDetailForum": "Forum",
+  "@classDetailForum": {
+    "description": "Default forum tag for announcements"
+  },
+  "classDetailViews": "views",
+  "@classDetailViews": {
+    "description": "Label for view count"
+  },
+  "classDetailComments": "comments",
+  "@classDetailComments": {
+    "description": "Label for comment count"
+  },
+  "classDetailDeleteError": "Error during deletion: {error}",
+  "@classDetailDeleteError": {
+    "description": "Error message when deletion fails",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "profileDownloadingCard": "Downloading university card...",
+  "@profileDownloadingCard": {
+    "description": "Message shown when downloading university card"
+  },
+  "profileDownloadingDecree": "Downloading appointment decree...",
+  "@profileDownloadingDecree": {
+    "description": "Message shown when downloading appointment decree"
+  },
+  "languageArabic": "Arabic",
+  "@languageArabic": {
+    "description": "Arabic language name"
+  },
+  "languageEnglish": "English",
+  "@languageEnglish": {
+    "description": "English language name"
+  },
+  "settingsHelpLoading": "Help center loading...",
+  "@settingsHelpLoading": {
+    "description": "Message shown when help center is loading"
+  },
+  "settingsPrivacyPolicy": "University of Derna Privacy Policy {year}",
+  "@settingsPrivacyPolicy": {
+    "description": "Privacy policy message",
+    "placeholders": {
+      "year": {
+        "type": "int"
+      }
+    }
+  },
+  "settingsRoleFaculty": "Associate Professor - College of Engineering",
+  "@settingsRoleFaculty": {
+    "description": "Role label for faculty members"
+  },
+  "settingsRoleStaff": "Honored Faculty Member",
+  "@settingsRoleStaff": {
+    "description": "Role label for staff members"
+  },
+  "scheduleNotificationsEnabled": "Schedule notifications are automatically enabled",
+  "@scheduleNotificationsEnabled": {
+    "description": "Message shown when schedule notifications are enabled"
+  },
+  "scheduleNoLecturesToday": "No lectures scheduled for today",
+  "@scheduleNoLecturesToday": {
+    "description": "Message shown when no lectures are scheduled for the day"
+  },
+  "dashboardWelcome": "Welcome, Dr.",
+  "@dashboardWelcome": {
+    "description": "Dashboard welcome message for faculty"
+  },
+  "dashboardDoctorFallback": "Doctor",
+  "@dashboardDoctorFallback": {
+    "description": "Fallback doctor title when name is empty"
+  },
+  "dashboardCoursesTaught": "Courses Taught",
+  "@dashboardCoursesTaught": {
+    "description": "Label for courses taught count"
+  },
+  "dashboardStudentCount": "Student Count",
+  "@dashboardStudentCount": {
+    "description": "Label for student count"
+  },
+  "dashboardWeeklyLectures": "Weekly Lectures",
+  "@dashboardWeeklyLectures": {
+    "description": "Label for weekly lectures count"
+  },
+  "dashboardQuickActions": "Quick Actions",
+  "@dashboardQuickActions": {
+    "description": "Section title for quick actions"
+  },
+  "dashboardActionUploadLecture": "Upload Lecture",
+  "@dashboardActionUploadLecture": {
+    "description": "Quick action label for uploading lecture"
+  },
+  "dashboardActionUploadExam": "Upload Exam",
+  "@dashboardActionUploadExam": {
+    "description": "Quick action label for uploading exam"
+  },
+  "dashboardActionAddAssignment": "Add Assignment",
+  "@dashboardActionAddAssignment": {
+    "description": "Quick action label for adding assignment"
+  },
+  "dashboardRecentActivity": "Recent Activity",
+  "@dashboardRecentActivity": {
+    "description": "Section title for recent activities"
+  },
+  "dashboardTodayLectures": "Today's Lectures",
+  "@dashboardTodayLectures": {
+    "description": "Section title for today's lectures"
+  },
+  "dashboardNoLectures": "No lectures scheduled for today",
+  "@dashboardNoLectures": {
+    "description": "Message when no lectures are scheduled"
+  },
+  "dashboardLoadError": "Error loading lectures",
+  "@dashboardLoadError": {
+    "description": "Error message when lectures fail to load"
+  },
+  "dashboardGradesProgress": "Grades Entry Progress",
+  "@dashboardGradesProgress": {
+    "description": "Section title for grades entry progress"
+  },
+  "dashboardPeriodAM": "AM",
+  "@dashboardPeriodAM": {
+    "description": "AM period shortcut"
+  },
+  "dashboardGradeReports": "Grade Distribution Reports",
+  "@dashboardGradeReports": {
+    "description": "Section title for grade distribution reports"
+  },
+  "dashboardAvgGrades": "Average Grades",
+  "@dashboardAvgGrades": {
+    "description": "Label for average grades"
+  },
+  "dashboardPassRate": "Pass Rate",
+  "@dashboardPassRate": {
+    "description": "Label for pass rate"
+  },
+  "dashboardPendingRequests": "Pending Requests",
+  "@dashboardPendingRequests": {
+    "description": "Label for pending requests"
+  },
+  "dashboardWeekSessions": "Weekly Sessions",
+  "@dashboardWeekSessions": {
+    "description": "Label for weekly sessions"
+  },
+  "attendanceUploadMobileOnly": "File upload requires the mobile app — under development",
+  "@attendanceUploadMobileOnly": {
+    "description": "Message when file upload is only available on mobile"
+  },
+  "attendanceLoginRequired": "You must be logged in first",
+  "@attendanceLoginRequired": {
+    "description": "Error message when user is not logged in"
+  },
+  "attendanceNoPermission": "You do not have permission to record attendance for this course",
+  "@attendanceNoPermission": {
+    "description": "Error message when professor lacks permission"
+  },
+  "assignmentsTotalStudents": "Total Students: {count}",
+  "@assignmentsTotalStudents": {
+    "description": "Total students count label",
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "assignmentsOutOf": "of {total}",
+  "@assignmentsOutOf": {
+    "description": "Out of total label",
+    "placeholders": {
+      "total": { "type": "int" }
+    }
+  },
+  "examTypeCourseOption": "Course",
+  "@examTypeCourseOption": {
+    "description": "Course exam type option for exam upload page (dedicated key, do not confuse with existing mistranslated 'quiz' key)"
+  },
+  "uploadFailedWithReason": "Error occurred during upload: {error}",
+  "@uploadFailedWithReason": {
+    "description": "Upload failure message with error detail",
+    "placeholders": {
+      "error": { "type": "String" }
+    }
+  },
+  "examUploadProgress": "Uploading: {progress}%",
+  "@examUploadProgress": {
+    "description": "Upload progress percentage label",
+    "placeholders": {
+      "progress": { "type": "String" }
+    }
+  },
+  "periodMorning": "Morning",
+  "@periodMorning": {
+    "description": "Morning period label"
+  },
+  "periodAfternoon": "Afternoon",
+  "@periodAfternoon": {
+    "description": "Afternoon period label"
+  },
+  "dashboardViewAll": "View All",
+  "@dashboardViewAll": {
+    "description": "View all button label on dashboard"
+  },
+  "imageUploadConfigMissing": "Image upload configuration is missing",
+  "@imageUploadConfigMissing": {
+    "description": "Error message when image upload config is not set"
+  },
+  "imageUploadFailed": "Image upload failed: {error}",
+  "@imageUploadFailed": {
+    "description": "Error message when image upload fails",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "imageUploadRejected": "Image upload rejected",
+  "@imageUploadRejected": {
+    "description": "Error message when image upload is rejected"
+  },
+  "imageUrlMissing": "Image URL is missing",
+  "@imageUrlMissing": {
+    "description": "Error message when image URL is not available"
+  },
+  "removeImageTitle": "Remove Profile Photo",
+  "@removeImageTitle": {
+    "description": "Title for remove profile photo dialog"
+  },
+  "removeImageConfirm": "Are you sure you want to remove your profile photo?",
+  "@removeImageConfirm": {
+    "description": "Confirmation message for removing profile photo"
+  },
+  "removeImageAction": "Remove",
+  "@removeImageAction": {
+    "description": "Button label to remove image"
+  }
+}

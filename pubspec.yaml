@@ -1,0 +1,115 @@
+name: flutter_project
+description: DUSPS - Derna University Smart Portal System
+publish_to: 'none'
+version: 2.0.0+1
+
+environment:
+  sdk: ^3.7.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  ionicons: ^0.2.2
+  intl: ^0.20.2
+  image_picker: ^1.2.2
+  file_picker: ^11.0.2
+  device_info_plus: ^12.4.0
+  permission_handler: ^12.0.0+1
+  path_provider: ^2.1.5
+  photo_view: ^0.15.0
+  url_launcher: ^6.3.1
+  font_awesome_flutter: ^11.0.0
+  shared_preferences: ^2.5.5
+  badges: ^3.1.2
+  sqflite: ^2.4.2
+  path: ^1.9.1
+  shimmer: ^3.0.0
+  connectivity_plus: ^7.1.1
+  firebase_core: ^4.7.0
+  firebase_auth: ^6.4.0
+  cloud_firestore: ^6.3.0
+  cloud_functions: ^6.3.2
+  firebase_storage: ^13.4.2
+  firebase_messaging: ^16.2.2
+  flutter_riverpod: ^3.3.1
+  go_router: ^17.2.3
+  google_fonts: ^8.1.0
+  provider: ^6.1.5+1
+  flutter_animate: ^4.5.2
+  cached_network_image: ^3.4.1
+  fl_chart: ^1.2.0
+  flutter_bloc: ^9.1.1
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+  flutter_dotenv: ^6.0.1
+  dio: ^5.9.2
+  flutter_secure_storage: ^10.2.0
+  audioplayers: ^6.7.1
+  flutter_native_splash: ^2.4.1
+  google_maps_flutter: ^2.17.1
+  syncfusion_flutter_pdfviewer: ^33.2.10
+  flutter_map: ^8.3.0
+  latlong2: ^0.9.1
+  crypto: ^3.0.3
+  http: ^1.6.0
+  collection: ^1.19.1
+  firebase_crashlytics: ^5.2.4
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+  flutter_launcher_icons: ^0.14.4
+  bloc_test: ^10.0.0
+  mocktail: ^1.0.5
+  mockito: ^5.6.4
+  fake_cloud_firestore: ^4.1.1
+  firebase_auth_mocks: ^0.15.2
+  build_runner: ^2.15.0
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  web:
+    generate: true
+    image_path: "assets/images/university_app_splash_screen.png"
+    favicon_path: "assets/images/university_app_splash_screen.png"
+  image_path: "assets/images/university_app_splash_screen.png"
+  min_sdk_android: 21
+  adaptive_icon_background: "#1E558E"
+  adaptive_icon_foreground: "assets/images/university_app_splash_screen.png"
+
+flutter_native_splash:
+  color: "#1B4F8C"
+  background_image: assets/images/university_app_splash_screen.png
+  fullscreen: true
+  android: true
+  ios: false
+  web: false
+  android_12:
+    color: "#1B4F8C"
+    image: assets/images/university_app_splash_screen.png
+    icon_background_color: "#1B4F8C"
+
+flutter:
+  generate: true            # 👈 مكانها هنا ممتاز وصحيح 100%
+  uses-material-design: true
+
+  assets:
+    - .env      
+    - assets/data/
+    - assets/images/
+    - assets/images/university_app_splash_screen.png
+    - assets/images/university_logo_dark.png
+    - assets/sounds/derna_female_english.mp3
+    - assets/sounds/derna_male_english.mp3
+    - assets/sounds/man_voice.mp3
+    - assets/sounds/woman_voice.mp3
+
+  fonts:
+    - family: Cairo
+      fonts:
+        - asset: fonts/Cairo-Regular.ttf

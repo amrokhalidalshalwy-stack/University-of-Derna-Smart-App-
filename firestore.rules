@@ -1,0 +1,220 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ─────────────────────────────────────────────
+    // Helper Functions
+    // ─────────────────────────────────────────────
+
+    function getUserRole() {
+      // ⚠️ تصحيح: استخدام exists() قبل get() لتجنب الاعتماد على سلوك
+      // غير موثّق عند مقارنة نتيجة get() لوثيقة غير موجودة بـ null.
+      return exists(/databases/$(database)/documents/users/$(request.auth.uid))
+        ? get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role
+        : null;
+    }
+
+    function isAdmin() {
+      return getUserRole() == 'admin';
+    }
+
+    function isFaculty() {
+      return getUserRole() == 'faculty';
+    }
+
+    function isStudent() {
+      return getUserRole() == 'student';
+    }
+
+    function isOwner(uid) {
+      return request.auth != null && request.auth.uid == uid;
+    }
+
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    // ⚠️ جديد: يتحقق أن الأستاذ الحالي مُعيَّن فعلياً لمادة course_id
+    function isAssignedProfessor(courseId) {
+      return exists(/databases/$(database)/documents/courses/$(courseId)) &&
+             request.auth.uid in get(/databases/$(database)/documents/courses/$(courseId)).data.assigned_professors;
+    }
+
+    // ⚠️ تم التأكيد: مُعرّف وثيقة enrollment هو نفسه courseId
+    function isStudentEnrolled(studentId, courseId) {
+      return exists(/databases/$(database)/documents/users/$(studentId)/enrollments/$(courseId));
+    }
+
+    // ⚠️ تم التأكيد: يجب التحقق من حقول الدرجات الفرعية لأنها تُكتب من الـ Client
+    function isValidGradeValue() {
+      let data = request.resource.data;
+      return data.total_score is number && data.total_score >= 0 && data.total_score <= 100 &&
+             (!('midterm' in data) || data.midterm == null || (data.midterm is number && data.midterm >= 0)) &&
+             (!('final_exam' in data) || data.final_exam == null || (data.final_exam is number && data.final_exam >= 0)) &&
+             (!('percentage' in data) || data.percentage == null || (data.percentage is number && data.percentage >= 0 && data.percentage <= 100));
+    }
+
+    // ─────────────────────────────────────────────
+    // 1. users Collection
+    // ─────────────────────────────────────────────
+    match /users/{uid} {
+      allow read: if isOwner(uid) || isAdmin();
+
+      allow create, delete: if isAdmin();
+      allow update: if isAdmin() || (isOwner(uid) && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['displayName', 'photoUrl']));
+
+      match /notifications/{notificationId} {
+        allow read, update: if isOwner(uid) || isAdmin();
+        allow create, delete: if isAdmin();
+      }
+
+      match /enrollments/{enrollmentId} {
+        allow read: if isOwner(uid) || isAdmin();
+        allow write: if isAdmin();
+      }
+    }
+
+    // ─────────────────────────────────────────────
+    // 2. grades Collection
+    // ─────────────────────────────────────────────
+    match /grades/{gradeId} {
+      allow read: if isAdmin() || isFaculty() || (isAuthenticated() && resource.data.student_id == request.auth.uid);
+
+      // ✅ Create: Admin، أو أستاذ مُعيَّن للمادة + الطالب مسجَّل فيها + قيمة الدرجة صحيحة
+      allow create: if isAdmin() || (
+        isFaculty() &&
+        isAssignedProfessor(request.resource.data.course_id) &&
+        isStudentEnrolled(request.resource.data.student_id, request.resource.data.course_id) &&
+        isValidGradeValue()
+      );
+
+      // ✅ Update: نفس شروط create، بالإضافة لمنع تغيير course_id أو student_id
+      allow update: if isAdmin() || (
+        isFaculty() &&
+        isAssignedProfessor(request.resource.data.course_id) &&
+        isStudentEnrolled(request.resource.data.student_id, request.resource.data.course_id) &&
+        isValidGradeValue() &&
+        request.resource.data.course_id == resource.data.course_id &&
+        request.resource.data.student_id == resource.data.student_id
+      );
+
+      // ⚠️ Delete: Admin فقط
+      allow delete: if isAdmin();
+    }
+
+    // ─────────────────────────────────────────────
+    // 3. attendance Collection
+    // ─────────────────────────────────────────────
+    match /attendance/{attendanceId} {
+      allow read: if isAdmin() || isFaculty() || (isAuthenticated() && resource.data.student_id == request.auth.uid);
+
+      allow create: if isAdmin() || (
+        isFaculty() &&
+        isAssignedProfessor(request.resource.data.course_id) &&
+        isStudentEnrolled(request.resource.data.student_id, request.resource.data.course_id)
+      );
+
+      allow update: if isAdmin() || (
+        isFaculty() &&
+        isAssignedProfessor(request.resource.data.course_id) &&
+        isStudentEnrolled(request.resource.data.student_id, request.resource.data.course_id) &&
+        request.resource.data.course_id == resource.data.course_id &&
+        request.resource.data.student_id == resource.data.student_id
+      );
+
+      allow delete: if isAdmin();
+    }
+
+    // ─────────────────────────────────────────────
+    // 4. student_requests Collection
+    // ─────────────────────────────────────────────
+    match /student_requests/{requestId} {
+      allow read: if isAdmin() || isFaculty() || (isAuthenticated() && resource.data.student_id == request.auth.uid);
+      allow create: if isOwner(request.resource.data.student_id);
+      allow update, delete: if isAdmin() || isFaculty();
+    }
+
+    // ─────────────────────────────────────────────
+    // 5. renewal_requests Collection
+    // ─────────────────────────────────────────────
+    match /renewal_requests/{requestId} {
+      allow read: if isAdmin() || (isAuthenticated() && resource.data.uid == request.auth.uid);
+      allow create: if isOwner(request.resource.data.uid);
+      allow update, delete: if isAdmin();
+    }
+
+    // ─────────────────────────────────────────────
+    // 6. schedules Collection
+    // ─────────────────────────────────────────────
+    match /schedules/{scheduleId} {
+      allow read: if isAuthenticated();
+      allow write: if isAdmin();
+    }
+
+    // ─────────────────────────────────────────────
+    // 7. announcements Collection
+    // ─────────────────────────────────────────────
+    match /announcements/{announcementId} {
+      allow read: if isAuthenticated();
+      allow write: if isAdmin() || isFaculty();
+    }
+
+    // ─────────────────────────────────────────────
+    // 8. activityLogs Collection
+    // ─────────────────────────────────────────────
+    match /activityLogs/{logId} {
+      allow read: if isAdmin();
+      allow write: if isAdmin() || isFaculty();
+    }
+
+    // ─────────────────────────────────────────────
+    // 9. college_news Collection
+    // ─────────────────────────────────────────────
+    match /college_news/{newsId} {
+      allow read: if isAuthenticated();
+      allow write: if isAdmin();
+    }
+
+    // ─────────────────────────────────────────────
+    // 10. forum_posts Collection
+    // ─────────────────────────────────────────────
+    match /forum_posts/{postId} {
+      allow read: if isAuthenticated();
+      allow create: if isAuthenticated() && request.resource.data.authorId == request.auth.uid;
+      allow update, delete: if isAdmin() || (isAuthenticated() && resource.data.authorId == request.auth.uid);
+    }
+
+    // ─────────────────────────────────────────────
+    // 11. hifzh_progress Collection
+    // ─────────────────────────────────────────────
+    match /hifzh_progress/{uid} {
+      allow read, write: if isOwner(uid);
+    }
+
+    // ─────────────────────────────────────────────
+    // 12. courses Collection
+    // ─────────────────────────────────────────────
+    match /courses/{courseId} {
+      allow read: if isAuthenticated();
+      allow create, delete: if isAdmin();
+      allow update: if isAdmin() || 
+        (isFaculty() && 
+         isAssignedProfessor(courseId) &&
+         request.resource.data.diff(resource.data).affectedKeys().hasOnly(['gradingStats']));
+    }
+
+    // ─────────────────────────────────────────────
+    // 13. moderation_queue Collection
+    // ─────────────────────────────────────────────
+    match /moderation_queue/{queueId} {
+      allow read: if isAdmin();
+      allow create: if isAuthenticated() && 
+                      request.resource.data.reported_by == request.auth.uid &&
+                      request.resource.data.status == 'pending' &&
+                      request.resource.data.report_count == 1 &&
+                      request.resource.data.auto_hidden == false;
+      allow update, delete: if isAdmin();
+    }
+
+  }
+}

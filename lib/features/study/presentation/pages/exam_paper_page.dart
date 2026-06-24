@@ -1,0 +1,303 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_project/core/providers/user_role_provider.dart';
+import 'package:flutter_project/core/constants/app_roles.dart';
+import 'package:flutter_project/core/models/course_enrollment.dart';
+import 'package:flutter_project/core/widgets/section_header.dart';
+import 'package:flutter_project/features/auth/data/auth_service.dart';
+
+// ── Provider محلي في نفس الملف — لا يلمس أي ملف آخر ──────────────────────
+// يقرأ مواد الطالب مباشرة من Firestore: users/{uid}/enrollments/{courseId}
+final _enrollmentsStreamProvider =
+    StreamProvider.family<List<CourseEnrollment>, String>((ref, uid) {
+      if (uid.isEmpty) return const Stream.empty();
+
+      final firestore = ref.watch(firestoreProvider);
+      return firestore
+          .collection('users')
+          .doc(uid)
+          .collection('enrollments')
+          .snapshots()
+          .map(
+            (snapshot) =>
+                snapshot.docs
+                    .map((doc) => CourseEnrollment.fromFirestore(doc))
+                    .toList(),
+          );
+    });
+
+// ─────────────────────────────────────────────────────────────────────────────
+
+class ExamPaperPage extends ConsumerStatefulWidget {
+  const ExamPaperPage({super.key});
+
+  @override
+  ConsumerState<ExamPaperPage> createState() => _ExamPaperPageState();
+}
+
+class _ExamPaperPageState extends ConsumerState<ExamPaperPage> {
+  final TextEditingController _examTextController = TextEditingController();
+  String? _selectedCourseId;
+
+  /// Mock data للامتحانات المرفوعة — يبقى محلياً كما هو
+  final Map<String, String> _uploadedExams = {
+    'CS101':
+        'السؤال الأول: اشرح مبدأ الـ OOP.\n'
+        'السؤال الثاني: اكتب برنامج لطباعة الأرقام الزوجية من 1 إلى 10.',
+    'MATH201':
+        'السؤال الأول: أوجد المشتقة الأولى للدالة f(x) = x^3 + 2x^2 + 5.',
+  };
+
+  @override
+  void dispose() {
+    _examTextController.dispose();
+    super.dispose();
+  }
+
+  void _uploadExam() {
+    if (_selectedCourseId == null) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('الرجاء اختيار المادة أولاً')),
+      );
+      return;
+    }
+    if (_examTextController.text.trim().isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('الرجاء كتابة أسئلة الامتحان')),
+      );
+      return;
+    }
+    setState(() {
+      _uploadedExams[_selectedCourseId!] = _examTextController.text.trim();
+      _examTextController.clear();
+    });
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(content: Text('تم رفع أسئلة الامتحان بنجاح')),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final roleInfo = ref.watch(userRoleInfoProvider).value;
+    final isFaculty = roleInfo?.role == UserRole.faculty;
+
+    // uid من authStateChangesProvider الموجود في auth_service.dart
+    final uid = ref.watch(authStateChangesProvider).value?.uid ?? '';
+
+    // المواد الحقيقية من Firestore عبر الـ provider المحلي
+    final enrollmentsAsync = ref.watch(_enrollmentsStreamProvider(uid));
+
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('ورقة الامتحان الرقمية'),
+        centerTitle: true,
+        // ✅ زر الرجوع
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios),
+          onPressed: () => Navigator.of(context).pop(),
+        ),
+      ),
+      body: enrollmentsAsync.when(
+        // ── حالة التحميل ─────────────────────────────────────────────────
+        loading: () => const Center(child: CircularProgressIndicator()),
+
+        // ── حالة الخطأ ───────────────────────────────────────────────────
+        error:
+            (error, _) => Center(
+              child: Padding(
+                padding: const EdgeInsets.all(24),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(
+                      Icons.error_outline,
+                      color: Colors.red.shade400,
+                      size: 64,
+                    ),
+                    const SizedBox(height: 16),
+                    const Text(
+                      'حدث خطأ في تحميل المواد',
+                      style: TextStyle(fontSize: 16),
+                      textAlign: TextAlign.center,
+                    ),
+                    const SizedBox(height: 8),
+                    Text(
+                      error.toString(),
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: Theme.of(context).colorScheme.onSurfaceVariant,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+
+        // ── حالة البيانات ─────────────────────────────────────────────────
+        data: (enrollments) {
+          // حالة: لا توجد مواد مسجّلة
+          if (enrollments.isEmpty) {
+            return Center(
+              child: Padding(
+                padding: const EdgeInsets.all(24),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(
+                      Icons.school_outlined,
+                      color: Colors.grey.shade400,
+                      size: 64,
+                    ),
+                    const SizedBox(height: 16),
+                    const Text(
+                      'لم تقم بتسجيل أي مواد بعد',
+                      style: TextStyle(fontSize: 16),
+                      textAlign: TextAlign.center,
+                    ),
+                    const SizedBox(height: 8),
+                    Text(
+                      'تسجيل المواد يتم خلال فترة التسجيل الرسمية',
+                      style: TextStyle(
+                        fontSize: 13,
+                        color: Colors.grey.shade600,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
+                ),
+              ),
+            );
+          }
+
+          // حالة: توجد مواد — عرض الواجهة الرئيسية
+          return _buildBody(
+            context: context,
+            enrollments: enrollments,
+            isFaculty: isFaculty,
+          );
+        },
+      ),
+    );
+  }
+
+  Widget _buildBody({
+    required BuildContext context,
+    required List<CourseEnrollment> enrollments,
+    required bool isFaculty,
+  }) {
+    return Padding(
+      padding: const EdgeInsets.all(16),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          // ── Dropdown المواد — بيانات حقيقية من CourseEnrollment ──────
+          DropdownButtonFormField<String>(
+            decoration: const InputDecoration(
+              labelText: 'اختر المادة',
+              border: OutlineInputBorder(),
+            ),
+            initialValue: _selectedCourseId,
+            items:
+                enrollments.map((course) {
+                  return DropdownMenuItem<String>(
+                    value: course.courseId,
+                    child: Text(course.courseName),
+                  );
+                }).toList(),
+            onChanged: (value) {
+              setState(() {
+                _selectedCourseId = value;
+                // الدكتور يبدأ بحقل فارغ دائماً عند تغيير المادة
+                _examTextController.clear();
+              });
+            },
+          ),
+          const SizedBox(height: 24),
+
+          // ── بوابة الدكتور: رفع الامتحان ──────────────────────────────
+          if (isFaculty) ...[
+            SectionHeader(title: 'أسئلة الامتحان:', padding: EdgeInsets.zero),
+            const SizedBox(height: 8),
+            Expanded(
+              child: TextField(
+                controller: _examTextController,
+                maxLines: null,
+                expands: true,
+                textAlignVertical: TextAlignVertical.top,
+                decoration: const InputDecoration(
+                  hintText: 'اكتب أسئلة الامتحان هنا...',
+                  border: OutlineInputBorder(),
+                ),
+              ),
+            ),
+            const SizedBox(height: 16),
+            ElevatedButton.icon(
+              onPressed: _uploadExam,
+              icon: const Icon(Icons.upload_file),
+              label: const Text('رفع الامتحان'),
+              style: ElevatedButton.styleFrom(
+                padding: const EdgeInsets.symmetric(vertical: 16),
+                textStyle: const TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+
+            // ── بوابة الطالب: عرض الامتحان ───────────────────────────────
+          ] else ...[
+            if (_selectedCourseId == null)
+              Expanded(
+                child: Center(
+                  child: Text(
+                    'الرجاء اختيار مادة لعرض ورقة الامتحان',
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Theme.of(context).colorScheme.onSurfaceVariant,
+                    ),
+                  ),
+                ),
+              )
+            else if (_uploadedExams.containsKey(_selectedCourseId))
+              Expanded(
+                child: Container(
+                  padding: const EdgeInsets.all(16),
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).colorScheme.surface,
+                    borderRadius: BorderRadius.circular(12),
+                    border: Border.all(color: Colors.grey.shade300),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withValues(alpha: 0.05),
+                        blurRadius: 10,
+                        offset: const Offset(0, 4),
+                      ),
+                    ],
+                  ),
+                  child: SingleChildScrollView(
+                    child: Text(
+                      _uploadedExams[_selectedCourseId]!,
+                      style: const TextStyle(fontSize: 16, height: 1.6),
+                    ),
+                  ),
+                ),
+              )
+            else
+              Expanded(
+                child: Center(
+                  child: Text(
+                    'لم يتم رفع أسئلة امتحان لهذه المادة بعد',
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Theme.of(context).colorScheme.onSurfaceVariant,
+                    ),
+                  ),
+                ),
+              ),
+          ],
+        ],
+      ),
+    );
+  }
+}

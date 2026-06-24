@@ -1,0 +1,70 @@
+{
+  "wiped": {
+    "_seed_meta": 1,
+    "announcements": 0,
+    "attendance": 0,
+    "colleges": 1,
+    "courses": 5,
+    "departments": 1,
+    "faculty_records": 2,
+    "grades": 0,
+    "notifications": 1,
+    "registrations": 5,
+    "schedules": 5,
+    "users": 6
+  },
+  "ad": 6,
+  "created": {
+    "colleges": 1,
+    "departments": 1,
+    "courses": 5,
+    "users": 6,
+    "registrations": 5,
+    "faculty_records": 2,
+    "enrollments": 15,
+    "grades": 15,
+    "attendance_sum": 15,
+    "attendance_records": 75,
+    "faculty_grades": 15,
+    "schedules": 5,
+    "user_schedule": 20,
+    "global_notifications": 1,
+    "user_notifications": 15,
+    "_seed_meta": 1
+  },
+  "u": {
+    "admin": "BZh41PAcvTV1MihA1mk1X63KF8u2",
+    "student": "E6DrdjPqzhZaJad8h6OjUdRiGfu2",
+    "student2": "rRzewPx2sTNhRj9bNn0KnF4PvBb2",
+    "student3": "PqFgf5rr9YgO4gvEyerjJpDFYXQ2",
+    "faculty": "F5I7Tte1dJbDEuNzPFnPAdRJrtl1",
+    "faculty2": "LCmkPmx0nEOrQOtxQcI8CrUWGX83"
+  },
+  "credentials": {
+    "admin": {
+      "email": "admin@uod.edu.ly",
+      "pw": "Admin@123456"
+    },
+    "student": {
+      "email": "ahmed.ali@uod.edu.ly",
+      "pw": "Student@123"
+    },
+    "student2": {
+      "email": "fatima.omar@uod.edu.ly",
+      "pw": "Student@123"
+    },
+    "student3": {
+      "email": "ali.hassan@uod.edu.ly",
+      "pw": "Student@123"
+    },
+    "faculty": {
+      "email": "layla.hassan@uod.edu.ly",
+      "pw": "Faculty@123"
+    },
+    "faculty2": {
+      "email": "khaled.abdallah@uod.edu.ly",
+      "pw": "Faculty@123"
+    }
+  },
+  "at": "2026-06-07T14:39:18.564Z"
+}

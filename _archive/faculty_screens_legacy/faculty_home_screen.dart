@@ -1,0 +1,342 @@
+// lib/features/faculty/screens/faculty_home_screen.dart
+
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
+import '../../../core/theme/app_theme.dart';
+import 'faculty_schedule_screen.dart';
+import 'faculty_students_screen.dart';
+import 'faculty_grades_entry_screen.dart';
+
+class FacultyHomeScreen extends StatelessWidget {
+  const FacultyHomeScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final uid = FirebaseAuth.instance.currentUser!.uid;
+
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: Scaffold(
+        backgroundColor: AppTheme.background,
+        appBar: AppBar(
+          title: const Text('بوابة أعضاء هيئة التدريس'),
+          actions: [
+            IconButton(
+              icon: const Icon(Icons.logout),
+              tooltip: 'تسجيل الخروج',
+              onPressed: () async {
+                final confirm = await showDialog<bool>(
+                  context: context,
+                  builder: (_) => AlertDialog(
+                    title: const Text('تسجيل الخروج'),
+                    content: const Text('هل تريد تسجيل الخروج من الحساب؟'),
+                    actions: [
+                      TextButton(
+                          onPressed: () => Navigator.pop(context, false),
+                          child: const Text('إلغاء')),
+                      ElevatedButton(
+                          onPressed: () => Navigator.pop(context, true),
+                          child: const Text('خروج')),
+                    ],
+                  ),
+                );
+                if (confirm == true) {
+                  await FirebaseAuth.instance.signOut();
+                  if (context.mounted) {
+                    Navigator.pushNamedAndRemoveUntil(
+                        context, '/login', (_) => false);
+                  }
+                }
+              },
+            ),
+          ],
+        ),
+        body: StreamBuilder<DocumentSnapshot>(
+          stream: FirebaseFirestore.instance
+              .collection('users')
+              .doc(uid)
+              .snapshots(),
+          builder: (context, snapshot) {
+            if (!snapshot.hasData) {
+              return const Center(child: CircularProgressIndicator());
+            }
+
+            final data =
+                snapshot.data!.data() as Map<String, dynamic>? ?? {};
+            final name = data['fullNameAr'] as String? ?? 'عضو هيئة التدريس';
+            final faculty = data['faculty'] as String? ?? '--';
+            final titleStr = data['faculty_title'] as String? ?? '--';
+            final email = data['email'] as String? ?? '--';
+            final phone = data['phone'] as String? ?? '--';
+
+            return SingleChildScrollView(
+              padding: const EdgeInsets.all(16),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  // ── بطاقة الملف الشخصي ──
+                  Card(
+                    color: AppTheme.primary,
+                    child: Padding(
+                      padding: const EdgeInsets.all(20),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          CircleAvatar(
+                            radius: 36,
+                            backgroundColor: Colors.white24,
+                            child: Text(
+                              name.isNotEmpty ? name[0] : 'أ',
+                              style: const TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 28,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                          const SizedBox(width: 16),
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(name,
+                                    style: const TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold)),
+                                const SizedBox(height: 4),
+                                Text(titleStr,
+                                    style: const TextStyle(
+                                        color: Colors.white70, fontSize: 13)),
+                                Text(faculty,
+                                    style: const TextStyle(
+                                        color: Colors.white70, fontSize: 13)),
+                                const SizedBox(height: 8),
+                                Row(
+                                  children: [
+                                    const Icon(Icons.email_outlined,
+                                        color: Colors.white54, size: 14),
+                                    const SizedBox(width: 4),
+                                    Expanded(
+                                      child: Text(email,
+                                          style: const TextStyle(
+                                              color: Colors.white60,
+                                              fontSize: 12),
+                                          overflow: TextOverflow.ellipsis),
+                                    ),
+                                  ],
+                                ),
+                                Row(
+                                  children: [
+                                    const Icon(Icons.phone_outlined,
+                                        color: Colors.white54, size: 14),
+                                    const SizedBox(width: 4),
+                                    Text(phone,
+                                        style: const TextStyle(
+                                            color: Colors.white60,
+                                            fontSize: 12)),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+
+                  const SizedBox(height: 20),
+
+                  // ── المواد التي يدرّسها ──
+                  StreamBuilder<DocumentSnapshot>(
+                    stream: FirebaseFirestore.instance
+                        .collection('faculty_records')
+                        .doc(uid)
+                        .snapshots(),
+                    builder: (context, snap) {
+                      final rec =
+                          snap.data?.data() as Map<String, dynamic>? ?? {};
+                      final courses =
+                          rec['courses'] as List<dynamic>? ?? [];
+                      final semester =
+                          rec['currentSemester'] as String? ?? '--';
+
+                      return Card(
+                        child: Padding(
+                          padding: const EdgeInsets.all(16),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  const Text('المواد الدراسية',
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 16)),
+                                  Container(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 10, vertical: 4),
+                                    decoration: BoxDecoration(
+                                      color: AppTheme.primary.withValues(alpha: 0.1),
+                                      borderRadius: BorderRadius.circular(12),
+                                    ),
+                                    child: Text(semester,
+                                        style: const TextStyle(
+                                            color: AppTheme.primary,
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.w600)),
+                                  ),
+                                ],
+                              ),
+                              const Divider(height: 20),
+                              if (courses.isEmpty)
+                                Padding(
+                                  padding: EdgeInsets.symmetric(vertical: 8),
+                                  child: Text('لا توجد مواد مسجّلة',
+                                      style: TextStyle(color: Theme.of(context).colorScheme.onSurfaceVariant)),
+                                )
+                              else
+                                ...courses.asMap().entries.map((e) {
+                                  final c = e.value;
+                                  String courseName = '--';
+                                  String courseId = '';
+                                  if (c is Map) {
+                                    courseName =
+                                        c['name']?.toString() ?? c.toString();
+                                    courseId = c['id']?.toString() ?? '';
+                                  } else {
+                                    courseName = c.toString();
+                                  }
+                                  return ListTile(
+                                    contentPadding: EdgeInsets.zero,
+                                    leading: CircleAvatar(
+                                      backgroundColor:
+                                          AppTheme.primary.withValues(alpha: 0.1),
+                                      child: Text('${e.key + 1}',
+                                          style: const TextStyle(
+                                              color: AppTheme.primary,
+                                              fontWeight: FontWeight.bold)),
+                                    ),
+                                    title: Text(courseName),
+                                    subtitle: courseId.isNotEmpty
+                                        ? Text(courseId,
+                                            style: const TextStyle(
+                                                color: Colors.grey,
+                                                fontSize: 12))
+                                        : null,
+                                    trailing: const Icon(
+                                        Icons.chevron_left,
+                                        color: Colors.grey),
+                                  );
+                                }),
+                            ],
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+
+                  const SizedBox(height: 20),
+
+                  // ── الخدمات السريعة ──
+                  const Text('الخدمات',
+                      style: TextStyle(
+                          fontSize: 18, fontWeight: FontWeight.bold)),
+                  const SizedBox(height: 12),
+                  GridView.count(
+                    crossAxisCount: 2,
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    crossAxisSpacing: 12,
+                    mainAxisSpacing: 12,
+                    childAspectRatio: 1.15,
+                    children: [
+                      _serviceCard(
+                        context,
+                        'جدول المحاضرات',
+                        Icons.calendar_today,
+                        const FacultyScheduleScreen(),
+                      ),
+                      _serviceCard(
+                        context,
+                        'قائمة الطلاب',
+                        Icons.people_outline,
+                        const FacultyStudentsScreen(),
+                      ),
+                      _serviceCard(
+                        context,
+                        'إدخال الدرجات',
+                        Icons.edit_note,
+                        const FacultyGradesEntryScreen(),
+                      ),
+                      _serviceCard(
+                        context,
+                        'الإشعارات',
+                        Icons.notifications_outlined,
+                        null,
+                        badge: '3',
+                      ),
+                    ],
+                  ),
+
+                  const SizedBox(height: 20),
+                ],
+              ),
+            );
+          },
+        ),
+      ),
+    );
+  }
+
+  Widget _serviceCard(
+    BuildContext context,
+    String title,
+    IconData icon,
+    Widget? screen, {
+    String? badge,
+  }) {
+    return GestureDetector(
+      onTap: screen != null
+          ? () => Navigator.push(
+              context, MaterialPageRoute(builder: (_) => screen))
+          : null,
+      child: Card(
+        child: Stack(
+          children: [
+            Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(icon, size: 38, color: AppTheme.primary),
+                  const SizedBox(height: 8),
+                  Text(title,
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 14)),
+                ],
+              ),
+            ),
+            if (badge != null)
+              Positioned(
+                top: 8,
+                left: 8,
+                child: Container(
+                  padding: const EdgeInsets.all(5),
+                  decoration: const BoxDecoration(
+                      color: Colors.red, shape: BoxShape.circle),
+                  child: Text(badge,
+                      style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 10,
+                          fontWeight: FontWeight.bold)),
+                ),
+              ),
+          ],
+        ),
+      ),
+    );
+  }
+}

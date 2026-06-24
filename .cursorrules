@@ -1,0 +1,34 @@
+# UMS — University Management System Rules
+
+## Stack
+- Flutter + Firebase (Firestore + Auth) + Provider/Riverpod
+- Language: Arabic RTL only
+- Font: Cairo (mandatory on ALL text)
+- Theme: Material 3 — Light + Dark
+
+## AppColors Reference
+- Primary:    #001835 (light) / #0B1524 (dark)
+- Container:  #0F2D52 (light) / #152238 (dark)  
+- Gold:       #FED65B
+- Teal:       #00A694
+- Surface:    #F7F9FB (light) / #0B1524 (dark)
+- OnSurface:  #191C1E (light) / #E2E8F0 (dark)
+
+## Hard Rules (NEVER break)
+1. Zero hardcoded colors — always Theme.of(context).colorScheme
+2. Zero mock data — always StreamBuilder/FutureBuilder from Firebase
+3. Zero onPressed:null — every button must be wired
+4. Zero stubs — complete implementation only
+5. All padding/margin → start/end (not left/right)
+6. All Text → overflow: TextOverflow.ellipsis inside cards
+
+## Firestore Roles
+- users/{uid}.role → "student" | "professor" | "admin"
+- users/{uid}.status → "pending" | "active"
+- Student pending = cannot login (show Arabic message)
+
+## Cross-Portal Data Rules
+- Attendance write → BOTH attendance/{courseId} AND attendance/{studentId}
+- Grades write → BOTH grades/{courseId} AND grades/{studentId}  
+- Announcements read filter: student=['all','student'] / prof=['all','professor']
+- Requests collection is SHARED across all portals

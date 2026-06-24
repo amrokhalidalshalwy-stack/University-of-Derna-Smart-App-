@@ -1,0 +1,50 @@
+rules_version = '2';
+
+// Deploy: firebase deploy --only storage
+// Max upload 50MB; PDF, DOCX, and images only.
+
+service firebase.storage {
+  match /b/{bucket}/o {
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function userDoc() {
+      return firestore.get(/databases/(default)/documents/users/$(request.auth.uid)).data;
+    }
+
+    function isAdmin() {
+      return isSignedIn() && userDoc().role == 'admin';
+    }
+
+    function isFaculty() {
+      return isSignedIn() && userDoc().role == 'faculty';
+    }
+
+    function isFacultyOrAdmin() {
+      return isAdmin() || isFaculty();
+    }
+
+    function isValidUpload() {
+      return request.resource.size < 50 * 1024 * 1024
+        && request.resource.contentType.matches(
+          'application/pdf'
+          + '|application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+          + '|image/.*'
+        );
+    }
+
+    // Full files — authenticated download only
+    match /repository/{itemId}/{fileName} {
+      allow read: if isSignedIn();
+      allow write: if isFacultyOrAdmin() && isValidUpload();
+    }
+
+    // Thumbnails / public covers
+    match /repository_public/{allPaths=**} {
+      allow read: if true;
+      allow write: if isFacultyOrAdmin() && isValidUpload();
+    }
+  }
+}

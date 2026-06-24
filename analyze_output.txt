@@ -1,0 +1,32 @@
+Analyzing flutter_project...                                    
+
+  error - Expected to find ']' - lib\features\student\presentation\pages\enrollment_renewal_page.dart:366:128 - expected_token
+  error - Expected to find ')' - lib\features\student\presentation\pages\enrollment_renewal_page.dart:367:15 - expected_token
+  error - Expected to find ';' - lib\features\student\presentation\pages\enrollment_renewal_page.dart:369:11 - expected_token
+warning - Dead code. Try removing the code, or fixing the code before it so that it can be reached - lib\features\student\presentation\pages\enrollment_renewal_page.dart:369:12 - dead_code
+  error - Expected an identifier - lib\features\student\presentation\pages\enrollment_renewal_page.dart:369:12 - missing_identifier
+  error - Unexpected text ';'. Try removing the text - lib\features\student\presentation\pages\enrollment_renewal_page.dart:369:12 - unexpected_token
+  error - Expected to find ';' - lib\features\student\presentation\pages\enrollment_renewal_page.dart:370:36 - expected_token
+  error - Expected an identifier - lib\features\student\presentation\pages\enrollment_renewal_page.dart:370:37 - missing_identifier
+  error - Unexpected text ';'. Try removing the text - lib\features\student\presentation\pages\enrollment_renewal_page.dart:370:37 - unexpected_token
+  error - Expected to find ';' - lib\features\student\presentation\pages\enrollment_renewal_page.dart:397:11 - expected_token
+  error - Expected an identifier - lib\features\student\presentation\pages\enrollment_renewal_page.dart:397:12 - missing_identifier
+  error - Expected to find ';' - lib\features\student\presentation\pages\enrollment_renewal_page.dart:397:12 - expected_token
+  error - Unexpected text ';'. Try removing the text - lib\features\student\presentation\pages\enrollment_renewal_page.dart:397:12 - unexpected_token
+  error - Expected an identifier - lib\features\student\presentation\pages\enrollment_renewal_page.dart:398:9 - missing_identifier
+  error - Expected to find ';' - lib\features\student\presentation\pages\enrollment_renewal_page.dart:398:9 - expected_token
+  error - Unexpected text ';'. Try removing the text - lib\features\student\presentation\pages\enrollment_renewal_page.dart:398:9 - unexpected_token
+  error - Expected an identifier - lib\features\student\presentation\pages\enrollment_renewal_page.dart:398:10 - missing_identifier
+  error - Expected to find ';' - lib\features\student\presentation\pages\enrollment_renewal_page.dart:398:10 - expected_token
+  error - Unexpected text ';'. Try removing the text - lib\features\student\presentation\pages\enrollment_renewal_page.dart:398:10 - unexpected_token
+  error - Expected an identifier - lib\features\student\presentation\pages\enrollment_renewal_page.dart:399:7 - missing_identifier
+  error - Expected to find ';' - lib\features\student\presentation\pages\enrollment_renewal_page.dart:399:7 - expected_token
+  error - Unexpected text ';'. Try removing the text - lib\features\student\presentation\pages\enrollment_renewal_page.dart:399:7 - unexpected_token
+  error - Expected an identifier - lib\features\student\presentation\pages\enrollment_renewal_page.dart:399:8 - missing_identifier
+  error - Expected to find ';' - lib\features\student\presentation\pages\enrollment_renewal_page.dart:399:8 - expected_token
+  error - Unexpected text ';'. Try removing the text - lib\features\student\presentation\pages\enrollment_renewal_page.dart:399:8 - unexpected_token
+  error - Expected an identifier - lib\features\student\presentation\pages\enrollment_renewal_page.dart:400:5 - missing_identifier
+  error - Unexpected text ';'. Try removing the text - lib\features\student\presentation\pages\enrollment_renewal_page.dart:400:5 - unexpected_token
+   info - Unnecessary empty statement. Try removing the empty statement or restructuring the code - lib\features\student\presentation\pages\enrollment_renewal_page.dart:400:6 - empty_statements
+
+28 issues found. (ran in 269.2s)

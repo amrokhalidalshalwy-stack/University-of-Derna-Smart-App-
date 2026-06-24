@@ -1,0 +1,572 @@
+// lib/features/study/presentation/pages/exam_paper_upload_page.dart
+// صفحة رفع أوراق الامتحان للأساتذة
+
+import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
+import 'package:file_picker/file_picker.dart';
+import 'package:flutter_project/core/theme/app_theme.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+
+class ExamPaperUploadPage extends StatefulWidget {
+  const ExamPaperUploadPage({super.key});
+
+  @override
+  State<ExamPaperUploadPage> createState() => _ExamPaperUploadPageState();
+}
+
+class _ExamPaperUploadPageState extends State<ExamPaperUploadPage>
+    with SingleTickerProviderStateMixin {
+  late final TabController _tabController;
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  final FirebaseStorage _storage = FirebaseStorage.instance;
+
+  final _formKey = GlobalKey<FormState>();
+  final _titleCtrl = TextEditingController();
+  final _yearCtrl = TextEditingController();
+
+  String? _selectedCategory; // 'quiz', 'midterm', 'final'
+  String? _selectedCourseId;
+  String? _selectedCourseName;
+  PlatformFile? _selectedFile;
+  bool _isUploading = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(length: 2, vsync: this);
+    _yearCtrl.text = '2025-2026';
+  }
+
+  @override
+  void dispose() {
+    _tabController.dispose();
+    _titleCtrl.dispose();
+    _yearCtrl.dispose();
+    super.dispose();
+  }
+  Future<void> _pickFile() async {
+    try {
+      final result = await FilePicker.pickFiles(
+        type: FileType.custom,
+        allowedExtensions: const ['pdf'],
+      );
+
+      if (result != null && result.files.isNotEmpty) {
+        setState(() => _selectedFile = result.files.first);
+      }
+    } catch (e) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('خطأ في اختيار الملف: $e',
+                style: const TextStyle(fontFamily: 'Cairo')),
+            backgroundColor: Colors.red,
+          ),
+        );
+      }
+    }
+  }
+
+  Future<void> _uploadExamPaper() async {
+    if (!_formKey.currentState!.validate()) return;
+    if (_selectedFile == null) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('يرجى اختيار ملف PDF', style: TextStyle(fontFamily: 'Cairo')),
+          backgroundColor: Colors.orange,
+        ),
+      );
+      return;
+    }
+
+    setState(() => _isUploading = true);
+
+    try {
+      final professorId = _auth.currentUser?.uid ?? '';
+      final fileName =
+          '${_selectedCourseId}_${_selectedCategory}_${DateTime.now().millisecondsSinceEpoch}.pdf';
+      final storagePath = 'exam_papers/$fileName';
+
+      // Upload file to Firebase Storage
+      final reference = _storage.ref(storagePath);
+      await reference.putData(_selectedFile!.bytes!);
+      final fileUrl = await reference.getDownloadURL();
+
+      // Save metadata to Firestore
+      await _firestore.collection('exam_papers').add({
+        'title': _titleCtrl.text.trim(),
+        'courseId': _selectedCourseId,
+        'courseName': _selectedCourseName,
+        'department': '', // Could be fetched from course data
+        'category': _selectedCategory,
+        'year': _yearCtrl.text.trim(),
+        'fileUrl': fileUrl,
+        'uploadedBy': professorId,
+        'uploadedAt': FieldValue.serverTimestamp(),
+      });
+
+      if (!mounted) return;
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text(
+            'تم رفع الورقة بنجاح',
+            style: TextStyle(fontFamily: 'Cairo'),
+          ),
+          backgroundColor: Colors.green,
+        ),
+      );
+
+      // Clear form
+      _formKey.currentState!.reset();
+      _titleCtrl.clear();
+      _yearCtrl.text = '2025-2026';
+      setState(() {
+        _selectedFile = null;
+        _selectedCategory = null;
+        _selectedCourseId = null;
+        _selectedCourseName = null;
+      });
+    } catch (e) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('خطأ: $e', style: const TextStyle(fontFamily: 'Cairo')),
+            backgroundColor: Colors.red,
+          ),
+        );
+      }
+    } finally {
+      setState(() => _isUploading = false);
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: Scaffold(
+        backgroundColor: const Color(0xFFF5F7FA),
+        appBar: AppBar(
+          backgroundColor: AppTheme.primaryColor,
+          foregroundColor: Colors.white,
+          title: const Text(
+            'رفع أوراق الامتحان',
+            style: TextStyle(fontFamily: 'Cairo', fontWeight: FontWeight.bold),
+          ),
+          centerTitle: true,
+          bottom: PreferredSize(
+            preferredSize: const Size.fromHeight(kToolbarHeight),
+            child: TabBar(
+              controller: _tabController,
+              indicatorColor: Colors.white,
+              labelStyle:
+                  const TextStyle(fontFamily: 'Cairo', fontWeight: FontWeight.bold),
+              unselectedLabelStyle: const TextStyle(fontFamily: 'Cairo'),
+              labelColor: Colors.white,
+              unselectedLabelColor: Theme.of(context).colorScheme.onPrimary.withValues(alpha: 0.7),
+              tabs: const [
+                Tab(text: 'رفع ورقة جديدة'),
+                Tab(text: 'أوراقي السابقة'),
+              ],
+            ),
+          ),
+        ),
+        body: TabBarView(
+          controller: _tabController,
+          children: [
+            _UploadFormTab(
+              formKey: _formKey,
+              titleCtrl: _titleCtrl,
+              yearCtrl: _yearCtrl,
+              selectedCategory: _selectedCategory,
+              selectedCourseId: _selectedCourseId,
+              selectedFile: _selectedFile,
+              isUploading: _isUploading,
+              firestore: _firestore,
+              auth: _auth,
+              onCategoryChanged: (value) {
+                setState(() => _selectedCategory = value);
+              },
+              onCourseChanged: (id, name) {
+                setState(() {
+                  _selectedCourseId = id;
+                  _selectedCourseName = name;
+                });
+              },
+              onFilePicked: _pickFile,
+              onUpload: _uploadExamPaper,
+            ),
+            _MyExamPapersTab(
+              firestore: _firestore,
+              auth: _auth,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+// ── Upload Form Tab ────────────────────────────────────────────────────
+class _UploadFormTab extends StatelessWidget {
+  final GlobalKey<FormState> formKey;
+  final TextEditingController titleCtrl;
+  final TextEditingController yearCtrl;
+  final String? selectedCategory;
+  final String? selectedCourseId;
+  final PlatformFile? selectedFile;
+  final bool isUploading;
+  final FirebaseFirestore firestore;
+  final FirebaseAuth auth;
+  final Function(String?) onCategoryChanged;
+  final Function(String, String) onCourseChanged;
+  final VoidCallback onFilePicked;
+  final VoidCallback onUpload;
+
+  const _UploadFormTab({
+    required this.formKey,
+    required this.titleCtrl,
+    required this.yearCtrl,
+    required this.selectedCategory,
+    required this.selectedCourseId,
+    required this.selectedFile,
+    required this.isUploading,
+    required this.firestore,
+    required this.auth,
+    required this.onCategoryChanged,
+    required this.onCourseChanged,
+    required this.onFilePicked,
+    required this.onUpload,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      padding: const EdgeInsets.all(20),
+      child: Form(
+        key: formKey,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            _buildSectionLabel('نوع الاختبار'),
+            DropdownButtonFormField<String>(
+              initialValue: selectedCategory,
+              decoration: _inputDecoration('اختر نوع الاختبار', Icons.category),
+              items: const [
+                DropdownMenuItem(value: 'quiz', child: Text('اختبار قصير')),
+                DropdownMenuItem(value: 'midterm', child: Text('اختبار نصف الفصل')),
+                DropdownMenuItem(value: 'final', child: Text('الاختبار النهائي')),
+              ],
+              onChanged: onCategoryChanged,
+              validator: (v) => v == null ? 'اختر نوع الاختبار' : null,
+            ),
+            const SizedBox(height: 16),
+            _buildSectionLabel('المادة'),
+            StreamBuilder<QuerySnapshot>(
+              stream: firestore.collection('courses').snapshots(),
+              builder: (context, snapshot) {
+                List<DropdownMenuItem<String>> courseItems = [];
+
+                if (snapshot.hasData) {
+                  courseItems = snapshot.data!.docs
+                      .map((doc) {
+                        final data = doc.data() as Map<String, dynamic>;
+                        return DropdownMenuItem<String>(
+                          value: doc.id,
+                          child: Text(
+                            data['name'] ?? 'Unknown',
+                            style: const TextStyle(fontFamily: 'Cairo'),
+                          ),
+                        );
+                      })
+                      .toList();
+                }
+
+                return DropdownButtonFormField<String>(
+                  initialValue: selectedCourseId,
+                  decoration: _inputDecoration('اختر المادة', Icons.book),
+                  items: courseItems,
+                  onChanged: (value) {
+                    if (value != null && snapshot.hasData) {
+                      final course = snapshot.data!.docs.firstWhere(
+                        (doc) => doc.id == value,
+                        orElse: () => null as dynamic,
+                      );
+                      final data = course.data() as Map<String, dynamic>;
+                      onCourseChanged(value, data['name'] ?? 'Unknown');
+                    }
+                  },
+                  validator: (v) => v == null ? 'اختر المادة' : null,
+                );
+              },
+            ),
+            const SizedBox(height: 16),
+            _buildSectionLabel('عنوان الورقة (اختياري)'),
+            TextFormField(
+              controller: titleCtrl,
+              style: const TextStyle(fontFamily: 'Cairo'),
+              decoration: _inputDecoration('مثال: أسئلة الوحدة الأولى', Icons.title),
+            ),
+            const SizedBox(height: 16),
+            _buildSectionLabel('السنة الأكاديمية'),
+            TextFormField(
+              controller: yearCtrl,
+              style: const TextStyle(fontFamily: 'Cairo'),
+              decoration: _inputDecoration('2025-2026', Icons.calendar_today),
+              validator: (v) => v == null || v.isEmpty ? 'أدخل السنة' : null,
+            ),
+            const SizedBox(height: 16),
+            _buildSectionLabel('ملف PDF'),
+            GestureDetector(
+              onTap: isUploading ? null : onFilePicked,
+              child: Container(
+                width: double.infinity,
+                padding: const EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: selectedFile != null
+                        ? AppTheme.primaryColor
+                        : Colors.grey.shade300,
+                    width: 2,
+                    style: BorderStyle.solid,
+                  ),
+                  borderRadius: BorderRadius.circular(12),
+                  color: selectedFile != null
+                      ? AppTheme.primaryColor.withValues(alpha: 0.05)
+                      : Colors.transparent,
+                ),
+                child: Column(
+                  children: [
+                    Icon(
+                      Icons.cloud_upload,
+                      size: 40,
+                      color: selectedFile != null
+                          ? AppTheme.primaryColor
+                          : Colors.grey,
+                    ),
+                    const SizedBox(height: 12),
+                    if (selectedFile == null)
+                      const Text(
+                        'اضغط لاختيار ملف PDF',
+                        style: TextStyle(
+                          fontFamily: 'Cairo',
+                          color: Colors.grey,
+                          fontSize: 14,
+                        ),
+                      )
+                    else
+                      Column(
+                        children: [
+                          Text(
+                            selectedFile!.name,
+                            style: const TextStyle(
+                              fontFamily: 'Cairo',
+                              color: AppTheme.primaryColor,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          const SizedBox(height: 4),
+                          Text(
+                            '${(selectedFile!.size / 1024 / 1024).toStringAsFixed(2)} MB',
+                            style: TextStyle(
+                              fontFamily: 'Cairo',
+                              color: Colors.grey.shade600,
+                              fontSize: 12,
+                            ),
+                          ),
+                        ],
+                      ),
+                  ],
+                ),
+              ),
+            ),
+            const SizedBox(height: 24),
+            SizedBox(
+              width: double.infinity,
+              height: 52,
+              child: ElevatedButton.icon(
+                onPressed: isUploading ? null : onUpload,
+                icon: isUploading
+                    ? const SizedBox(
+                        width: 18,
+                        height: 18,
+                        child: CircularProgressIndicator(
+                          color: Colors.white,
+                          strokeWidth: 2,
+                        ),
+                      )
+                    : const Icon(Icons.upload_file),
+                label: Text(
+                  isUploading ? 'جاري الرفع...' : 'رفع الورقة',
+                  style: const TextStyle(
+                    fontFamily: 'Cairo',
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: AppTheme.primaryColor,
+                  foregroundColor: Colors.white,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildSectionLabel(String label) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 8),
+      child: Text(
+        label,
+        style: const TextStyle(
+          fontFamily: 'Cairo',
+          fontWeight: FontWeight.bold,
+          color: AppTheme.primaryColor,
+          fontSize: 14,
+        ),
+      ),
+    );
+  }
+
+  InputDecoration _inputDecoration(String hint, IconData icon) {
+    return InputDecoration(
+      hintText: hint,
+      hintStyle: TextStyle(fontFamily: 'Cairo', color: Theme.of(context).colorScheme.onSurfaceVariant),
+      prefixIcon: Icon(icon, color: AppTheme.primaryColor),
+      filled: true,
+      fillColor: Colors.white,
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(12),
+        borderSide: BorderSide(color: Colors.grey.shade300),
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(12),
+        borderSide: const BorderSide(color: AppTheme.primaryColor, width: 1.5),
+      ),
+      enabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(12),
+        borderSide: BorderSide(color: Colors.grey.shade200),
+      ),
+    );
+  }
+}
+
+// ── My Exam Papers Tab ─────────────────────────────────────────────────
+class _MyExamPapersTab extends StatelessWidget {
+  final FirebaseFirestore firestore;
+  final FirebaseAuth auth;
+
+  const _MyExamPapersTab({
+    required this.firestore,
+    required this.auth,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final professorId = auth.currentUser?.uid ?? '';
+
+    return StreamBuilder<QuerySnapshot>(
+      stream: firestore
+          .collection('exam_papers')
+          .where('uploadedBy', isEqualTo: professorId)
+          .orderBy('uploadedAt', descending: true)
+          .snapshots(),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const Center(child: CircularProgressIndicator());
+        }
+
+        if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
+          return Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(
+                  Icons.description_outlined,
+                  size: 48,
+                  color: Colors.grey.shade400,
+                ),
+                const SizedBox(height: 16),
+                Text(
+                  'لم ترفع أي أوراق بعد',
+                  style: TextStyle(fontFamily: 'Cairo', color: Theme.of(context).colorScheme.onSurfaceVariant.shade600),
+                ),
+              ],
+            ),
+          );
+        }
+
+        return ListView.builder(
+          padding: const EdgeInsets.all(16),
+          itemCount: snapshot.data!.docs.length,
+          itemBuilder: (context, index) {
+            final doc = snapshot.data!.docs[index];
+            final data = doc.data() as Map<String, dynamic>;
+
+            return Card(
+              elevation: 2,
+              margin: const EdgeInsets.only(bottom: 12),
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+              child: ListTile(
+                leading: const Icon(
+                  Icons.picture_as_pdf,
+                  color: Colors.red,
+                  size: 32,
+                ),
+                title: Text(
+                  data['courseName'] ?? 'Unknown',
+                  style: const TextStyle(
+                    fontFamily: 'Cairo',
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                subtitle: Text(
+                  '${data['year'] ?? ''} - ${data['category'] ?? ''}',
+                  style: const TextStyle(fontFamily: 'Cairo', fontSize: 12),
+                ),
+                trailing: PopupMenuButton<String>(
+                  onSelected: (value) {
+                    if (value == 'delete') {
+                      firestore
+                          .collection('exam_papers')
+                          .doc(doc.id)
+                          .delete();
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text(
+                            'تم حذف الورقة',
+                            style: TextStyle(fontFamily: 'Cairo'),
+                          ),
+                          backgroundColor: Colors.orange,
+                        ),
+                      );
+                    }
+                  },
+                  itemBuilder: (BuildContext context) => [
+                    const PopupMenuItem(
+                      value: 'delete',
+                      child: Text(
+                        'حذف',
+                        style: TextStyle(fontFamily: 'Cairo'),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ).animate().slideX(begin: 0.2).fadeIn();
+          },
+        );
+      },
+    );
+  }
+}

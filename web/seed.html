@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Firebase Seeder</title>
+</head>
+<body>
+  <h1>Firebase User Seeder</h1>
+  <div id="status">Ready. Click Seed to start.</div>
+  <button id="btn">Seed Database</button>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import { getAuth, createUserWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+    import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: 'AIzaSyD3DgB4P3j-Jnqvr-epfcpelKQwF40Y690',
+      appId: '1:77238783156:web:a6ba467547320aef32dbe1',
+      messagingSenderId: '77238783156',
+      projectId: 'smart-college-app-442cd',
+      authDomain: 'smart-college-app-442cd.firebaseapp.com',
+      storageBucket: 'smart-college-app-442cd.firebasestorage.app',
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+
+    async function createUser(email, password, role, status) {
+      document.getElementById('status').innerText = `Creating ${email}...`;
+      try {
+        const cred = await createUserWithEmailAndPassword(auth, email, password);
+        const uid = cred.user.uid;
+        await setDoc(doc(db, "users", uid), {
+          uid: uid,
+          fullName: `${role.toUpperCase()} User`,
+          email: email,
+          role: role,
+          status: status,
+          createdAt: new Date(),
+          updatedAt: new Date()
+        });
+        document.getElementById('status').innerText = `Successfully created ${email} (UID: ${uid})`;
+        await signOut(auth);
+      } catch (err) {
+        console.error(err);
+        document.getElementById('status').innerText = `Error creating ${email}: ${err.message}`;
+      }
+    }
+
+    document.getElementById('btn').addEventListener('click', async () => {
+      document.getElementById('btn').disabled = true;
+      
+      // Seed users
+      await createUser('admin@uod.edu.ly', 'Password123!', 'admin', 'approved');
+      await createUser('student@uod.edu.ly', 'Password123!', 'student', 'approved');
+      await createUser('faculty@uod.edu.ly', 'Password123!', 'faculty', 'approved');
+      await createUser('pending@uod.edu.ly', 'Password123!', 'student', 'pending_final_approval');
+
+      document.getElementById('status').innerText = "All users seeded successfully!";
+    });
+  </script>
+</body>
+</html>
