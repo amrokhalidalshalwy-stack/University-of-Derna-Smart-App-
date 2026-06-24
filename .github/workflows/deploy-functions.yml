@@ -8,26 +8,24 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-      
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '18'
           cache: 'npm'
           cache-dependency-path: functions/package-lock.json
-      
+
       - name: Install dependencies
         working-directory: ./functions
         run: npm ci
-      
+
       - name: Deploy Firebase Functions
+        working-directory: ./functions
         run: |
-          echo "$FIREBASE_SERVICE_ACCOUNT" > service_account.json
-          npx firebase-tools deploy --only functions --project smart-college-app-442cd
-        env:
-          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+          echo '${{ secrets.FIREBASE_SERVICE_ACCOUNT }}' > /tmp/sa.json
+          export GOOGLE_APPLICATION_CREDENTIALS=/tmp/sa.json
+          npx firebase-tools deploy --only functions --project smart-college-app-442cd --non-interactive
